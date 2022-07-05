@@ -30,15 +30,17 @@ justify-content: space-between;
 
 form{
     display: flex;
+    gap:15px;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 296px;
-    height: 402px;
+    height: auto;
     background-color: #000000;
     border-radius: 6px;
     animation: ${appearFromleft} 2s;
     width: 90%;
+    padding: 20px;
 }
 
 label{
@@ -49,6 +51,7 @@ label{
 div{
     background-color: #212529;
     width: 100%;
+    height: auto;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -73,6 +76,8 @@ a,label{
 input{
     width: 90%;
     height: 30px;
+    border-radius: 4px;
+    outline: none;
 }
 
 .loginImage{
@@ -99,6 +104,7 @@ button{
     text-align: center;
     font-size: 11px;
     color: white;
+    margin-bottom: 20px;
 }
 
 a{
@@ -128,7 +134,7 @@ span{
     }
     form{
     width: 369px;
-    height: 502px;
+    height: auto;
 }   
     div{
         width: 50vw;
