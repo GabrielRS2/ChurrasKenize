@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-
+import { LoginPage } from "../Pages/Login";
 
 export const Routes = () => {
 
@@ -18,7 +18,7 @@ export const Routes = () => {
       
       </Route>
       <Route exact path="/login">
-      
+      <LoginPage></LoginPage>
       </Route>
       <Route exact path="/register">
       
