@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 100vh;
-
+  
   .left {
     display: flex;
     justify-content: center;

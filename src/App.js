@@ -1,6 +1,5 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Welcome from './Pages/Welcome';
 import { Routes } from "./Routes";
 import { GlobalStyle } from "./Styles/global";
 
@@ -20,7 +19,6 @@ function App() {
       pauseOnHover
       />
       <Routes />
-      <Welcome />
     </div>
   );
 }
