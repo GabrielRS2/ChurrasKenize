@@ -6,6 +6,7 @@ import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
+import ThemeButton from "../../Styles/ThemeButton";
 
 export const RegisterPage = () => {
   const schema = yup.object().shape({
@@ -135,9 +136,15 @@ export const RegisterPage = () => {
             <option value={"Consumidor"}>Consumidor</option>
           </select>
 
-          <button type="submit">Cadastrar</button>
+          <ThemeButton schema="var(--red-2)" large type="submit">
+            Cadastrar
+          </ThemeButton>
           <span>Já possui uma conta?</span>
-          <Link to="/login">Faça o login</Link>
+          <Link to="/login">
+            <ThemeButton schema="var(--grey-2)" large>
+              Cadastre-se
+            </ThemeButton>
+          </Link>
         </form>
       </div>
     </Container>
