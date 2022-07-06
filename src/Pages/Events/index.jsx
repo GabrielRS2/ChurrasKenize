@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { ThemeInput } from "../../Styles/ThemeInput";
+import ThemeButton from "../../Styles/ThemeButton";
 
 export const EventsPage = () => {
   const schema = yup.object().shape({
@@ -109,7 +110,9 @@ export const EventsPage = () => {
               error={errors.combo?.message}
               register={register}
             />
-            <button type="submit">Solicitar evento</button>
+            <ThemeButton schema="var(--red-2)" large type="submit">
+              Confirmar evento
+            </ThemeButton>
           </form>
         </div>
         <div className="infoProfile">
