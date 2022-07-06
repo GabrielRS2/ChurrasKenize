@@ -47,7 +47,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Nome"
             name="name"
-            placeHolder="Digite seu nome"
+            placeholder="Digite seu nome"
             error={errors.name?.message}
             register={register}
           />
@@ -55,7 +55,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Email"
             name="email"
-            placeHolder="Digite seu email"
+            placeholder="Digite seu email"
             error={errors.email?.message}
             register={register}
           />
@@ -63,7 +63,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Senha"
             name="password"
-            placeHolder="Digite sua senha"
+            placeholder="Digite sua senha"
             type="password"
             error={errors.password?.message}
             register={register}
@@ -71,7 +71,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Confirmar senha"
             name="passwordConfirm"
-            placeHolder="Confirmação de senha"
+            placeholder="Confirmação de senha"
             type="password"
             error={errors.passwordConfirm?.message}
             register={register}
@@ -113,14 +113,14 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Cidade"
             name="city"
-            placeHolder="Digite sua cidade"
+            placeholder="Digite sua cidade"
             error={errors.city?.message}
             register={register}
           />
           <ThemeInput
             label="Contato"
             name="contact"
-            placeHolder="Digite seu contato"
+            placeholder="Digite seu contato"
             error={errors.contact?.message}
             register={register}
           />

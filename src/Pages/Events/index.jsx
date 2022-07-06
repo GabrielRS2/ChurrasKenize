@@ -36,7 +36,7 @@ export const EventsPage = () => {
             <ThemeInput
               label="Data"
               name="date"
-              placeHolder="Digite a data do evento"
+              placeholder="Digite a data do evento"
               error={errors.date?.message}
               register={register}
             />
@@ -44,14 +44,14 @@ export const EventsPage = () => {
             <ThemeInput
               label="Horário"
               name="time"
-              placeHolder="Digite o horário do evento"
+              placeholder="Digite o horário do evento"
               error={errors.time?.message}
               register={register}
             />
             <ThemeInput
               label="Duração"
               name="duration"
-              placeHolder="Digite a duração do evento"
+              placeholder="Digite a duração do evento"
               error={errors.duration?.message}
               register={register}
             />
@@ -90,7 +90,7 @@ export const EventsPage = () => {
             <ThemeInput
               label="Cidade"
               name="city"
-              placeHolder="Digite a cidade do evento"
+              placeholder="Digite a cidade do evento"
               error={errors.city?.message}
               register={register}
             />
@@ -105,7 +105,7 @@ export const EventsPage = () => {
             <ThemeInput
               label="Combo"
               name="combo"
-              placeHolder="Digite o combo desejado"
+              placeholder="Digite o combo desejado"
               error={errors.combo?.message}
               register={register}
             />

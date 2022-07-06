@@ -6,6 +6,8 @@ import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
+import ThemeButton from "../../Styles/ThemeButton";
+import ExamplesButton from "../../Styles/ThemeButton/examples";
 
 export const LoginPage = () => {
   const schema = yup.object().shape({
@@ -34,17 +36,11 @@ export const LoginPage = () => {
         <img src={Logo} alt="Logo" className="logoImage" />
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <p>Login</p>
-          {/* <label>Email</label>
-          <input
-            name="email"
-            placeholder="Digite seu email"
-            {...register("email")}
-          />
-          {<span className="error">{errors.email?.message}</span>} */}
+
           <ThemeInput
             label="Email"
             name="email"
-            placeHolder="Digite seu email"
+            placeholder="Digite seu email"
             error={errors.email?.message}
             register={register}
           />
@@ -52,24 +48,21 @@ export const LoginPage = () => {
           <ThemeInput
             label="Senha"
             name="password"
-            placeHolder="Digite sua senha"
+            placeholder="Digite sua senha"
             type="password"
             error={errors.password?.message}
             register={register}
           />
 
-          {/* <label>Senha</label>
-          <input
-            name="password"
-            placeholder="Digite uma senha"
-            type="password"
-            {...register("password")}
-          />
-          {<span className="error">{errors.password?.message}</span>} */}
-
-          <button type="submit">Entrar</button>
+          <ThemeButton schema="var(--red-2)" large type="submit">
+            Entrar
+          </ThemeButton>
           <span>Ainda não possui uma conta?</span>
-          <Link to="/register">Cadastre-se</Link>
+          <Link to="/register">
+            <ThemeButton schema="var(--grey-2)" large>
+              Cadastre-se
+            </ThemeButton>
+          </Link>
         </form>
       </div>
       <img src={Login} alt="login background" className="loginImage" />

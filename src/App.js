@@ -1,7 +1,7 @@
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Footer } from './Component/Footer';
-import { Header } from './Component/Header';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Footer } from "./Component/Footer";
+import { Header } from "./Component/Header";
 import { Routes } from "./Routes";
 import { GlobalStyle } from "./Styles/global";
 
@@ -9,20 +9,18 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Header/>
       <ToastContainer
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
       />
       <Routes />
-      <Footer/>
     </div>
   );
 }
