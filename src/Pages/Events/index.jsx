@@ -1,5 +1,6 @@
 import { Container } from "./style";
 import background from "./../../Assets/Background-User.jpg";
+import background2 from "./../../Assets/Cell-Backgground-user.jpg";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -9,6 +10,7 @@ import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
 
 export const EventsPage = () => {
+
   const schema = yup.object().shape({
     date: yup.string().required("Campo Obrigatório"),
     time: yup.string().required("Campo Obrigatório"),
@@ -18,6 +20,7 @@ export const EventsPage = () => {
     combo: yup.string().required("Campo Obrigatório"),
   });
 
+  
   const {
     register,
     handleSubmit,
@@ -29,13 +32,14 @@ export const EventsPage = () => {
   const onSubmitFunction = (data) => {
     console.log(data);
   };
+
   return (
     <>
       <Header/>
     <Container>
       <div className="entirePage">
         <div className="bodyEventPage">
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <form className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
             <p>Solicite um evento</p>
 
             <ThemeInput
@@ -128,9 +132,10 @@ export const EventsPage = () => {
           </div>
         </div>
       </div>
-      <img src={background} alt="background" />
+        <img src={background} alt="background" className="img1"/>
+        <img src={background2}  alt="background"  className="img2"/>
     </Container>
       <Footer/>
-      </>
+    </>
   );
 };
