@@ -2,9 +2,14 @@ import React from "react";
 
 import { StyledButton } from "./style";
 
-function ThemeButton({ children, schema, blackText, large }) {
+function ThemeButton({ children, schema, blackText, large, type }) {
   return (
-    <StyledButton large={large} blackText={blackText} schema={schema}>
+    <StyledButton
+      type={type}
+      large={large}
+      blackText={blackText}
+      schema={schema}
+    >
       {children}
     </StyledButton>
   );

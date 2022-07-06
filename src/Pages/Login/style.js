@@ -51,7 +51,7 @@ export const Container = styled.div`
   .background {
     background-color: #212529;
     width: 100%;
-    height: auto;
+    height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -89,35 +89,16 @@ export const Container = styled.div`
     }
   }
 
-  button {
-    width: 90%;
-    height: 48px;
-    background-color: #ff0909;
-    border-radius: 4px;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 11px;
-    color: white;
-    margin-bottom: 20px;
-  }
-
-  a {
-    width: 90%;
-    height: 48px;
-    background-color: #868e96;
-    border-radius: 4px;
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 11px;
-    color: white;
-  }
-
   span {
     font-family: "Poppins", sans-serif;
     font-size: 11px;
     color: white;
+  }
+
+  a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (min-width: 680px) {

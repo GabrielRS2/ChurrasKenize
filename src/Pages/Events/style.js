@@ -29,16 +29,6 @@ export const Container = styled.div`
     margin: 25px auto;
   }
 
-  button {
-    width: 60%;
-    height: 48px;
-    background-color: #ff0909;
-    border-radius: 4px;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 11px;
-    color: white;
-  }
 
   select {
     width: 60%;
