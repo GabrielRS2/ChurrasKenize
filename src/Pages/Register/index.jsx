@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
+import { ThemeInput } from "../../Styles/ThemeInput";
 
 export const RegisterPage = () => {
   const schema = yup.object().shape({
@@ -18,7 +19,7 @@ export const RegisterPage = () => {
       .string()
       .oneOf([yup.ref("password")], "Senhas diferentes")
       .required("Campo obrigatório"),
-    cidade: yup.string().required("Campo Obrigatório"),
+    city: yup.string().required("Campo Obrigatório"),
     state: yup.string().required("Campo Obrigatório"),
     contact: yup.string().required("Campo Obrigatório"),
     category: yup.string().required("Campo Obrigatório"),
@@ -39,48 +40,43 @@ export const RegisterPage = () => {
   return (
     <Container>
       <img src={Login} alt="login background" className="loginImage" />
-      <div>
+      <div className="background">
         <img src={Logo} alt="Logo" className="logoImage" />
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <p>Crie sua conta</p>
-          <label>
-            Nome {<span className="error">{errors.name?.message}</span>}
-          </label>
-          <input
+          <ThemeInput
+            label="Nome"
             name="name"
-            placeholder="Digite seu nome"
-            {...register("name")}
+            placeHolder="Digite seu nome"
+            error={errors.name?.message}
+            register={register}
           />
 
-          <label>
-            Email{<span className="error">{errors.email?.message}</span>}
-          </label>
-          <input
+          <ThemeInput
+            label="Email"
             name="email"
-            placeholder="Digite seu email"
-            {...register("email")}
+            placeHolder="Digite seu email"
+            error={errors.email?.message}
+            register={register}
           />
 
-          <label>
-            Senha{<span className="error">{errors.password?.message}</span>}
-          </label>
-          <input
+          <ThemeInput
+            label="Senha"
             name="password"
-            placeholder="Digite uma senha"
+            placeHolder="Digite sua senha"
             type="password"
-            {...register("password")}
+            error={errors.password?.message}
+            register={register}
+          />
+          <ThemeInput
+            label="Confirmar senha"
+            name="passwordConfirm"
+            placeHolder="Confirmação de senha"
+            type="password"
+            error={errors.passwordConfirm?.message}
+            register={register}
           />
 
-          <label>
-            Confirmar Senha
-            {<span className="error">{errors.passwordConfirm?.message}</span>}
-          </label>
-          <input
-            name="passwordConfirm"
-            placeholder="Confirmação de senha"
-            type="password"
-            {...register("passwordConfirm")}
-          />
           <label>Estado</label>
           <select name="state" {...register("state")}>
             <option value="">Selecione o estado</option>
@@ -113,22 +109,20 @@ export const RegisterPage = () => {
             <option value="TO">Tocantins</option>
             <option value="EX">Estrangeiro</option>
           </select>
-          <label>
-            Cidade{<span className="error">{errors.cidade?.message}</span>}
-          </label>
-          <input
-            name="cidade"
-            placeholder="Digite sua cidade"
-            {...register("cidade")}
-          />
 
-          <label>
-            Contato{<span className="error">{errors.contact?.message}</span>}
-          </label>
-          <input
+          <ThemeInput
+            label="Cidade"
+            name="city"
+            placeHolder="Digite sua cidade"
+            error={errors.city?.message}
+            register={register}
+          />
+          <ThemeInput
+            label="Contato"
             name="contact"
-            placeholder="Digite seu contato"
-            {...register("contact")}
+            placeHolder="Digite seu contato"
+            error={errors.contact?.message}
+            register={register}
           />
 
           <label>

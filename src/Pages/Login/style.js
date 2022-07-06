@@ -74,13 +74,6 @@ export const Container = styled.div`
     font-size: 11px;
   }
 
-  input {
-    width: 90%;
-    height: 30px;
-    border-radius: 4px;
-    outline: none;
-  }
-
   .loginImage {
     display: none;
   }
