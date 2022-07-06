@@ -1,5 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Footer } from './Component/Footer';
 import { Routes } from "./Routes";
 import { GlobalStyle } from "./Styles/global";
 
@@ -19,6 +20,7 @@ function App() {
       pauseOnHover
       />
       <Routes />
+      <Footer/>
     </div>
   );
 }
