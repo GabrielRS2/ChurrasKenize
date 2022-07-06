@@ -6,6 +6,7 @@ import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
+import ThemeButton from "../../Styles/ThemeButton";
 
 export const RegisterPage = () => {
   const schema = yup.object().shape({
@@ -47,7 +48,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Nome"
             name="name"
-            placeHolder="Digite seu nome"
+            placeholder="Digite seu nome"
             error={errors.name?.message}
             register={register}
           />
@@ -55,7 +56,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Email"
             name="email"
-            placeHolder="Digite seu email"
+            placeholder="Digite seu email"
             error={errors.email?.message}
             register={register}
           />
@@ -63,7 +64,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Senha"
             name="password"
-            placeHolder="Digite sua senha"
+            placeholder="Digite sua senha"
             type="password"
             error={errors.password?.message}
             register={register}
@@ -71,7 +72,7 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Confirmar senha"
             name="passwordConfirm"
-            placeHolder="Confirmação de senha"
+            placeholder="Confirmação de senha"
             type="password"
             error={errors.passwordConfirm?.message}
             register={register}
@@ -113,14 +114,14 @@ export const RegisterPage = () => {
           <ThemeInput
             label="Cidade"
             name="city"
-            placeHolder="Digite sua cidade"
+            placeholder="Digite sua cidade"
             error={errors.city?.message}
             register={register}
           />
           <ThemeInput
             label="Contato"
             name="contact"
-            placeHolder="Digite seu contato"
+            placeholder="Digite seu contato"
             error={errors.contact?.message}
             register={register}
           />
@@ -135,9 +136,15 @@ export const RegisterPage = () => {
             <option value={"Consumidor"}>Consumidor</option>
           </select>
 
-          <button type="submit">Cadastrar</button>
+          <ThemeButton schema="var(--red-2)" large type="submit">
+            Cadastrar
+          </ThemeButton>
           <span>Já possui uma conta?</span>
-          <Link to="/login">Faça o login</Link>
+          <Link to="/login">
+            <ThemeButton schema="var(--grey-2)" large>
+              Cadastre-se
+            </ThemeButton>
+          </Link>
         </form>
       </div>
     </Container>

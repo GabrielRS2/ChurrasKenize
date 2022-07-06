@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
     filter: brightness(75%);
   }
 
-  width: ${(props) => (props.large ? "100%" : "fit-content")};
+  width: ${(props) => (props.large ? "90%" : "fit-content")};
 
   background-color: ${(props) => props.schema || "white"};
   color: ${(props) => {

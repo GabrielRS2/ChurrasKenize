@@ -20,4 +20,4 @@ function ExamplesButton() {
   );
 }
 
-export default ThemeButton;
+export default ExamplesButton;
