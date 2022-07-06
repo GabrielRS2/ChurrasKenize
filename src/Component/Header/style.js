@@ -14,9 +14,6 @@ export const Container = styled.div`
       height: 140px;
     }
 
-    nav {
-    }
-
     ul {
       display: flex;
       gap: 20px;
@@ -39,6 +36,36 @@ export const Container = styled.div`
 
     .link {
       color: var(--white);
+    }
+
+    .icon__menu{
+        display:none;
+    }
+
+    .icon__close{
+      display:none;
+    }
+  }
+
+  @media (max-width:375px){
+    header{
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      nav{
+        display: none;
+      }
+  
+      .icon__menu{
+          display:block;
+          color: var(--white);
+      }
+  
+      .icon__close{
+        display:block;
+        color: var(--white);
+      }
     }
   }
 `;

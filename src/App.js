@@ -1,7 +1,5 @@
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Footer } from "./Component/Footer";
-import { Header } from "./Component/Header";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Routes } from "./Routes";
 import { GlobalStyle } from "./Styles/global";
 
