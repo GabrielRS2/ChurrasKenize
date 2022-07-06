@@ -19,6 +19,7 @@ export const EventsPage = () => {
     combo: yup.string().required("Campo Obrigatório"),
   });
 
+  
   const {
     register,
     handleSubmit,
