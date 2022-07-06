@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import Welcome from '../Pages/Welcome/index'
+import { Welcome } from '../Pages/Welcome/index'
 import { LoginPage } from "../Pages/Login";
 import { RegisterPage } from "../Pages/Register";
 

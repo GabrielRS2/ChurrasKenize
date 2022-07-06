@@ -3,7 +3,7 @@ import { Container } from './style';
 import Logo from '../../Assets/Logo.svg'
 import {Link} from 'react-router-dom'
 
-function Welcome() {
+export const Welcome = () => {
   return(
     <Container>
         <div className='left'>
@@ -19,4 +19,3 @@ function Welcome() {
   )
 }
 
-export default Welcome;

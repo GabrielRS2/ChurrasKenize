@@ -77,7 +77,6 @@ export const Container = styled.div`
         height: 100%;
       }
     }
-
     .right {
       display: flex;
       flex-direction: column;
