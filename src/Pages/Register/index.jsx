@@ -118,7 +118,7 @@ export const RegisterPage = () => {
           </label>
           <input
             name="cidade"
-            placeholder="Diga algo sobre você"
+            placeholder="Digite sua cidade"
             {...register("cidade")}
           />
 
