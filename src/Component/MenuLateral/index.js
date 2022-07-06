@@ -1,6 +1,6 @@
 import { Container } from "./style";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+
 
 export const MenuLateral = ({ isOpen }) => {
   return (

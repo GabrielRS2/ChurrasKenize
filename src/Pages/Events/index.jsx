@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { ThemeInput } from "../../Styles/ThemeInput";
+import { Header } from "../../Component/Header";
+import { Footer } from "../../Component/Footer";
 
 export const EventsPage = () => {
   const schema = yup.object().shape({
@@ -27,6 +29,8 @@ export const EventsPage = () => {
     console.log(data);
   };
   return (
+    <>
+      <Header/>
     <Container>
       <div className="entirePage">
         <div className="bodyEventPage">
@@ -123,5 +127,7 @@ export const EventsPage = () => {
       </div>
       <img src={background} alt="background" />
     </Container>
+      <Footer/>
+      </>
   );
 };

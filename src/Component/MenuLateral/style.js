@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const grey4 = "#1A1A1A";
-const grey5 = "rgba(26, 26, 26, 0.75)";
 
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
@@ -21,6 +19,7 @@ export const Container = styled.div`
       width: 100%;
       background-color: var(--white);
       padding: 10px;
+      z-index: 1;
     }
     
     ul {
