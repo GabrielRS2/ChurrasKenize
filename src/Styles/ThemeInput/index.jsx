@@ -1,8 +1,21 @@
-export const ThemeInput = ({label, placeHolder}) => {
+import { Container, InputContainer } from "./style";
+
+export const ThemeInput = ({
+  label,
+  name,
+  placeholder,
+  error,
+  register,
+  ...rest
+}) => {
   return (
-    <div>
-      <label>{label}</label>
-      <input>{placeHolder}</input>
-    </div>
-  )
-}
+    <Container>
+      <div>
+        {label} {!!error && <span> - {error}</span>}
+      </div>
+      <InputContainer isErrored={!!error}>
+        <input placeholder={placeholder} {...register(name)} {...rest}></input>
+      </InputContainer>
+    </Container>
+  );
+};
