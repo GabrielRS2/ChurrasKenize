@@ -5,6 +5,7 @@ import { MdMenu } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import { useState } from 'react';
 import { MenuLateral } from "../MenuLateral/index.js"
+import ThemeButton from "../../Styles/ThemeButton";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -20,10 +21,10 @@ export const Header = () => {
 
                 <nav>
                     <ul>
-                        <li><button><Link to="/home" className="link">Home</Link></button></li>
-                        <li><button><Link to="/#" className="link">About Us</Link></button></li>
-                        <li><button><Link to="/login" className="link">Login</Link></button></li>
-                        <li><button><Link to="/register" className="link">Register</Link></button></li>
+                        <li><ThemeButton><Link to="/home" className="link">Home</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/#" className="link">About Us</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/login" className="link">Login</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/register" className="link">Register</Link></ThemeButton></li>
                     </ul>
                 </nav>
 

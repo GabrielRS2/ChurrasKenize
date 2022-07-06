@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import css from "styled-components";
 
 export const StyledButton = styled.button`
   padding: 0 25px;

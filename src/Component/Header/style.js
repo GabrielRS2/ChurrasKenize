@@ -47,7 +47,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width:375px){
+  @media (max-width: 680px){
     header{
       img {
         width: 100px;

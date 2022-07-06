@@ -2,16 +2,26 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: var(--grey-1);
+  width: 100%;
+  max-width: 100vw;
+  height: 1200px;
+
   img {
     width: 100%;
     height: 100%;
-    z-index: 0;
+    max-width: 100vw;
     margin: 0;
     padding: 0;
+  }
+
+  .img1 {
     display: none;
+  }
+
+  .img2 {
+    display: block;
   }
 
   form {
@@ -26,7 +36,6 @@ export const Container = styled.div`
     border-radius: 6px;
     /* width: 369px; */
     padding: 20px;
-    margin: 25px auto;
   }
 
   button {
@@ -39,77 +48,104 @@ export const Container = styled.div`
     font-size: 11px;
     color: white;
   }
-
+  
   select {
     width: 60%;
     height: 30px;
   }
-
+  
   p {
     color: white;
-    font-family: "Poppins", sans-serif;
-    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
   }
-
+  
   a,
   label {
     color: white;
     font-family: "Poppins", sans-serif;
     font-size: 11px;
   }
-
-  div {
+  
+  /* div {
     z-index: 1;
-  }
-
+  } */
+  
   .infoProfile {
     gap: 15px;
     display: flex;
     flex-direction: column;
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
   }
 
   .profile {
     width: 300px;
     height: 200px;
     background-color: #212529;
-    position: relative;
+    /* position: relative; */
     border-radius: 4px;
   }
-
+  
   .events {
     width: 300px;
     height: 200px;
     background-color: #212529;
-    position: relative;
+    /* position: relative; */
     border-radius: 4px;
   }
-
+  
   .bodyEventPage {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
   }
+  
+  .entirePage {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 16px 20px;
+    gap: 16px;
+  }
+  
+  @media(min-width: 680px) {
 
-  @media screen and (min-width: 680px) {
+    height: auto;
+
+    .entirePage {
+      flex-direction: row;
+      padding: 20px 20px 16px 20px;
+      align-items: flex-start;
+      gap: 48px;
+    }
+    
+    .openModal {
+      display: none;
+    }
+  
     form {
       width: 410px;
       height: auto;
+      display: flex;
     }
-    img {
+  
+    .img1 {
       display: block;
     }
-    .entirePage,
-    .bodyEventPage,
-    .infoProfile {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
+    .img2 {
+      display: none;
+    }
+    
     .bodyEventPage {
       right: 0vw;
+      /* position: absolute; */
     }
-
+    
     .profile {
       margin-bottom: 60px;
       width: 400px;
@@ -117,11 +153,10 @@ export const Container = styled.div`
     .events {
       width: 400px;
     }
-
+    
     .infoProfile {
       display: flex;
       flex-direction: column;
-      margin-left: 600px;
     }
   }
-`;
+  `;
