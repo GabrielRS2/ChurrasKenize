@@ -1,6 +1,4 @@
-import { Container } from "./style";
-import background from "./../../Assets/Background-User.jpg";
-import background2 from "./../../Assets/Cell-Backgground-user.jpg";
+import { ContainerEvent } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -36,12 +34,10 @@ export const EventsPage = () => {
   return (
     <>
       <Header/>
-    <Container>
-      <div className="entirePage">
+    <ContainerEvent>
         <div className="bodyEventPage">
           <form className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
             <p>Solicite um evento</p>
-
             <ThemeInput
               label="Data"
               name="date"
@@ -130,11 +126,8 @@ export const EventsPage = () => {
           <div className="events">
             <p>Eventos</p>
           </div>
-        </div>
       </div>
-        <img src={background} alt="background" className="img1"/>
-        <img src={background2}  alt="background"  className="img2"/>
-    </Container>
+    </ContainerEvent>
       <Footer/>
     </>
   );
