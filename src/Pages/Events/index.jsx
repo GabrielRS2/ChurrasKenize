@@ -157,7 +157,6 @@ export const EventsPage = () => {
               <p>Eventos</p>
             </div>
           </div>
-      </div>
     </ContainerEvent>
       <Footer/>
     </>

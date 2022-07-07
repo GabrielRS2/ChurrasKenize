@@ -142,7 +142,7 @@ export const RegisterPage = () => {
           <span>Já possui uma conta?</span>
           <Link to="/login">
             <ThemeButton schema="var(--grey-2)" large>
-              Cadastre-se
+              Login
             </ThemeButton>
           </Link>
         </form>
