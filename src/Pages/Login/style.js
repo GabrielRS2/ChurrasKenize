@@ -27,6 +27,8 @@ to{
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  background-color: #212529;
+  
 
   form {
     display: flex;
