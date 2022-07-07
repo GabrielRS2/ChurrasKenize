@@ -5,6 +5,7 @@ width: auto 100%;
 height: 70px;
 background-color: #212529;
 display: flex;
+flex-wrap: nowrap;
 justify-content: space-around;
 align-items: center;
 color: white;
