@@ -1,17 +1,8 @@
-import { createContext, useState, useEffect  } from 'react';  
-import api from '../Services/index.js'
+import { createContext, useState } from 'react';  
 export const UserContext = createContext([]);
 
 export const UserProvider = ({ children }) => {
-
 	const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    api.get("/combos")
-  .then(response=>{
-    setUser(response.data)
-  })
-  },[])
 
   return (
     <UserContext.Provider

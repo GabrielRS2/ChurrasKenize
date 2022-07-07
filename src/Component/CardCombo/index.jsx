@@ -1,26 +1,34 @@
+import { useEffect, useState } from "react";
 import { Container } from "./style.js"
-import { useContext } from "react";
-import { UserContext } from "../../Providers/User.js"
+import api from '../../Services/index.js'
 
 export const CardCombo = () =>{
-    const {user} = useContext(UserContext)
+    const [combos, setCombos] = useState([]);
+
+    useEffect(() => {
+      api.get("/combos")
+    .then(response=>{
+      setCombos(response.data)
+    })
+    },[])
     
     return(
         <Container>
             <div className="card__container">
-                {user.map(user=>{
-                return <div className="card" key={user.id}>
+                {combos.map(combo=>{
+                return <div className="card" key={combo.id}>
                     <div className="card__info">
                         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-9BhAquXWRan3TnaL_ndnjAG0pXWkbxCkg&usqp=CAU' alt="foto do usuário"/>
                         <div>
-                        <p>{user.name}</p>
-                        <p>{user.city} - {user.state}</p>
+                        <p>{combo.name}</p>
+                        <p>{combo.city} - {combo.state}</p>
+                        <p>R$ {combo.price} - {combo.quantity} Pessoas</p>
                         </div>
                     </div>
 
                     <div className="card__combo">
-                        <h2>{user.name}</h2>
-                        <img src={user.img} alt="foto do card"/>
+                        <h2>{combo.name}</h2>
+                        <img src={combo.img} alt="foto do card"/>
                     </div>
 
                     <div className="card__button">
