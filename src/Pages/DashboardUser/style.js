@@ -25,23 +25,24 @@ export const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
-    gap:20px;
+    gap: 140px;
   }
 
   .header__filter {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 
     h1 {
       color: var(--white);
+      font-size: 24px;
     }
 
     button {
       background: var(--red-2);
       color: var(--white);
-      width: 150px;
-      padding: 10px;
+      width: 120px;
+      padding: 5px;
       border-radius: 15px;
       font-weight: bold;
       font-size: 18px;
@@ -64,38 +65,8 @@ export const Container = styled.div`
     input {
       width: 210px;
       padding: 10px;
-      color: white;
+      color: var(--black);
     }
-  }
-
-   @media (max-width: 425px){
-    .wrapper{
-      display: flex;
-      width: 90%;
-    }
-
-    .header__filter{
-      display: none;
-    }
-
-    .header__search {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0px;
-
-    .icon {
-      width: 40px;
-      height: 40px;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    input {
-      width: 230px;
-      padding: 10px;
-    }
-  }
   }
 
   @media (max-width: 375px){
@@ -127,6 +98,4 @@ export const Container = styled.div`
     }
   }
   }
-
-
 `;

@@ -1,12 +1,24 @@
-import { Container } from "./style.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Container } from "./style.js"
+import api from '../../Services/index.js'
 
-export const CardCombo = ({ combo }) => {
+    
+
+export const CardCombo = () => {
   const [detail, setDetail] = useState(false);
 
-  function detailOn() {
-    setDetail(true);
-  }
+   const [combos, setCombos] = useState([]);
+
+   useEffect(() => {
+       api.get("/combos")
+      .then(response=>{
+        setCombos(response.data)
+      })
+      },[])
+
+    function detailOn() {
+      setDetail(true);
+    }
 
   function detailOff() {
     setDetail(false);
@@ -21,7 +33,7 @@ export const CardCombo = ({ combo }) => {
         </>
       ) : (
         <div className="card__container">
-          {combo.map((combo) => {
+          {combos.map((combo) => {
             return (
               <div className="card" key={combo.id}>
                 <div className="card__info">
@@ -44,7 +56,7 @@ export const CardCombo = ({ combo }) => {
 
                 <div className="card__button">
                   <button className="active">Solicitar Acesso</button>
-                  <button onClick={detailOn}>Detalhes</button>
+                  <button onClick={detailOn} id={combo.id}>Detalhes</button>
                 </div>
               </div>
             );

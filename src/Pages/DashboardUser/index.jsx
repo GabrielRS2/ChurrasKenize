@@ -14,7 +14,7 @@ export const DashboardUser = () => {
             <div className="header__filter">
               <h1>Churrascos</h1>
               <button>Preço</button>
-              <button>Hora</button>
+              <button>Quantidade</button>
             </div>
 
             <div className="header__search">

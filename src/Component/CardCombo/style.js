@@ -3,6 +3,8 @@ import styled from "styled-components";
 const grey5 = "#797979";
 
 export const Container = styled.div`
+  font-family: "Poppins", sans-serif;
+
   .card__container {
     display: flex;
     justify-content: center;
@@ -15,7 +17,7 @@ export const Container = styled.div`
 
   .card {
     width: 250px;
-    height: 320px;
+    height: 340px;
     border: 1px solid white;
     padding: 20px;
     background-color: var(--grey-2);
@@ -35,16 +37,13 @@ export const Container = styled.div`
       div {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
 
         p {
+          font-size: 12px;
+          font-weight: bold;
         }
       }
-    }
-
-    h2 {
-      color: var(--white);
-      text-align: center;
     }
 
     .card__combo {
@@ -54,8 +53,12 @@ export const Container = styled.div`
       gap: 10px;
       margin-top: 10px;
 
-      h1 {
+      h2 {
+        color: var(--white);
+        text-align: center;
+        font-size: 20px;
       }
+
       img {
         width: 200px;
       }
@@ -106,7 +109,7 @@ export const Container = styled.div`
         justify-content: center;
         align-items: center;
         color: var(--white);
-        gap: 5px;
+        width: 110%;
 
         img {
           width: 60px;
@@ -116,10 +119,10 @@ export const Container = styled.div`
         div {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 10px;
 
           p {
-            font-size: 13px;
+            font-size: 10px;
           }
         }
       }
@@ -134,18 +137,17 @@ export const Container = styled.div`
         h2 {
           color: var(--white);
           text-align: center;
-          font-size: 14px;
+          font-size: 12px;
         }
 
         img {
-          width: 180px;
+          width: 170px;
         }
       }
     }
 
     .card__button {
       display: flex;
-      gap: 10px;
       margin-top: 10px;
 
       .active {
@@ -156,7 +158,7 @@ export const Container = styled.div`
 
       button {
         width: 260px;
-        height: 30px;
+        height: 25px;
         color: ${grey5};
         background-color: var(--grey-1);
         border-radius: 5px;
