@@ -34,5 +34,11 @@ export const Container = styled.div`
     li:hover{
         color: var(--red-1);
     }
+    li .logoutBtn {
+      background-color: var(--white);
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+    }
   }
 `;
