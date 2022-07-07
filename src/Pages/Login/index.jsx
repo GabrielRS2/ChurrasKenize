@@ -1,15 +1,18 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
 import ExamplesButton from "../../Styles/ThemeButton/examples";
+import api from "../../Services";
 
 export const LoginPage = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
     password: yup
@@ -28,6 +31,26 @@ export const LoginPage = () => {
 
   const onSubmitFunction = (data) => {
     console.log(data);
+    api
+      .post("/login", data)
+      .then((res) => {
+        localStorage.setItem(
+          "@churraskenzie:token",
+          JSON.stringify(res.data.accessToken)
+        );
+        localStorage.setItem(
+          "@churraskenzie:userId",
+          JSON.stringify(res.data.user.id)
+        );
+        history.push("/dashboardUser");
+        console.log(res.data.user);
+      })
+      .catch((err) => console.log(err));
+
+    //   api
+    //     .post("/login", JSON.stringify(data))
+    //     .then((res) => console.log(res, "certo"))
+    //     .catch((err) => console.log(err));
   };
 
   return (
