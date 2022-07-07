@@ -3,6 +3,7 @@ import { Welcome } from '../Pages/Welcome/index'
 import { LoginPage } from "../Pages/Login";
 import { RegisterPage } from "../Pages/Register";
 import { EventsPage } from "../Pages/Events";
+import { DashboardUser } from "../Pages/DashboardUser";
 
 export const Routes = () => {
   return (
@@ -15,6 +16,7 @@ export const Routes = () => {
       <Route exact path="/dashboardBbc"> 
       </Route>
       <Route exact path="/dashboardUser">
+        <DashboardUser/> 
       </Route>
       <Route exact path="/login">
         <LoginPage/>
