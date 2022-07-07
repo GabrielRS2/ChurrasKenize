@@ -1,6 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const grey5 = "#797979";
+
+const rotate90deg = keyframes`
+from {
+    opacity: 0;
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+to{
+    opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
@@ -13,6 +24,29 @@ export const Container = styled.div`
     margin-top: 20px;
     height: 720px;
     overflow-y: scroll;
+  }
+
+  .cardDetail{
+    width: 250px;
+    height: 340px;
+    border: 1px solid white;
+    padding: 20px;
+    background-color: var(--grey-2);
+    border-radius: 5px;
+    animation: ${rotate90deg} 2s;
+    color: white;
+  }
+
+  .headerCardDetail{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    button{
+      color: white;
+      border: none;
+      background: none;
+    }
   }
 
   .card {
@@ -93,8 +127,17 @@ export const Container = styled.div`
       overflow-x: scroll;
       flex-wrap: unset;
       height: 300px;
-      gap: 20px;
+      gap: 40px;
     }
+
+    .cardDetail{
+    width: 210px;
+    height: 300px;
+    border: 1px solid white;
+    padding: 20px;
+    background-color: var(--grey-2);
+    border-radius: 5px;
+  }
 
     .card {
       width: 210px;
@@ -103,6 +146,7 @@ export const Container = styled.div`
       padding: 20px;
       background-color: var(--grey-2);
       border-radius: 5px;
+
 
       .card__info {
         display: flex;
@@ -145,6 +189,7 @@ export const Container = styled.div`
         }
       }
     }
+    
 
     .card__button {
       display: flex;
