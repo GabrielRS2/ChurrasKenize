@@ -2,6 +2,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes } from "./Routes";
 import { GlobalStyle } from "./Styles/global";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 function App() {
   return (

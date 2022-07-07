@@ -7,6 +7,7 @@ import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
+import { ThemeSelect } from "../../Styles/ThemeSelect";
 
 export const RegisterPage = () => {
   const schema = yup.object().shape({
@@ -78,8 +79,12 @@ export const RegisterPage = () => {
             register={register}
           />
 
-          <label>Estado</label>
-          <select name="state" {...register("state")}>
+          <ThemeSelect
+            label="Estado"
+            name="state"
+            error={errors.state?.message}
+            register={register}
+          >
             <option value="">Selecione o estado</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -109,7 +114,7 @@ export const RegisterPage = () => {
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
             <option value="EX">Estrangeiro</option>
-          </select>
+          </ThemeSelect>
 
           <ThemeInput
             label="Cidade"
@@ -126,15 +131,15 @@ export const RegisterPage = () => {
             register={register}
           />
 
-          <label>
-            Sou:
-            {<span className="error">{errors.course_module?.message}</span>}
-          </label>
-          <select name="category" {...register("category")}>
-            <option value="">Selecione a categoria</option>
+          <ThemeSelect
+            label="Sou"
+            name="category"
+            error={errors.module?.message}
+            register={register}
+          >
             <option value={"Churrasqueiro"}>Churrasqueiro</option>
             <option value={"Consumidor"}>Consumidor</option>
-          </select>
+          </ThemeSelect>
 
           <ThemeButton schema="var(--red-2)" large type="submit">
             Cadastrar
@@ -142,7 +147,7 @@ export const RegisterPage = () => {
           <span>Já possui uma conta?</span>
           <Link to="/login">
             <ThemeButton schema="var(--grey-2)" large>
-              Cadastre-se
+              Login
             </ThemeButton>
           </Link>
         </form>

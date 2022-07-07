@@ -1,5 +1,4 @@
-import { Container } from "./style";
-import background from "./../../Assets/Background-User.jpg";
+import { ContainerEvent } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -7,8 +6,43 @@ import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
 import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
+import { useState } from "react";
+import Modal from "react-modal";
+import { ModalEditUserProfile } from "../../Component/ModalEditUserProfile";
+import { ThemeSelect } from "../../Styles/ThemeSelect";
 
 export const EventsPage = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function handleOpenModal() {
+    setIsOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      background: "transparent",
+      border: "none",
+    },
+    overlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(18, 18, 20, 0.5)",
+    },
+  };
+
   const schema = yup.object().shape({
     date: yup.string().required("Campo Obrigatório"),
     time: yup.string().required("Campo Obrigatório"),
@@ -29,15 +63,21 @@ export const EventsPage = () => {
   const onSubmitFunction = (data) => {
     console.log(data);
   };
+
   return (
     <>
-      <Header/>
-    <Container>
-      <div className="entirePage">
+      <Header />
+      <ContainerEvent>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseModal}
+          style={customStyles}
+        >
+          <ModalEditUserProfile handleCloseModal={handleCloseModal} />
+        </Modal>
         <div className="bodyEventPage">
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <form className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
             <p>Solicite um evento</p>
-
             <ThemeInput
               label="Data"
               name="date"
@@ -45,7 +85,6 @@ export const EventsPage = () => {
               error={errors.date?.message}
               register={register}
             />
-
             <ThemeInput
               label="Horário"
               name="time"
@@ -60,8 +99,13 @@ export const EventsPage = () => {
               error={errors.duration?.message}
               register={register}
             />
-            <label>Estado</label>
-            <select name="state" {...register("state")}>
+
+            <ThemeSelect
+              label="Estado"
+              name="state"
+              error={errors.state?.message}
+              register={register}
+            >
               <option value="">Selecione o estado</option>
               <option value="AC">Acre</option>
               <option value="AL">Alagoas</option>
@@ -91,21 +135,14 @@ export const EventsPage = () => {
               <option value="SE">Sergipe</option>
               <option value="TO">Tocantins</option>
               <option value="EX">Estrangeiro</option>
-            </select>
+            </ThemeSelect>
+
             <ThemeInput
               label="Cidade"
               name="city"
               placeholder="Digite a cidade do evento"
               error={errors.city?.message}
               register={register}
-            />
-            <label>
-              Cidade{<span className="error">{errors.city?.message}</span>}
-            </label>
-            <input
-              name="city"
-              placeholder="Digite a cidade do evento"
-              {...register("city")}
             />
             <ThemeInput
               label="Combo"
@@ -127,10 +164,8 @@ export const EventsPage = () => {
             <p>Eventos</p>
           </div>
         </div>
-      </div>
-      <img src={background} alt="background" />
-    </Container>
-      <Footer/>
-      </>
+      </ContainerEvent>
+      <Footer />
+    </>
   );
 };

@@ -1,17 +1,21 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const ContainerEvent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: var(--grey-1);
-  img {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px 20px;
+
+  background-color: #810c0c;
+  font-family: "Poppins";
+
+  .bodyEventPage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-    display: none;
   }
 
   form {
@@ -20,25 +24,29 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     background-color: #212529;
     border-radius: 6px;
-    /* width: 369px; */
     padding: 20px;
-    margin: 25px auto;
   }
 
-
-  select {
+  button {
     width: 60%;
-    height: 30px;
+    height: 48px;
+    background-color: #ff0909;
+    border-radius: 4px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 11px;
+    color: white;
   }
 
   p {
     color: white;
-    font-family: "Poppins", sans-serif;
-    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
   }
 
   a,
@@ -48,70 +56,65 @@ export const Container = styled.div`
     font-size: 11px;
   }
 
-  div {
-    z-index: 1;
-  }
-
   .infoProfile {
-    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .profile {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 200px;
     background-color: #212529;
-    position: relative;
     border-radius: 4px;
   }
 
   .events {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 200px;
     background-color: #212529;
-    position: relative;
     border-radius: 4px;
   }
 
-  .bodyEventPage {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+  @media (min-width: 680px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
 
-  @media screen and (min-width: 680px) {
+    height: 100%;
+    max-height: 100vh;
+
+    .bodyEventPage {
+      width: auto;
+    }
+
+    .openModal {
+      display: none;
+    }
+
     form {
       width: 410px;
       height: auto;
-    }
-    img {
-      display: block;
-    }
-    .entirePage,
-    .bodyEventPage,
-    .infoProfile {
-      position: absolute;
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .bodyEventPage {
-      right: 0vw;
     }
 
     .profile {
       margin-bottom: 60px;
       width: 400px;
     }
+
     .events {
       width: 400px;
     }
 
     .infoProfile {
-      display: flex;
-      flex-direction: column;
-      margin-left: 600px;
+      justify-content: flex-start;
     }
   }
 `;
