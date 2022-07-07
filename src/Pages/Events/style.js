@@ -8,9 +8,9 @@ export const ContainerEvent = styled.div`
   gap: 20px;
   padding: 20px 20px;
 
-  background-color: #810C0C;
+  background-color: #810c0c;
   font-family: "Poppins";
-  
+
   .bodyEventPage {
     display: flex;
     justify-content: center;
@@ -42,25 +42,20 @@ export const ContainerEvent = styled.div`
     font-size: 11px;
     color: white;
   }
-  
-  select {
-    width: 60%;
-    height: 30px;
-  }
-  
+
   p {
     color: white;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
   }
-  
+
   a,
   label {
     color: white;
     font-family: "Poppins", sans-serif;
     font-size: 11px;
   }
-  
+
   .infoProfile {
     width: 100%;
     max-width: 300px;
@@ -78,7 +73,7 @@ export const ContainerEvent = styled.div`
     background-color: #212529;
     border-radius: 4px;
   }
-  
+
   .events {
     width: 100%;
     max-width: 300px;
@@ -86,30 +81,29 @@ export const ContainerEvent = styled.div`
     background-color: #212529;
     border-radius: 4px;
   }
-  
-  @media(min-width: 680px) {
 
+  @media (min-width: 680px) {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 
     height: 100%;
     max-height: 100vh;
-      
-  .bodyEventPage {
-    width: auto;
-  }
+
+    .bodyEventPage {
+      width: auto;
+    }
 
     .openModal {
       display: none;
     }
-  
+
     form {
       width: 410px;
       height: auto;
       display: flex;
     }
-    
+
     .profile {
       margin-bottom: 60px;
       width: 400px;
@@ -118,9 +112,9 @@ export const ContainerEvent = styled.div`
     .events {
       width: 400px;
     }
-    
+
     .infoProfile {
-    justify-content: flex-start;
+      justify-content: flex-start;
     }
   }
-  `;
+`;
