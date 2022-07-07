@@ -1,15 +1,18 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Login from "./../../Assets/Login-image.svg";
 import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
 import { ThemeSelect } from "../../Styles/ThemeSelect";
+import api from "../../Services";
 
 export const RegisterPage = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
@@ -36,7 +39,12 @@ export const RegisterPage = () => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    api
+      .post("/register", data)
+      .then((res) => {
+        history.push("/login");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

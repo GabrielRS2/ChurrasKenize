@@ -30,7 +30,6 @@ export const LoginPage = () => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     api
       .post("/login", data)
       .then((res) => {
@@ -43,7 +42,6 @@ export const LoginPage = () => {
           JSON.stringify(res.data.user.id)
         );
         history.push("/dashboardUser");
-        console.log(res.data.user);
       })
       .catch((err) => console.log(err));
 
