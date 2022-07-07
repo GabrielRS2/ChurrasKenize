@@ -1,27 +1,22 @@
-import { createContext, useState } from 'react';
-
+import { createContext, useState, useEffect  } from 'react';  
+import api from '../Services/index.js'
 export const UserContext = createContext([]);
 
 export const UserProvider = ({ children }) => {
-	const [user, setUser] = useState({
-    id: 123,
-    name: "Kenzinho da Silva",
-    event: [{
-      date: "06/11/2022",
-      duration: 4,
-      time: 11,
-      combo: "123"
-      
-    }],
-    address: "rua sete de setembro 1375",
-    state: "Paraná",
-    city: "Curitiba"
-  }); 
+
+	const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    api.get("/combos")
+  .then(response=>{
+    setUser(response.data)
+  })
+  },[])
 
   return (
     <UserContext.Provider
     value={{ user, setUser }}>
-    {children}
+      {children}
     </UserContext.Provider>
   );
 }
