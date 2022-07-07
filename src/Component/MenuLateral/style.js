@@ -10,7 +10,7 @@ export const Container = styled.div`
     color: var(--black);
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 680px) {
     display: ${(props) => (props.isOpen ? "block" : "none")};
     .wrapper {
       position: fixed;

@@ -4,7 +4,7 @@ import Logo from '../../Assets/Logo.svg'
 import { MdMenu } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import { useState } from 'react';
-import { MenuLateral } from "../MenuLateral/index.js"
+import { MenuLateral } from "../MenuLateral/index.jsx"
 import ThemeButton from "../../Styles/ThemeButton";
 
 export const Header = () => {
