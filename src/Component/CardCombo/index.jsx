@@ -3,7 +3,7 @@ import { Container } from "./style.js";
 import api from "../../Services/index.jsx";
 import { CardProduct } from "../CardProduct/index.jsx";
 
-export const CardCombo = ({filteredName}) => {
+export const CardCombo = ({filteredName, filteredPrice, filteredQuantity}) => {
   const [combos, setCombos] = useState([]);
 
   useEffect(() => {
@@ -14,8 +14,16 @@ export const CardCombo = ({filteredName}) => {
       }else{
         setCombos(response.data);
       }
+
+      if(filteredPrice.length > 0){
+        setCombos(filteredPrice)
+      }
+
+      if(filteredQuantity.length > 0){
+        setCombos(filteredQuantity)
+      }
     });
-  }, [filteredName])
+  }, [filteredName,filteredPrice,filteredQuantity])
 
   return (
     <Container>

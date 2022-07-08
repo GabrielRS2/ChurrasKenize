@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const red3 = '#810C0C';
+const red3 = "#810C0C";
 
 export const Container = styled.div`
   background-color: ${red3};
@@ -38,14 +38,15 @@ export const Container = styled.div`
       font-size: 24px;
     }
 
-    button {
+    select {
       background: var(--red-2);
       color: var(--white);
-      width: 120px;
+      width: 130px;
       padding: 5px;
       border-radius: 15px;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
+      cursor: pointer;
     }
   }
 
@@ -69,13 +70,13 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 375px){
-    .wrapper{
+  @media (max-width: 375px) {
+    .wrapper {
       display: flex;
       width: 90%;
     }
 
-    .header__filter{
+    .header__filter {
       display: none;
     }
 
@@ -85,17 +86,17 @@ export const Container = styled.div`
       align-items: center;
       gap: 0px;
 
-    .icon {
-      width: 40px;
-      height: 40px;
-      color: var(--white);
-      cursor: pointer;
-    }
+      .icon {
+        width: 40px;
+        height: 40px;
+        color: var(--white);
+        cursor: pointer;
+      }
 
-    input {
-      width: 230px;
-      padding: 10px;
+      input {
+        width: 230px;
+        padding: 10px;
+      }
     }
-  }
   }
 `;
