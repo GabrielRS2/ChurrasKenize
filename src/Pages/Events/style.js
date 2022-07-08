@@ -72,6 +72,34 @@ export const ContainerEvent = styled.div`
     height: 200px;
     background-color: #212529;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    h3{
+      font-family: 14px;
+      color: white;
+    }
+    p{
+      font-size: 11px;
+    }
+    img{
+      width: 101px;
+      height: 101px;
+      border-radius: 4px;
+    }
+
+    button{
+      width: 70px;
+      height: 20px;
+    }
+
+    .profileInfo{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
   }
 
   .events {
