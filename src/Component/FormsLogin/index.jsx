@@ -7,12 +7,14 @@ import ThemeButton from "../../Styles/ThemeButton";
 import { useContext } from "react";
 import { ApiContext } from "../../Providers/Api";
 import { toast } from "react-toastify";
+import { UserContext } from "../../Providers/User";
 
 export const FormsLogin=()=>{
 
-      const history = useHistory();
+  const history = useHistory();
 
   const { loginUser } = useContext(ApiContext);
+  const { setUser } = useContext(UserContext);
 
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
@@ -38,10 +40,11 @@ export const FormsLogin=()=>{
         JSON.stringify(res.data.accessToken)
       );
       localStorage.setItem(
-        "@churraskenzie:userId",
-        JSON.stringify(res.data.user.id)
+        "@churraskenzie:user",
+        JSON.stringify(res.data.user)
       );
-      history.push("/dashboardUser");
+      setUser(res.data.user)
+      history.push("/");
     } else {
       toast.error("Usuario ou senha inválido");
     }

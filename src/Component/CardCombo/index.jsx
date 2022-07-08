@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Container } from "./style.js";
 import api from "../../Services/index.jsx";
 import { CardProduct } from "../CardProduct/index.jsx";
-import { toast } from "react-toastify";
 
 export const CardCombo = ({filteredName}) => {
   const [combos, setCombos] = useState([]);
@@ -12,7 +11,6 @@ export const CardCombo = ({filteredName}) => {
       
       if(filteredName.length > 0){
         setCombos(filteredName)
-        toast.success("Combo encontrado!")
       }else{
         setCombos(response.data);
       }
