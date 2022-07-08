@@ -40,8 +40,8 @@ export const LoginPage = () => {
         JSON.stringify(res.data.accessToken)
       );
       localStorage.setItem(
-        "@churraskenzie:userId",
-        JSON.stringify(res.data.user.id)
+        "@churraskenzie:user",
+        JSON.stringify(res.data.user)
       );
       history.push("/");
     } else {
