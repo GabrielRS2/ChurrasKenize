@@ -8,10 +8,14 @@ import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
 import { ThemeSelect } from "../../Styles/ThemeSelect";
-import api from "../../Services";
+import { useContext } from "react";
+import { ApiContext } from "../../Providers/Api";
+import { toast } from "react-toastify";
 
 export const RegisterPage = () => {
   const history = useHistory();
+
+  const { createUser } = useContext(ApiContext);
 
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -38,13 +42,14 @@ export const RegisterPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data) => {
-    api
-      .post("/register", data)
-      .then((res) => {
-        history.push("/login");
-      })
-      .catch((err) => console.log(err));
+  const onSubmitFunction = async (data) => {
+    const res = await createUser(data);
+    console.log(res);
+    if (res.name !== "AxiosError") {
+      history.push("/login");
+    } else {
+      toast.error("email ja existente");
+    }
   };
 
   return (

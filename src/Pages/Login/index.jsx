@@ -7,11 +7,14 @@ import Logo from "./../../Assets/Logo.svg";
 import { Container } from "./style";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
-import ExamplesButton from "../../Styles/ThemeButton/examples";
-import api from "../../Services";
+import { useContext } from "react";
+import { ApiContext } from "../../Providers/Api";
+import { toast } from "react-toastify";
 
 export const LoginPage = () => {
   const history = useHistory();
+
+  const { loginUser } = useContext(ApiContext);
 
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
@@ -29,26 +32,21 @@ export const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data) => {
-    api
-      .post("/login", data)
-      .then((res) => {
-        localStorage.setItem(
-          "@churraskenzie:token",
-          JSON.stringify(res.data.accessToken)
-        );
-        localStorage.setItem(
-          "@churraskenzie:userId",
-          JSON.stringify(res.data.user.id)
-        );
-        history.push("/dashboardUser");
-      })
-      .catch((err) => console.log(err));
-
-    //   api
-    //     .post("/login", JSON.stringify(data))
-    //     .then((res) => console.log(res, "certo"))
-    //     .catch((err) => console.log(err));
+  const onSubmitFunction = async (data) => {
+    const res = await loginUser(data);
+    if (res.name !== "AxiosError") {
+      localStorage.setItem(
+        "@churraskenzie:token",
+        JSON.stringify(res.data.accessToken)
+      );
+      localStorage.setItem(
+        "@churraskenzie:userId",
+        JSON.stringify(res.data.user.id)
+      );
+      history.push("/dashboardUser");
+    } else {
+      toast.error("Usuario ou senha inválido");
+    }
   };
 
   return (
