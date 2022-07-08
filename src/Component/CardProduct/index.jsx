@@ -22,11 +22,18 @@ export const CardProduct = ({ combo}) => {
           </div>
           <h3>{combo.combo}</h3>
           <p>
+            Cidade: {combo.city}.
+          </p>
+          <p>
             Preço:{" "}
             {combo.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
+            .
+          </p>
+          <p>
+            Atende até {combo.quantity} Pessoas.
           </p>
           <span>{combo.description}</span>
         </div>

@@ -17,10 +17,7 @@ export const Home = () => {
   }, []);
 
   const filteredName = combos.filter(combo=>{
-    if(combo.combo.toLowerCase().toUpperCase() === value.toLowerCase().toUpperCase()){
-      return true
-    }
-    return false
+    return combo.combo.toLowerCase().includes(value.toLowerCase()) || combo.name.toLowerCase().includes(value.toLowerCase()) || combo.city.toLowerCase().includes(value.toLowerCase())
   })
 
   function filterPrice(){
