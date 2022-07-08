@@ -27,9 +27,10 @@ to{
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #212529;
-  
-
+  background-color: #ffffff;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
   form {
     display: flex;
     gap: 15px;
@@ -53,7 +54,7 @@ export const Container = styled.div`
   .background {
     background-color: #212529;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -105,14 +106,17 @@ export const Container = styled.div`
 
   @media screen and (min-width: 680px) {
     .loginImage {
+      height: 100vh;
+
       width: 50vw;
       display: block;
     }
     form {
-      width: 369px;
+      width: 340px;
       height: auto;
     }
     .background {
+      height: 100vh;
       width: 50vw;
     }
   }

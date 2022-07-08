@@ -19,16 +19,16 @@ export const Home = () => {
   }, []);
 
   const filteredName = combos.filter(combo=>{
-    return combo.combo.toLowerCase() === value.toLowerCase()
-  })
+    return combo.combo.toLowerCase().includes(value.toLowerCase()) || combo.name.toLowerCase().includes(value.toLowerCase()) || combo.city.toLowerCase().includes(value.toLowerCase())
+  });
   
   const filteredPrice = combos.filter(combo=>{
-    return combo.price < price 
-  })
+    return combo.price < price;
+  });
 
   const filteredQuantity = combos.filter(combo=>{
-    return combo.price === quantity 
-  })
+    return combo.price === quantity;
+  });
   
   return (
     <>
