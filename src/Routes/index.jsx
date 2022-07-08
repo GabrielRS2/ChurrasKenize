@@ -3,7 +3,7 @@ import { Welcome } from '../Pages/Welcome/index'
 import { LoginPage } from "../Pages/Login";
 import { RegisterPage } from "../Pages/Register";
 import { EventsPage } from "../Pages/Events";
-import { DashboardUser } from "../Pages/DashboardUser";
+import { Home } from "../Pages/Home";
 
 export const Routes = () => {
   return (
@@ -12,11 +12,9 @@ export const Routes = () => {
         <Welcome />
       </Route>
       <Route exact path="/home"> 
+        <Home/> 
       </Route>
       <Route exact path="/dashboardBbc"> 
-      </Route>
-      <Route exact path="/dashboardUser">
-        <DashboardUser/> 
       </Route>
       <Route exact path="/login">
         <LoginPage/>
