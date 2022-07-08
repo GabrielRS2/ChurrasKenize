@@ -10,11 +10,13 @@ import ThemeButton from "../../Styles/ThemeButton";
 import { useContext } from "react";
 import { ApiContext } from "../../Providers/Api";
 import { toast } from "react-toastify";
+import { UserContext } from "../../Providers/User";
 
 export const LoginPage = () => {
   const history = useHistory();
 
   const { loginUser } = useContext(ApiContext);
+  const { setUser } = useContext(UserContext);
 
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
@@ -43,6 +45,7 @@ export const LoginPage = () => {
         "@churraskenzie:user",
         JSON.stringify(res.data.user)
       );
+      setUser(res.data.user)
       history.push("/");
     } else {
       toast.error("Usuario ou senha inválido");
