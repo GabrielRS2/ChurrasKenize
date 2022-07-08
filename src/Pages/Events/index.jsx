@@ -6,13 +6,30 @@ import { ThemeInput } from "../../Styles/ThemeInput";
 import ThemeButton from "../../Styles/ThemeButton";
 import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { ModalEditUserProfile } from "../../Component/ModalEditUserProfile";
 import { ThemeSelect } from "../../Styles/ThemeSelect";
+import api from "../../Services";
 
 export const EventsPage = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const id = localStorage.getItem("@churraskenzie:userId");
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    api
+      .get(`/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((err) => "Erro de conexão.");
+  }, []);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -73,7 +90,7 @@ export const EventsPage = () => {
           onRequestClose={handleCloseModal}
           style={customStyles}
         >
-          <ModalEditUserProfile handleCloseModal={handleCloseModal} />
+          <ModalEditUserProfile id={id} token={token} user={user} handleCloseModal={handleCloseModal} setUser={setUser}/>
         </Modal>
         <div className="bodyEventPage">
           <form className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
@@ -158,7 +175,19 @@ export const EventsPage = () => {
         </div>
         <div className="infoProfile">
           <div className="profile">
-            <p>Meu perfil</p>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-9BhAquXWRan3TnaL_ndnjAG0pXWkbxCkg&usqp=CAU"
+              alt="foto do usuário"
+            />
+            <div className="profileInfo">
+              <h3>Meu perfil</h3>
+              <p>Nome: {user.name}</p>
+              <p>Cidade: {user.city}</p>
+              <p>Estado: {user.state}</p>
+              <p>Contato: {user.contact}</p>
+            
+              <button onClick={handleOpenModal}>Editar perfil</button>
+            </div>
           </div>
           <div className="events">
             <p>Eventos</p>

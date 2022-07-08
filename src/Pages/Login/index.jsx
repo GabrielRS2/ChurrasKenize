@@ -4,6 +4,7 @@ import Login from "./../../Assets/Login-image.svg";
 import { Container } from "./style";
 
 export const LoginPage = () => {
+
   return (
     <Container>
       <div className="background">

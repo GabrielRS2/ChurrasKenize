@@ -17,6 +17,7 @@ export const ApiProvider = ({ children }) => {
       .then((res) => res)
       .catch((err) => err);
   }
+  
   function getEventsByUser(id) {
     return api
       .get(`/events?userId=${id}`)

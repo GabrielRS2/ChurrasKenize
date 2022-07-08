@@ -1,11 +1,35 @@
 import { useForm } from "react-hook-form";
+import api from "../../Services";
 import ThemeButton from "../../Styles/ThemeButton";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import { Container } from "./style";
 
-export const ModalEditUserProfile = ({ handleCloseModal }) => {
+export const ModalEditUserProfile = ({ handleCloseModal,id,token,user,setUser }) => {
+    
+  const {name,state,city,contact} = user;
+  
   const onSubmitFunction = (data) => {
-    console.log(data);
+    if(!data.name){
+      data.name = name;
+    }
+    if(!data.state){
+      data.state = state;
+    }
+    if(!data.city){
+      data.city = city;
+    }
+    if(!data.contact){
+      data.contact = contact;
+    }
+    console.log(data.name)
+    api
+      .patch(`/users/${id}`,data,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+  })
+  .then((_)=>setUser({...user,...data}))
+  handleCloseModal();
   };
 
   const { register, handleSubmit } = useForm();
