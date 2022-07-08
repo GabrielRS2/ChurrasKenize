@@ -39,14 +39,14 @@ export const Header = () => {
                 <nav>
                     {isLogged ? (
                     <ul>
-                        <li><ThemeButton><Link to="/home" className="link">Home</Link></ThemeButton></li>
-                        <li><ThemeButton><Link to="/#" className="link">About Us</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/" className="link">Home</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/aboutUs" className="link">About Us</Link></ThemeButton></li>
                         <li><ThemeButton handleClick={handleLogout}>Logout</ThemeButton></li>
                     </ul>
                     ) : (
                     <ul>
-                        <li><ThemeButton><Link to="/home" className="link">Home</Link></ThemeButton></li>
-                        <li><ThemeButton><Link to="/#" className="link">About Us</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/" className="link">Home</Link></ThemeButton></li>
+                        <li><ThemeButton><Link to="/aboutUs" className="link">About Us</Link></ThemeButton></li>
                         <li><ThemeButton><Link to="/login" className="link">Login</Link></ThemeButton></li>
                         <li><ThemeButton><Link to="/register" className="link">Register</Link></ThemeButton></li>
                     </ul>

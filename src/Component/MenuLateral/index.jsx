@@ -9,12 +9,12 @@ export const MenuLateral = ({ isOpen, isLogged, handleLogout }) => {
           {isLogged ? (
           <ul>
           <li>
-            <Link to="/home" className="link">
+            <Link to="/" className="link">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/#" className="link">
+            <Link to="/aboutUs" className="link">
               About Us
             </Link>
           </li>
@@ -27,12 +27,12 @@ export const MenuLateral = ({ isOpen, isLogged, handleLogout }) => {
           ) : (
           <ul>
             <li>
-              <Link to="/home" className="link">
+              <Link to="/" className="link">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/#" className="link">
+              <Link to="/aboutUs" className="link">
                 About Us
               </Link>
             </li>

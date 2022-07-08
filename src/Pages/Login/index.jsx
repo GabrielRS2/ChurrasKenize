@@ -43,7 +43,7 @@ export const LoginPage = () => {
         "@churraskenzie:userId",
         JSON.stringify(res.data.user.id)
       );
-      history.push("/dashboardUser");
+      history.push("/");
     } else {
       toast.error("Usuario ou senha inválido");
     }
