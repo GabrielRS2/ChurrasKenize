@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { Container } from "./style.js";
 import api from "../../Services/index.jsx";
 import { CardProduct } from "../CardProduct/index.jsx";
-import { toast } from "react-toastify";
 
-export const CardCombo = ({filteredName}) => {
+export const CardCombo = ({filteredName, filteredPrice, filteredQuantity}) => {
   const [combos, setCombos] = useState([]);
 
   useEffect(() => {
@@ -12,12 +11,19 @@ export const CardCombo = ({filteredName}) => {
       
       if(filteredName.length > 0){
         setCombos(filteredName)
-        toast.success("Combo encontrado!")
       }else{
         setCombos(response.data);
       }
+
+      if(filteredPrice.length > 0){
+        setCombos(filteredPrice)
+      }
+
+      if(filteredQuantity.length > 0){
+        setCombos(filteredQuantity)
+      }
     });
-  }, [filteredName])
+  }, [filteredName,filteredPrice,filteredQuantity])
 
   return (
     <Container>
