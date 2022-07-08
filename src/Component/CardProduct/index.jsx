@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container } from "./styles";
 
-export const CardProduct = ({ combo }) => {
+export const CardProduct = ({ combo}) => {
   const [detail, setDetail] = useState(false);
 
   function detailOn() {
@@ -39,19 +39,18 @@ export const CardProduct = ({ combo }) => {
             />
             <div>
               <p>{combo.name}</p>
-              <p>
-                {combo.city} - {combo.state}
-              </p>
+              <p>{combo.city} - {combo.state}</p>
+              <p>R$ {combo.price} - {combo.quantity} Pessoas</p>
             </div>
           </div>
 
           <div className="card__combo">
-            <h2>{combo.name}</h2>
+            <h2>{combo.combo}</h2>
             <img src={combo.img} alt="foto do card" />
           </div>
 
           <div className="card__button">
-            <button className="active">Solicitar Acesso</button>
+            <button className="active">Solicitar Evento</button>
             <button onClick={detailOn} id={combo.id}>
               Detalhes
             </button>

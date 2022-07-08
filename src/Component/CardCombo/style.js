@@ -24,9 +24,25 @@ export const Container = styled.div`
     margin-top: 20px;
     height: 720px;
     overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px var(--white);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--white);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--white);
+    }
   }
 
-  .cardDetail{
+  .cardDetail {
     width: 250px;
     height: 340px;
     border: 1px solid white;
@@ -37,12 +53,12 @@ export const Container = styled.div`
     color: white;
   }
 
-  .headerCardDetail{
+  .headerCardDetail {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 
-    button{
+    button {
       color: white;
       border: none;
       background: none;
@@ -90,7 +106,7 @@ export const Container = styled.div`
       h2 {
         color: var(--white);
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
       }
 
       img {
@@ -130,14 +146,14 @@ export const Container = styled.div`
       gap: 40px;
     }
 
-    .cardDetail{
-    width: 210px;
-    height: 300px;
-    border: 1px solid white;
-    padding: 20px;
-    background-color: var(--grey-2);
-    border-radius: 5px;
-  }
+    .cardDetail {
+      width: 210px;
+      height: 300px;
+      border: 1px solid white;
+      padding: 20px;
+      background-color: var(--grey-2);
+      border-radius: 5px;
+    }
 
     .card {
       width: 210px;
@@ -146,7 +162,6 @@ export const Container = styled.div`
       padding: 20px;
       background-color: var(--grey-2);
       border-radius: 5px;
-
 
       .card__info {
         display: flex;
@@ -189,7 +204,6 @@ export const Container = styled.div`
         }
       }
     }
-    
 
     .card__button {
       display: flex;

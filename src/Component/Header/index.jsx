@@ -55,8 +55,7 @@ export const Header = () => {
 
                 {isOpen? <MdClose onClick={showMenu} className='icon__close'/> : <MdMenu onClick={showMenu} className='icon__menu'/>}
             </header>
-                {isOpen && <MenuLateral handleLogout={handleLogout} isLogged={isLogged} isOpen={isOpen}/>}
-                
+                {isOpen && <MenuLateral handleLogout={handleLogout} isLogged={isLogged} isOpen={isOpen}/>}   
         </Container>
     )
 }

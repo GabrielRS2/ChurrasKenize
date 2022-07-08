@@ -25,6 +25,22 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--grey-3);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--grey-3);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--grey-3);
+  }
+
   :root {
     --grey-1: #D9D9D9;
     --grey-2: #868E96;
@@ -35,4 +51,3 @@ export const GlobalStyle = createGlobalStyle`
     --white: #F8F9FA;
   }
 `;
-
