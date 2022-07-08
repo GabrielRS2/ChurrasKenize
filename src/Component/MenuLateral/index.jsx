@@ -1,8 +1,13 @@
 import { Container } from "./style";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Providers/User";
+import { useContext } from "react";
 
 
 export const MenuLateral = ({ isOpen, isLogged, handleLogout }) => {
+
+  const { user } = useContext(UserContext);
+
   return (
       <Container isOpen={isOpen}>
         <div className="wrapper">
@@ -18,6 +23,12 @@ export const MenuLateral = ({ isOpen, isLogged, handleLogout }) => {
               About Us
             </Link>
           </li>
+          {user.category === "Churrasqueiro" ? 
+          (
+              <li><Link to="/dashboardBbc" className="link">Dashboard</Link></li>
+          ) : (
+              <li><Link to="/events" className="link">Eventos</Link></li>
+          )}
           <li>
             <button className="logoutBtn" onClick={handleLogout}>
               Logout

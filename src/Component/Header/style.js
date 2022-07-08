@@ -14,6 +14,10 @@ export const Container = styled.div`
       height: 140px;
     }
 
+    img:hover {
+      cursor: pointer;
+    }
+
     ul {
       display: flex;
       gap: 20px;
