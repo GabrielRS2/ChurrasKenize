@@ -27,7 +27,7 @@ export const Home = () => {
   });
 
   const filteredQuantity = combos.filter(combo=>{
-    return combo.price === quantity;
+    return combo.quantity <= quantity;
   });
   
   return (
