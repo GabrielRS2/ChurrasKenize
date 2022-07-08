@@ -20,6 +20,15 @@ export const Welcome = () => {
             Pensamos na praticidade para o seu churrasco, encontre o
             churrasqueiro ideal e mais próximo de você!
           </p>
+          <p>
+            A Churraskenzie surgiu da necessidade de facilitar a realização de
+            um churrasco, sem se preocupar com a forma como vai ser feito e
+            quais produtos serão utilizados. Por isso a plataforma oferece a
+            possibilidade de encontrar o churrasqueiro qualificado que te livre
+            dessas dúvidas em questão, poupando tempo e preocupação de quem só
+            quer comer uma carne de boa qualidade feita por um profissional
+            qualificado.
+          </p>
           <button>
             <Link to="/">Saiba mais...</Link>
           </button>
