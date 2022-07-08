@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 export const RegisterPage = () => {
   const history = useHistory();
 
-  const { registerApi } = useContext(ApiContext);
+  const { createUser } = useContext(ApiContext);
 
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -43,7 +43,7 @@ export const RegisterPage = () => {
   });
 
   const onSubmitFunction = async (data) => {
-    const res = await registerApi(data);
+    const res = await createUser(data);
     console.log(res);
     if (res.name !== "AxiosError") {
       history.push("/login");

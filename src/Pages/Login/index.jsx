@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 export const LoginPage = () => {
   const history = useHistory();
 
-  const { enterLoginApi } = useContext(ApiContext);
+  const { loginUser } = useContext(ApiContext);
 
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
@@ -33,7 +33,7 @@ export const LoginPage = () => {
   });
 
   const onSubmitFunction = async (data) => {
-    const res = await enterLoginApi(data);
+    const res = await loginUser(data);
     if (res.name !== "AxiosError") {
       localStorage.setItem(
         "@churraskenzie:token",
