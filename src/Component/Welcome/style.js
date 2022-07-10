@@ -65,10 +65,10 @@ export const Container = styled.div`
   }
 
   @media (max-width: 768px) {
-   display: flex;
-  justify-content: center;
-  height: 100vh;
-  background: ${grey4};
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background: ${grey4};
 
   .left {
     display: flex;
@@ -131,8 +131,9 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 60px;
-
+    height: 100%;
+    padding: 20px;
+    
     .left {
       display: flex;
       justify-content: center;
