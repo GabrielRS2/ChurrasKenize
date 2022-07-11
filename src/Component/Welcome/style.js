@@ -39,7 +39,7 @@ export const Container = styled.div`
 
     p {
       color: var(--white);
-      width: 50%;
+      width: 70%;
       font-size: 20px;
     }
 
@@ -87,7 +87,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 70%;
+    width: 80%;
 
     background: var(--grey-5);
 
@@ -122,14 +122,14 @@ export const Container = styled.div`
   }
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: 100%;
-    padding: 20px;
+    padding: 20px 20px;
     
     .left {
       display: flex;
@@ -151,8 +151,10 @@ export const Container = styled.div`
       align-items: center;
       text-align: center;
       gap: 20px;
-      width: 70%;
+      width: 100%;
       height: 20%;
+      padding: 20px 10px;
+      border-radius: 16px;
 
       h1 {
         color: var(--white);

@@ -26,10 +26,10 @@ export const AboutUs = () => {
       <Container>
         <div className="wrapper">
           <h2>Time</h2>
-          <Slider {...settings}>
+          <Slider className="slider"{...settings}>
             {times.map(time => {
               return (
-                <div className="card" key={time.id}>
+                <div className="cardTeam" key={time.id}>
                   <div className="card__inner">
                     <img src={time.avatar} alt='avatar' />
                     <div className="card__right">
