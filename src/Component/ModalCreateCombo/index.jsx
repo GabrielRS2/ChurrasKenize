@@ -1,6 +1,5 @@
 import ThemeButton from "../../Styles/ThemeButton";
 import { ThemeInput } from "../../Styles/ThemeInput";
-import { ThemeTextArea } from "../../Styles/ThemeTextArea";
 import { Container } from "./style";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -34,6 +33,8 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
     const token = JSON.parse(localStorage.getItem('@churraskenzie:token'))
     data["userId"] = user.id
     data["name"] = user.name
+    data["city"] = user.city
+    data["state"] = user.state
 
     api.post("/combos",data,{
       headers: {
