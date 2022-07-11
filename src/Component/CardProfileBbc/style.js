@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 20px;
   align-items: flex-end;
   font-weight: 600;
   padding: 10px 0;
-  }
 
   .left_info figure {
     border: 2px solid var(--grey-4);
-    border-radius: 15px;
+    border-radius: 16px;
     text-align: center;
     width: 100px;
     height: 100px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
     text-align: left;
   }
   .right_info p {
-    margin 5px 0;
+    margin: 5px 0;
   }
 
   .edit_profile_button {
@@ -30,4 +30,15 @@ export const Container = styled.div`
     color: var(--white);
     border-radius: 15px;
     background-color: var(--red-1);
+  }
+
+`;
+
+export const ContainerAll = styled.div`
+    background-color: var(--grey-3);
+    padding: 10px 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%;
 `;
