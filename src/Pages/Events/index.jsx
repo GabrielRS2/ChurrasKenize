@@ -1,17 +1,14 @@
 import { ContainerEvent } from "./style";
 import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "react-modal";
 import { ModalEditUserProfile } from "../../Component/ModalEditUserProfile";
-import { FormsEvent } from "../../Component/FormsEvent";
 import { UserContext } from "../../Providers/User";
 
 export const EventsPage = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const id = localStorage.getItem("@churraskenzie:userId");
-  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
-  const { user, setUser } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -51,16 +48,9 @@ export const EventsPage = () => {
           onRequestClose={handleCloseModal}
           style={customStyles}
         >
-          <ModalEditUserProfile
-            id={id}
-            token={token}
-            user={user}
-            handleCloseModal={handleCloseModal}
-            setUser={setUser}
-          />
+          <ModalEditUserProfile handleCloseModal={handleCloseModal} />
         </Modal>
         <div className="bodyEventPage">
-          <FormsEvent />
         </div>
         <div className="infoProfile">
           <div className="profile">

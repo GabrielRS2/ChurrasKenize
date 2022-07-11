@@ -7,11 +7,13 @@ export const Container = styled.div`
         flex-direction: column;
         gap: .5rem; 
     }
+    
 
 @media (max-width: 375px){
     .cardDetail{
         width: 210px;
     }
+    
 }
 
 `

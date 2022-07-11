@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { useContext, useEffect, useState } from 'react';
 import { MenuLateral } from "../MenuLateral/index.jsx"
 import ThemeButton from "../../Styles/ThemeButton";
-import { UserContext, UserProvider } from "../../Providers/User";
+import { UserContext } from "../../Providers/User";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +32,7 @@ export const Header = () => {
         setIsLogged(false);
         localStorage.clear();
         console.log(JSON.parse(localStorage.getItem("@churraskenzie:token")));
+        history.push("/");
     }
 
     return(
