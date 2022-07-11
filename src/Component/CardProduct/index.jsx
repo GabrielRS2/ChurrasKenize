@@ -1,8 +1,20 @@
 import { useState } from "react";
+import { FormsEvent } from "../FormsEvent";
 import { Container } from "./styles";
+import Modal from "react-modal";
 
 export const CardProduct = ({ combo}) => {
   const [detail, setDetail] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const comboId = combo.id;
+
+  function handleOpenModal() {
+    setIsOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
 
   function detailOn() {
     setDetail(true);
@@ -12,10 +24,38 @@ export const CardProduct = ({ combo}) => {
     setDetail(false);
   }
 
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      background: "transparent",
+      border: "none",
+    },
+    overlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(18, 18, 20, 0.5)",
+    },
+  };
+
   return (
     <Container>
+      <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseModal}
+          style={customStyles}
+        >
+          <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId}/>
+        </Modal>
       {detail ? (
-        <div className="cardDetail" key={combo.id}>
+        <div className="cardDetail" key={combo.id} >
           <div className="headerCardDetail">
             <h4>Detalhes</h4>
             <button onClick={detailOff}>X</button>
@@ -57,7 +97,7 @@ export const CardProduct = ({ combo}) => {
           </div>
 
           <div className="card__button">
-            <button className="active">Solicitar Evento</button>
+            <button onClick={handleOpenModal} className="active">Solicitar Evento</button>
             <button onClick={detailOn} id={combo.id}>
               Detalhes
             </button>

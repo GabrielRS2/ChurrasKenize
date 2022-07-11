@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { Container } from "./style";
-import { ThemeInput } from "../../Styles/ThemeInput";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
