@@ -18,7 +18,7 @@ export const Container = styled.div`
         }
     }
     
-    .card{  
+    .cardTeam{  
         width: 300px;
         cursor: pointer;
     }
@@ -37,6 +37,7 @@ export const Container = styled.div`
     }
     
     .card__right{
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -99,7 +100,7 @@ export const Container = styled.div`
     }
 
     .slick-slider{
-        width: 1000px;
+        width: 600px;
     }
     
     .slick-list{
@@ -129,29 +130,43 @@ export const Container = styled.div`
         
     }  
     
-    @media (max-width: 375px){
-        .card{  
-            width:280px;
+    @media (max-width: 768px){
+        .cardTeam{  
+            width: 240px;
             cursor: pointer;
-
         }
 
         .card__inner{
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            gap: 10px;
+            width: 200px;
 
             img{
-            width: 220px;
-            height: 180px;
+            width: 180px;
+            height: 144px;
             border-radius: 0px 20px 0px 20px;
+            padding: 0px;
             }
         }
 
         .card__right{
             width: 250px;
             height: 150px;
+
+            h3{
+                color: var(--grey-6);
+                font-weight: bold;
+                font-size: 14px;
+            }
         }
         
+        .link {
+            width: 80px;
+            font-size: 14px;
+        }
+
         .slick-slider{
             width: 250px;
         }
@@ -166,6 +181,10 @@ export const Container = styled.div`
             left: -75px;
             padding: 20px;
 
+        }
+
+        .slider {
+            width: 210px;
         }
     }
     

@@ -6,12 +6,10 @@ import { Link } from "react-router-dom";
 export const Welcome = () => {
   return (
     <>
-      
       <Container>
         <div className="left">
           <img src={Logo} alt="logo do site" />
         </div>
-
         <div className="right">
           <h1>Olá, Seja Bem Vindo(a)!</h1>
           <p>
@@ -24,11 +22,10 @@ export const Welcome = () => {
             qualificado.
           </p>
           <button>
-            <Link to="/">Saiba mais...</Link>
+            <Link to="/">Navegar</Link>
           </button>
         </div>
       </Container>
-      
     </>
   );
 };
