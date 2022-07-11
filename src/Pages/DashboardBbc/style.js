@@ -32,7 +32,8 @@ export const ContentContainer = styled.div`
 
   .eventListBbc {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
 
     min-height: 250px;
     border-radius: 16px;
@@ -53,7 +54,8 @@ export const ContentContainer = styled.div`
 
   .headerComboList {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
 

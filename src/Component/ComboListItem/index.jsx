@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-import api from "../../Services";
+import { FaEdit } from "react-icons/fa";
+import { BsTrash } from "react-icons/bs";
 import { Container } from "./style";
 
-export const ComboListItem = ({event, combos}) => {
-
-  const [combo, setCombo] = useState({})
-
- useEffect(() => {
-  console.log("----",event);
-  console.log("--", combos);
- },[event])  
+export const ComboListItem = ({combo}) => {
 
   return (
     <Container>
-      
+      <p>{combo.name}</p>
+      <p>{combo.price}</p>
+      <button><FaEdit/></button>
+      <button><BsTrash/></button>
     </Container>
   )
 }
