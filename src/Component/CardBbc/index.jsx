@@ -1,6 +1,13 @@
+import api from "../../Services";
 import { Container } from "./style";
 
 function CardBbc() {
+
+  const resp = api.get('/combos')
+  .then(response=>{
+    console.log(response);
+  })
+
   return (
     <Container>
       <table className="combo-list">
@@ -14,7 +21,9 @@ function CardBbc() {
           </tr>
         </thead>
         <tbody>
-          <tr className="item"></tr>
+          <tr className="item">
+
+          </tr>
         </tbody>
       </table>
     </Container>

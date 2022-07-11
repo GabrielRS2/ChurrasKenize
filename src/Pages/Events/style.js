@@ -8,7 +8,7 @@ export const ContainerEvent = styled.div`
   gap: 20px;
   padding: 20px 20px;
 
-  background-color: #810c0c;
+  background-color: var(--red-3);
   font-family: "Poppins";
 
   .bodyEventPage {
@@ -21,23 +21,23 @@ export const ContainerEvent = styled.div`
   button {
     width: 60%;
     height: 48px;
-    background-color: #ff0909;
+    background-color: var(--red-1);
     border-radius: 4px;
     font-family: "Poppins", sans-serif;
     text-align: center;
     font-size: 11px;
-    color: white;
+    color: var(--white);
   }
 
   p {
-    color: white;
+    color: var(--white);
     font-family: "Roboto", sans-serif;
     font-size: 16px;
   }
 
   a,
   label {
-    color: white;
+    color: var(--white);
     font-family: "Poppins", sans-serif;
     font-size: 11px;
   }
@@ -56,7 +56,7 @@ export const ContainerEvent = styled.div`
     width: 100%;
     max-width: 300px;
     height: 200px;
-    background-color: #212529;
+    background-color: var(--grey-3);
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@ export const ContainerEvent = styled.div`
     
     h3{
       font-family: 14px;
-      color: white;
+      color: var(--white);
     }
     p{
       font-size: 11px;
@@ -92,7 +92,7 @@ export const ContainerEvent = styled.div`
     width: 100%;
     max-width: 300px;
     height: 200px;
-    background-color: #212529;
+    background-color: var(--grey-3);
     border-radius: 4px;
   }
 

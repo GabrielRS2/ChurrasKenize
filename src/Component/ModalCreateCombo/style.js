@@ -6,7 +6,7 @@ flex-direction: column;
 align-items: center;
 width:auto;
 height: auto;
-background-color: #212529;
+background-color: var(--grey-3);
 width: 320px;
 height: auto;
 border-radius: 4px;
@@ -25,13 +25,13 @@ form{
     width: 100%;
     padding: 0px 20px;
     justify-content: space-between;
-    color: white;
+    color: var(--white);
 }
 
 .closeModal{
     background: none;
     border: none;
-    color: white;
+    color: var(--white);
 }
 
 ` 

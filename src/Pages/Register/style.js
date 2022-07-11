@@ -36,7 +36,7 @@ export const Container = styled.div`
     align-items: center;
     width: 296px;
     height: auto;
-    background-color: #000000;
+    background-color: var(--grey-4);
     border-radius: 6px;
     animation: ${appearFromright} 2s;
     width: 90%;
@@ -49,7 +49,7 @@ export const Container = styled.div`
     align-items: flex-start;
   }
   .background {
-    background-color: #212529;
+    background-color: var(--grey-3);
     width: 100%;
     margin: 0;
     display: flex;
@@ -61,14 +61,14 @@ export const Container = styled.div`
   }
 
   p {
-    color: white;
+    color: var(--white);
     font-family: "Poppins", sans-serif;
     font-size: 22px;
   }
 
   a,
   label {
-    color: white;
+    color: var(--white);
     font-family: "Poppins", sans-serif;
     font-size: 11px;
   }
@@ -88,13 +88,13 @@ export const Container = styled.div`
   }
 
   .error {
-    color: red;
+    color: var(--red-1);;
   }
 
   span {
     font-family: "Poppins", sans-serif;
     font-size: 11px;
-    color: white;
+    color: var(--grey-4);
   }
   a {
     width: 100%;

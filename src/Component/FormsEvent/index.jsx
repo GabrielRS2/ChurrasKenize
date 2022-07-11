@@ -25,7 +25,6 @@ export const FormsEvent = () => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     // console.log("data");
   };
   return (
