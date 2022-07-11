@@ -40,13 +40,12 @@ export const Home = () => {
       <Header />
       <Container>
         <div className="wrapper">
+          <h1>Churrascos</h1>
           <header className="header__dashboard">
             <div className="header__filter">
-              <h1>Churrascos</h1>
-
               <select value={price} onChange={(e) => setPrice(e.target.value)}>
                 <option>Preço</option>
-                <option value="-1">partir de R$ 800</option>
+                <option value="-1">partir R$ 800</option>
                 <option value="800">até R$ 800</option>
                 <option value="500">até R$ 500</option>
                 <option value="200">até R$ 200</option>

@@ -27,7 +27,7 @@ to{
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: var(--grey-3);
   align-items: center;
   min-height: 100vh;
   height: 100%;

@@ -27,7 +27,7 @@ export const Container = styled.div`
     }
 
     button {
-      width: 150px;
+      width: 120px;
       font-size: 18px;
       padding: 10px;
       background-color: var(--grey-4);
@@ -42,32 +42,32 @@ export const Container = styled.div`
       color: var(--white);
     }
 
-    .icon__menu{
-        display:none;
+    .icon__menu {
+      display: none;
     }
 
-    .icon__close{
-      display:none;
+    .icon__close {
+      display: none;
     }
   }
 
-  @media (max-width: 680px){
-    header{
+  @media (max-width: 768px) {
+    header {
       img {
         width: 100px;
         height: 100px;
       }
-      nav{
+      nav {
         display: none;
       }
-  
-      .icon__menu{
-          display:block;
-          color: var(--white);
+
+      .icon__menu {
+        display: block;
+        color: var(--white);
       }
-  
-      .icon__close{
-        display:block;
+
+      .icon__close {
+        display: block;
         color: var(--white);
       }
     }
