@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../Providers/User";
 import api from "../../Services";
 import ThemeButton from "../../Styles/ThemeButton";
 import { ThemeInput } from "../../Styles/ThemeInput";
 import { Container } from "./style";
 
-export const ModalEditUserProfile = ({ handleCloseModal,id,token,user,setUser }) => {
-    
+export const ModalEditUserProfile = ({ handleCloseModal }) => {
+  
+  const {user, setUser} = useContext(UserContext)
   const {name,state,city,contact} = user;
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
+  const id = JSON.parse(localStorage.getItem("@churraskenzie:user")).id;
   
   const onSubmitFunction = (data) => {
     if(!data.name){
@@ -21,7 +26,6 @@ export const ModalEditUserProfile = ({ handleCloseModal,id,token,user,setUser })
     if(!data.contact){
       data.contact = contact;
     }
-    console.log(data.name)
     api
       .patch(`/users/${id}`,data,{
         headers: {

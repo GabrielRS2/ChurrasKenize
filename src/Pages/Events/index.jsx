@@ -1,30 +1,17 @@
 import { ContainerEvent } from "./style";
 import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { ModalEditUserProfile } from "../../Component/ModalEditUserProfile";
-import api from "../../Services";
 import { FormsEvent } from "../../Component/FormsEvent";
+import { UserContext } from "../../Providers/User";
 
 export const EventsPage = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const id = localStorage.getItem("@churraskenzie:userId");
   const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    api
-      .get(`/users/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((err) => "Erro de conexão.");
-  }, []);
+  const { user, setUser } = useContext(UserContext)
 
   function handleOpenModal() {
     setIsOpen(true);
