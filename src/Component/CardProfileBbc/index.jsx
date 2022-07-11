@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
-import { ModalEditUserProfile } from "../ModalEditUserProfile";
-import { Container } from "./style";
+import { Container, ContainerAll } from "./style";
 import Modal from "react-modal";
+import { ModalEditUserProfile } from "../ModalEditUserProfile";
 
 function CardProfileBbc() {
-  const [modalIsOpen, setIsOpen] = useState(false);
+
   const { user } = useContext(UserContext);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -38,8 +40,7 @@ function CardProfileBbc() {
   };
 
   return (
-    <div>
-      <Container>
+    <ContainerAll>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={handleCloseModal}
@@ -47,8 +48,12 @@ function CardProfileBbc() {
         >
           <ModalEditUserProfile handleCloseModal={handleCloseModal} />
         </Modal>
+      <h2>Meu perfil</h2>
+      <Container>
         <div className="left_info">
+          {user.category === "Churrasqueiro" && 
           <p>★★★☆☆</p>
+          }
           <figure>
             <img src="#" alt="foto" />
           </figure>
@@ -58,10 +63,10 @@ function CardProfileBbc() {
           <p>Cidade: {user.city}</p>
           <p>Estado: {user.state}</p>
           <p>Contato: {user.contact}</p>
-          <button onClick={handleOpenModal} className="edit_profile_button">Editar</button>
+          <button className="edit_profile_button" onClick={handleOpenModal}>Editar</button>
         </div>
       </Container>
-    </div>
+    </ContainerAll>
   );
 }
 

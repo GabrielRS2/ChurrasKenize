@@ -2,23 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  width: 100%;
 
   .combo-list {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
   }
-
-  tbody .item {
-    background-color: var(--grey-2);
-    box-sizing: content-box;
-    margin: 5px;
-    border: solid var(--grey-3);
-    border-right: 5px;
-    border-left: 5px;
+  
+  thead {
+    width: 100%;
   }
-  .item td {
-    padding: 5px 1px;
+
+  tr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
   img {
