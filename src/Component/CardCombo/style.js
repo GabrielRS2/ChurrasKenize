@@ -109,6 +109,8 @@ export const Container = styled.div`
 
       img {
         width: 200px;
+        height: 150px;
+        overflow: auto;
       }
     }
   }

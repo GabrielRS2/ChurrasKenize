@@ -10,15 +10,14 @@ import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import api from "../../Services";
 
-export const FormsEvent = ({ handleCloseModal,comboId }) => {
-  const {user} = useContext(UserContext)
+export const FormsEvent = ({ handleCloseModal, comboId }) => {
+  const { user } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
   const history = useHistory();
 
-  function goToLoginPage(){
+  function goToLoginPage() {
     history.push("/login");
   }
-
 
   const schema = yup.object().shape({
     date: yup.string().required("Campo Obrigatório"),
@@ -37,124 +36,90 @@ export const FormsEvent = ({ handleCloseModal,comboId }) => {
   });
 
   const onSubmitFunction = (data) => {
-      data["combo"] = comboId;
-      data["userId"] = user.id;
-      api
-      .post("/events",data,{
+    data["combo"] = comboId;
+    data["userId"] = user.id;
+    api
+      .post("/events", data, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
-  })
-  .then((_)=>handleCloseModal());
-}
+        },
+      })
+      .then((_) => handleCloseModal());
+  };
 
   return (
     <Container className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
       {token ? (
-      <>
-      <div className="headerModal">
-        <p>Solicite um evento</p>
-        <button onClick={handleCloseModal}>X</button>
-      </div>
-      <ThemeInput
-        label="Cidade do evento"
-        name="city"
-        type="text"
-        placeholder="Digite o nome do evento"
-        error={errors.name?.message}
-        register={register}
-      />
-      <ThemeSelect
-        label="Estado"
-        name="state"
-        error={errors.state?.message}
-        register={register}
-      >
-        <option value="">Selecione o estado</option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
-        <option value="EX">Estrangeiro</option>
-      </ThemeSelect>
-      <ThemeInput
-        label="Data"
-        name="date"
-        type="text"
-        placeholder="Digite a data do evento"
-        error={errors.date?.message}
-        register={register}
-      />
+        <>
+          <div className="headerModal">
+            <p>Solicite um evento</p>
+            <button onClick={handleCloseModal}>X</button>
+          </div>
 
-      <ThemeSelect
-        label="Horário"
-        name="time"
-        error={errors.time?.message}
-        register={register}
-      >
-        <option value="day">Diurno</option>
-        <option value="nigth">Noturno</option>
-      </ThemeSelect>
-      <ThemeInput
-        label="Bairro"
-        name="neighbours"
-        placeholder="Digite o bairro do evento"
-        error={errors.neighbours?.message}
-        register={register}
-      />
-      <ThemeInput
-        label="Rua"
-        name="street"
-        placeholder="Digite a rua do evento"
-        error={errors.street?.message}
-        register={register}
-      />
-      <ThemeInput
-        label="Numero do local"
-        name="numberLocal"
-        type="number"
-        placeholder="Digite a duração do evento"
-        error={errors.numberLocal?.message}
-        register={register}
-      />
+          <ThemeSelect
+            label="Data"
+            name="date"
+            type="text"
+            error={errors.date?.message}
+            register={register}
+          >
+            <option value="10/10/2022">10/10/2022</option>
+            <option value="11/10/2022">11/10/2022</option>
+            {/* Criar lógica para receber as datas */}
+          </ThemeSelect>
 
-      <ThemeButton schema="var(--red-2)" large type="submit">
-        Solicitar evento
-      </ThemeButton>
-      </>) : (<div className="validationLogin">
+          <ThemeSelect
+            label="Horário"
+            name="time"
+            error={errors.time?.message}
+            register={register}
+          >
+            <option value="day">Diurno</option>
+            <option value="nigth">Noturno</option>
+          </ThemeSelect>
+          <ThemeInput
+            label="Bairro"
+            name="neighbours"
+            placeholder="Digite o bairro do evento"
+            error={errors.neighbours?.message}
+            register={register}
+          />
+          <ThemeInput
+            label="Rua"
+            name="street"
+            placeholder="Digite a rua do evento"
+            error={errors.street?.message}
+            register={register}
+          />
+          <ThemeInput
+            label="Numero do local"
+            name="numberLocal"
+            type="number"
+            placeholder="Digiteo numero do Local ex:163"
+            error={errors.numberLocal?.message}
+            register={register}
+          />
+
+          <ThemeButton schema="var(--red-2)" large type="submit">
+            Solicitar evento
+          </ThemeButton>
+        </>
+      ) : (
+        <div className="validationLogin">
           <p>
             É necessario estar logado para solicitar um evento. Deseja fazer o
             login?
           </p>
           <div className="validationButtons">
-            <ThemeButton schema="var(--red-2)" handleClick={goToLoginPage}>Sim</ThemeButton>
-            <ThemeButton schema="var(--red-2)" handleClick={handleCloseModal}>Não</ThemeButton>
+            <ThemeButton schema="var(--red-2)" handleClick={goToLoginPage}>
+              Sim
+            </ThemeButton>
+            <ThemeButton schema="var(--red-2)" handleClick={handleCloseModal}>
+              Não
+            </ThemeButton>
           </div>
-        </div>)}
-      
+        </div>
+      )}
     </Container>
   );
 };
