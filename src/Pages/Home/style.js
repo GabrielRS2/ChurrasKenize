@@ -8,7 +8,7 @@ export const Container = styled.div`
   font-family: "Poppins", sans-serif;
 
   .wrapper {
-    margin: 20px;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,25 +16,29 @@ export const Container = styled.div`
     width: 75%;
     border-radius: 5px;
     padding: 20px;
+
+    min-width: 700px;
+
+    h1 {
+      color: var(--white);
+      font-size: 24px;
+      text-align: center;
+      margin: 10px 0 20px;
+    }
   }
 
   .header__dashboard {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    gap: 140px;
+    gap: 25px;
   }
 
   .header__filter {
     display: flex;
     align-items: center;
-    gap: 40px;
-
-    h1 {
-      color: var(--white);
-      font-size: 24px;
-    }
+    gap: 25px;
 
     select {
       background: var(--red-2);
@@ -62,16 +66,20 @@ export const Container = styled.div`
     }
 
     input {
-      width: 210px;
+      width: 180px;
       padding: 10px;
       color: var(--black);
     }
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     .wrapper {
       display: flex;
       width: 90%;
+      min-width: 280px;
+    }
+    .header__dashboard {
+      flex-direction: row;
     }
 
     .header__filter {
@@ -82,7 +90,8 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 0px;
+      gap: 10px;
+      width: 100%;
 
       .icon {
         width: 40px;
@@ -90,9 +99,8 @@ export const Container = styled.div`
         color: var(--white);
         cursor: pointer;
       }
-
       input {
-        width: 230px;
+        width: 100%;
         padding: 10px;
       }
     }
