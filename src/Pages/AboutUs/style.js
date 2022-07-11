@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const grey = '#1A1A1A;'
-
 export const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -48,7 +46,7 @@ export const Container = styled.div`
         gap: 10px;
         
         h3{
-            color: ${grey};
+            color: var(--grey-6);
             font-weight: bold;
         }
         
@@ -62,11 +60,11 @@ export const Container = styled.div`
             display: block;
             text-decoration: none;
             text-transform: uppercase;
-            border: 2px solid ${grey};
+            border: 2px solid var(--grey-6);
             padding: 10px;
             position: relative;
             overflow: hidden;
-            color: ${grey};
+            color: var(--grey-6);
             font-weight: bold;
         }
 
@@ -97,7 +95,7 @@ export const Container = styled.div`
     
 
     .carousel .slick-prev,.carousel .slick-next {
-        color: ${grey};
+        color: var(--grey-6);
     }
 
     .slick-slider{
@@ -121,13 +119,13 @@ export const Container = styled.div`
     }
 
     .slick-prev:before, .slick-next:before{
-        color: ${grey};
+        color: var(--grey-6);
         font-size: 50px;
         
     }
     
     .slick-dots li button:before{
-        color: ${grey};
+        color: var(--grey-6);
         
     }  
     

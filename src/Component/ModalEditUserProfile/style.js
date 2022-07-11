@@ -6,7 +6,7 @@ flex-direction: column;
 align-items: center;
 width:auto;
 height: auto;
-background-color: #212529;
+background-color: var(--grey-3);
 width: 296px;
 height: 400px;
 border-radius: 4px;

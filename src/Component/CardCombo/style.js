@@ -1,17 +1,15 @@
 import styled, { keyframes } from "styled-components";
 
-const grey5 = "#797979";
-
 const rotate90deg = keyframes`
-from {
-    opacity: 0;
-    transform: rotate3d(0, 1, 0, 90deg);
-}
+  from {
+      opacity: 0;
+      transform: rotate3d(0, 1, 0, 90deg);
+  }
 
-to{
-    opacity: 1;
-}
-`;
+  to{
+      opacity: 1;
+  }
+  `;
 
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
@@ -129,7 +127,7 @@ export const Container = styled.div`
     button {
       width: 190px;
       height: 30px;
-      color: ${grey5};
+      color: var(--grey-5);
       background-color: var(--grey-1);
       border-radius: 5px;
       font-size: 12px;
@@ -219,7 +217,7 @@ export const Container = styled.div`
       button {
         width: 260px;
         height: 25px;
-        color: ${grey5};
+        color: var(--grey-5);
         background-color: var(--grey-1);
         border-radius: 5px;
         font-size: 10px;

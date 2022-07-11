@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-const red3 = "#810C0C";
-
 export const Container = styled.div`
-  background-color: ${red3};
+  background-color: var(--red-3);
   display: flex;
   justify-content: center;
   padding: 20px;

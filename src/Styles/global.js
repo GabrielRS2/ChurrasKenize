@@ -51,8 +51,12 @@ export const GlobalStyle = createGlobalStyle`
     --grey-2: #868E96;
     --grey-3: #212529;
     --grey-4: #000000;
+    --grey-5: #797979;
+    --grey-6: #1a1a1a;
+    --grey-7: rgba(26, 26, 26, 0.75);
     --red-1: #FF0909;
     --red-2: #C73B3B;
+    --red-3: #810c0c;
     --white: #F8F9FA;
   }
 `;

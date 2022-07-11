@@ -1,16 +1,25 @@
 import { useForm } from "react-hook-form";
 import { Container } from "./style";
+import { ThemeInput } from "../../Styles/ThemeInput";
+import ThemeButton from '../../Styles/ThemeButton'
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from 'react-toastify'
+import api from "../../Services";
+import { UserContext} from "../../Providers/User";
+import { useContext } from 'react'
 
 function ComboForm() {
+  const {user} = useContext(UserContext)
+
   const formSchema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório"),
+    combo: yup.string().required("Campo obrigatório"),
     price: yup.string().required("Campo obrigatório"),
-    people_number: yup.string().required("Campo obrigatório"),
-    time: yup.string().required("Campo obrigatório"),
-    img: yup.string().url("URL inválida!").required("Campo obrigatório"),
+    quantity: yup.string().required("Campo obrigatório"),
+    duration: yup.string().required("Campo obrigatório"),
+    avatar: yup.string().url("URL inválida!").required("Campo obrigatório"),
   });
+
   const {
     register,
     handleSubmit,
@@ -18,53 +27,76 @@ function ComboForm() {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
+  
+  const onSubmitFunction = (data) => {
+    const id = user.id
+    const token = JSON.parse(localStorage.getItem('@churraskenzie:token'))
+    data["userId"] = id
+    data["name"] = user.name
+    data["city"] = user.city
+    data["state"] = user.state
+
+    api.post("/combos",data,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    .catch(error =>{
+      if(error){
+        toast.error('Falha ao criar o combo!')
+      }else{
+        toast.success('Combo criado com sucesso!')
+        
+      }
+    })
+   
+  }
+
   return (
     <Container>
-      <form onSubmit={handleSubmit(() => null)}>
-        <div className="meta-container">
-          <label htmlFor="name">Nome</label>
-          <span>{errors.name ? ` - ${errors.name.message}` : null}</span>
-        </div>
-        <input placeholder="Digite o nome do combo" {...register("name")} />
-        <div className="meta-container">
-          <label htmlFor="price">Preço</label>
-          <span>{errors.price ? ` - ${errors.price.message}` : null}</span>
-        </div>
-        <input
-          placeholder="Digite o preço do combo"
-          type="number"
-          {...register("price")}
-        />
-        <div className="meta-container">
-          <label htmlFor="people_number">Para quantas pessoas</label>
-          <span>
-            {errors.people_number ? ` - ${errors.people_number.message}` : null}
-          </span>
-        </div>
-        <input
-          placeholder="Digite a quantidade de pessoas"
-          type="text"
-          {...register("people_number")}
-        />
-        <div className="meta-container">
-          <label htmlFor="time"> Tempo estimado</label>
-          <span>
-            {errors.people_number ? ` - ${errors.people_number.message}` : null}
-          </span>
-        </div>
-        <input
-          placeholder="Digite o tempo estimado de preparo"
-          type="text"
-          {...register("time")}
-        />
-        <div className="meta-container">
-          <label htmlFor="img">Imagem</label>
-          <span>
-            {errors.people_number ? ` - ${errors.people_number.message}` : null}
-          </span>
-        </div>
-        <input placeholder="Url" type="url" {...register("img")} />
-        <button type="submit">Criar combo</button>
+      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      <ThemeInput
+        label="Nome do combo"
+        name="combo"
+        placeholder="Digite seu combo"
+        error={errors.combo?.message}
+        register={register}
+      />
+
+      <ThemeInput
+        label="Preço"
+        name="price"
+        placeholder="Digite seu price"
+        error={errors.price?.message}
+        register={register}
+      />
+
+      <ThemeInput
+        label="Quantidade"
+        name="quantity"
+        placeholder="Digite a quantidade de pessoas"
+        type="text"
+        error={errors.quantity?.message}
+        register={register}
+      />
+      <ThemeInput
+        label="Duração"
+        name="duration"
+        placeholder="Digite a duração"
+        type="text"
+        error={errors.duration?.message}
+        register={register}
+      />
+
+        <ThemeInput
+        label="Avatar"
+        name="img"
+        placeholder="Digite a url da imagem"
+        type="text"
+        error={errors.avatar?.message}
+        register={register}
+      />
+        <ThemeButton  type='submit' schema="var(--red-2)" large>Criar combo</ThemeButton>
       </form>
     </Container>
   );

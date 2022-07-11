@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-const grey4 = "#1A1A1A";
-const grey5 = "rgba(26, 26, 26, 0.75)";
-
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   height: 100vh;
-  background: ${grey4};
+  background: var(--grey-4);
 
   .left {
     display: flex;
@@ -16,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
     width: 50%;
     height: 100%;
-    background: ${grey4};
+    background: var(--grey-4);
 
     img {
       width: 50%;
@@ -32,7 +29,7 @@ export const Container = styled.div`
     gap: 20px;
     width: 50%;
 
-    background: ${grey5};
+    background: var(--grey-5);
 
     h1 {
       color: var(--white);
@@ -68,7 +65,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     height: 100vh;
-    background: ${grey4};
+    background: var(--grey-4);
 
   .left {
     display: flex;
@@ -76,7 +73,7 @@ export const Container = styled.div`
     align-items: center;
     width: 50%;
     height: 100%;
-    background: ${grey4};
+    background: var(--grey-4);
 
     img {
       width: 70%;
@@ -92,7 +89,7 @@ export const Container = styled.div`
     gap: 20px;
     width: 70%;
 
-    background: ${grey5};
+    background: var(--grey-5);
 
     h1 {
       color: var(--white);
