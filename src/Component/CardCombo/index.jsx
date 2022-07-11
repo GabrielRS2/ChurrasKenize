@@ -1,68 +1,37 @@
 import { useEffect, useState } from "react";
-import { Container } from "./style.js"
-import api from '../../Services/index.js'
+import { Container } from "./style.js";
+import api from "../../Services/index.jsx";
+import { CardProduct } from "../CardProduct/index.jsx";
 
-    
+export const CardCombo = ({filteredName, filteredPrice, filteredQuantity}) => {
+  const [combos, setCombos] = useState([]);
 
-export const CardCombo = () => {
-  const [detail, setDetail] = useState(false);
+  useEffect(() => {
+    api.get("/combos").then((response) => {
+      
+      if(filteredName.length > 0){
+        setCombos(filteredName)
+      }else{
+        setCombos(response.data);
+      }
 
-   const [combos, setCombos] = useState([]);
+      if(filteredPrice.length > 0){
+        setCombos(filteredPrice)
+      }
 
-   useEffect(() => {
-       api.get("/combos")
-      .then(response=>{
-        setCombos(response.data)
-      })
-      },[])
-
-    function detailOn() {
-      setDetail(true);
-    }
-
-  function detailOff() {
-    setDetail(false);
-  }
+      if(filteredQuantity.length > 0){
+        setCombos(filteredQuantity)
+      }
+    });
+  }, [filteredName,filteredPrice,filteredQuantity])
 
   return (
     <Container>
-      {detail ? (
-        <>
-        <p>{combo.description}</p>
-        <button onClick={detailOff}>X</button>
-        </>
-      ) : (
-        <div className="card__container">
-          {combos.map((combo) => {
-            return (
-              <div className="card" key={combo.id}>
-                <div className="card__info">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-9BhAquXWRan3TnaL_ndnjAG0pXWkbxCkg&usqp=CAU"
-                    alt="foto do usuário"
-                  />
-                  <div>
-                    <p>{combo.name}</p>
-                    <p>
-                      {combo.city} - {combo.state}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="card__combo">
-                  <h2>{combo.name}</h2>
-                  <img src={combo.img} alt="foto do card" />
-                </div>
-
-                <div className="card__button">
-                  <button className="active">Solicitar Acesso</button>
-                  <button onClick={detailOn} id={combo.id}>Detalhes</button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <div className="card__container">
+        {combos.map((combo,index) => {
+          return <CardProduct key={index} combo={combo}/>
+        })}
+      </div>
     </Container>
   );
 };

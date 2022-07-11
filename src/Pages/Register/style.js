@@ -79,7 +79,7 @@ export const Container = styled.div`
     margin-bottom: 15px;
   }
 
-  .loginImage {
+  .backgroundImage {
     display: none;
   }
 
@@ -103,9 +103,10 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 680px) {
-    .loginImage {
+    .backgroundImage {
       width: 50vw;
       display: block;
+      background-repeat: repeat;
     }
     form {
       width: 369px;

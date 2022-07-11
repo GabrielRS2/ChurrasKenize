@@ -1,18 +1,31 @@
 import { ContainerEvent } from "./style";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { ThemeInput } from "../../Styles/ThemeInput";
-import ThemeButton from "../../Styles/ThemeButton";
+
 import { Header } from "../../Component/Header";
 import { Footer } from "../../Component/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { ModalEditUserProfile } from "../../Component/ModalEditUserProfile";
-import { ThemeSelect } from "../../Styles/ThemeSelect";
+import api from "../../Services";
+import { FormsEvent } from "../../Component/FormsEvent";
 
 export const EventsPage = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const id = localStorage.getItem("@churraskenzie:userId");
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    api
+      .get(`/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((err) => "Erro de conexão.");
+  }, []);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -43,27 +56,6 @@ export const EventsPage = () => {
     },
   };
 
-  const schema = yup.object().shape({
-    date: yup.string().required("Campo Obrigatório"),
-    time: yup.string().required("Campo Obrigatório"),
-    duration: yup.string().required("Campo Obrigatório"),
-    state: yup.string().required("Campo Obrigatório"),
-    city: yup.string().required("Campo Obrigatório"),
-    combo: yup.string().required("Campo Obrigatório"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmitFunction = (data) => {
-    console.log(data);
-  };
-
   return (
     <>
       <Header />
@@ -73,92 +65,32 @@ export const EventsPage = () => {
           onRequestClose={handleCloseModal}
           style={customStyles}
         >
-          <ModalEditUserProfile handleCloseModal={handleCloseModal} />
+          <ModalEditUserProfile
+            id={id}
+            token={token}
+            user={user}
+            handleCloseModal={handleCloseModal}
+            setUser={setUser}
+          />
         </Modal>
         <div className="bodyEventPage">
-          <form className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
-            <p>Solicite um evento</p>
-            <ThemeInput
-              label="Data"
-              name="date"
-              placeholder="Digite a data do evento"
-              error={errors.date?.message}
-              register={register}
-            />
-            <ThemeInput
-              label="Horário"
-              name="time"
-              placeholder="Digite o horário do evento"
-              error={errors.time?.message}
-              register={register}
-            />
-            <ThemeInput
-              label="Duração"
-              name="duration"
-              placeholder="Digite a duração do evento"
-              error={errors.duration?.message}
-              register={register}
-            />
-
-            <ThemeSelect
-              label="Estado"
-              name="state"
-              error={errors.state?.message}
-              register={register}
-            >
-              <option value="">Selecione o estado</option>
-              <option value="AC">Acre</option>
-              <option value="AL">Alagoas</option>
-              <option value="AP">Amapá</option>
-              <option value="AM">Amazonas</option>
-              <option value="BA">Bahia</option>
-              <option value="CE">Ceará</option>
-              <option value="DF">Distrito Federal</option>
-              <option value="ES">Espírito Santo</option>
-              <option value="GO">Goiás</option>
-              <option value="MA">Maranhão</option>
-              <option value="MT">Mato Grosso</option>
-              <option value="MS">Mato Grosso do Sul</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="PA">Pará</option>
-              <option value="PB">Paraíba</option>
-              <option value="PR">Paraná</option>
-              <option value="PE">Pernambuco</option>
-              <option value="PI">Piauí</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="RN">Rio Grande do Norte</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="RO">Rondônia</option>
-              <option value="RR">Roraima</option>
-              <option value="SC">Santa Catarina</option>
-              <option value="SP">São Paulo</option>
-              <option value="SE">Sergipe</option>
-              <option value="TO">Tocantins</option>
-              <option value="EX">Estrangeiro</option>
-            </ThemeSelect>
-
-            <ThemeInput
-              label="Cidade"
-              name="city"
-              placeholder="Digite a cidade do evento"
-              error={errors.city?.message}
-              register={register}
-            />
-            <ThemeInput
-              label="Combo"
-              name="combo"
-              placeholder="Digite o combo desejado"
-              error={errors.combo?.message}
-              register={register}
-            />
-            <ThemeButton schema="var(--red-2)" large type="submit">
-              Confirmar evento
-            </ThemeButton>
-          </form>
+          <FormsEvent />
         </div>
         <div className="infoProfile">
           <div className="profile">
-            <p>Meu perfil</p>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-9BhAquXWRan3TnaL_ndnjAG0pXWkbxCkg&usqp=CAU"
+              alt="foto do usuário"
+            />
+            <div className="profileInfo">
+              <h3>Meu perfil</h3>
+              <p>Nome: {user.name}</p>
+              <p>Cidade: {user.city}</p>
+              <p>Estado: {user.state}</p>
+              <p>Contato: {user.contact}</p>
+
+              <button onClick={handleOpenModal}>Editar perfil</button>
+            </div>
           </div>
           <div className="events">
             <p>Eventos</p>

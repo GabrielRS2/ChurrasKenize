@@ -1,6 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const grey5 = "#797979";
+
+const rotate90deg = keyframes`
+from {
+    opacity: 0;
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+to{
+    opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
@@ -13,6 +24,45 @@ export const Container = styled.div`
     margin-top: 20px;
     height: 720px;
     overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px var(--white);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--white);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--white);
+    }
+  }
+
+  .cardDetail {
+    width: 250px;
+    height: 340px;
+    border: 1px solid white;
+    padding: 20px;
+    background-color: var(--grey-2);
+    border-radius: 5px;
+    animation: ${rotate90deg} 2s;
+    color: white;
+  }
+
+  .headerCardDetail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    button {
+      color: white;
+      border: none;
+      background: none;
+    }
   }
 
   .card {
@@ -56,7 +106,7 @@ export const Container = styled.div`
       h2 {
         color: var(--white);
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
       }
 
       img {
@@ -93,7 +143,17 @@ export const Container = styled.div`
       overflow-x: scroll;
       flex-wrap: unset;
       height: 300px;
-      gap: 20px;
+      gap: 40px;
+      overflow-y: hidden;
+    }
+
+    .cardDetail {
+      width: 210px;
+      height: 300px;
+      border: 1px solid white;
+      padding: 20px;
+      background-color: var(--grey-2);
+      border-radius: 5px;
     }
 
     .card {

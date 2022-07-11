@@ -18,20 +18,6 @@ export const ContainerEvent = styled.div`
     width: 100%;
   }
 
-  form {
-    display: flex;
-    gap: 12px;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    background-color: #212529;
-    border-radius: 6px;
-    padding: 20px;
-  }
-
   button {
     width: 60%;
     height: 48px;
@@ -72,6 +58,34 @@ export const ContainerEvent = styled.div`
     height: 200px;
     background-color: #212529;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    h3{
+      font-family: 14px;
+      color: white;
+    }
+    p{
+      font-size: 11px;
+    }
+    img{
+      width: 101px;
+      height: 101px;
+      border-radius: 4px;
+    }
+
+    button{
+      width: 70px;
+      height: 20px;
+    }
+
+    .profileInfo{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
   }
 
   .events {
