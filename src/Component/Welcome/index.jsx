@@ -2,13 +2,11 @@ import React from "react";
 import { Container } from "./style";
 import Logo from "../../Assets/Logo.svg";
 import { Link } from "react-router-dom";
-import { Header } from "../../Component/Header";
-import { Footer } from "../../Component/Footer";
 
 export const Welcome = () => {
   return (
     <>
-      <Header />
+      
       <Container>
         <div className="left">
           <img src={Logo} alt="logo do site" />
@@ -16,10 +14,6 @@ export const Welcome = () => {
 
         <div className="right">
           <h1>Olá, Seja Bem Vindo(a)!</h1>
-          <p>
-            Pensamos na praticidade para o seu churrasco, encontre o
-            churrasqueiro ideal e mais próximo de você!
-          </p>
           <p>
             A Churraskenzie surgiu da necessidade de facilitar a realização de
             um churrasco, sem se preocupar com a forma como vai ser feito e
@@ -34,7 +28,7 @@ export const Welcome = () => {
           </button>
         </div>
       </Container>
-      <Footer />
+      
     </>
   );
 };

@@ -144,6 +144,7 @@ export const Container = styled.div`
       flex-wrap: unset;
       height: 300px;
       gap: 40px;
+      overflow-y: hidden;
     }
 
     .cardDetail {

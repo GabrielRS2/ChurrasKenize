@@ -32,12 +32,11 @@ export const Header = () => {
         setIsLogged(false);
         localStorage.clear();
         console.log(JSON.parse(localStorage.getItem("@churraskenzie:token")));
-        console.log(user);
     }
 
     return(
         <Container isOpen={isOpen}>
-            <header>
+            <header id='top'>
                 <img src={Logo} alt="logo do site" onClick={() => history.push("/")}/>
                 <nav>
                     {isLogged ? (
