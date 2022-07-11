@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FormsEvent } from "../FormsEvent";
-import { Container } from "./styles";
+import { Container, customStyles } from "./styles";
 import Modal from "react-modal";
 
-export const CardProduct = ({ combo}) => {
+export const CardProduct = ({ combo }) => {
   const [detail, setDetail] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const comboId = combo.id;
@@ -24,57 +24,32 @@ export const CardProduct = ({ combo}) => {
     setDetail(false);
   }
 
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      background: "transparent",
-      border: "none",
-    },
-    overlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(18, 18, 20, 0.5)",
-    },
-  };
-
   return (
     <Container>
       <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
-          style={customStyles}
-        >
-          <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId}/>
-        </Modal>
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        style={customStyles}
+      >
+        <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId} />
+      </Modal>
       {detail ? (
-        <div className="cardDetail" key={combo.id} >
+        <div className="cardDetail" key={combo.id}>
           <div className="headerCardDetail">
             <h4>Detalhes</h4>
             <button onClick={detailOff}>X</button>
           </div>
           <h3>{combo.combo}</h3>
+          <p>Cidade: {combo.city}.</p>
           <p>
-            Cidade: {combo.city}.
-          </p>
-          <p>
-            Preço:{" "}
+            Preço:
             {combo.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
             .
           </p>
-          <p>
-            Atende até {combo.quantity} Pessoas.
-          </p>
+          <p>Atende até {combo.quantity} Pessoas.</p>
           <span>{combo.description}</span>
         </div>
       ) : (
@@ -86,8 +61,12 @@ export const CardProduct = ({ combo}) => {
             />
             <div>
               <p>{combo.name}</p>
-              <p>{combo.city} - {combo.state}</p>
-              <p>R$ {combo.price} - {combo.quantity} Pessoas</p>
+              <p>
+                {combo.city} - {combo.state}
+              </p>
+              <p>
+                R$ {combo.price} - {combo.quantity} Pessoas
+              </p>
             </div>
           </div>
 
@@ -97,7 +76,9 @@ export const CardProduct = ({ combo}) => {
           </div>
 
           <div className="card__button">
-            <button onClick={handleOpenModal} className="active">Solicitar Evento</button>
+            <button onClick={handleOpenModal} className="active">
+              Solicitar Evento
+            </button>
             <button onClick={detailOn} id={combo.id}>
               Detalhes
             </button>
