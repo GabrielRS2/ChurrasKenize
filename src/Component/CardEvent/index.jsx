@@ -3,31 +3,26 @@ import { BsTrash } from "react-icons/bs";
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { ApiContext } from "../../Providers/Api";
-import api from "../../Services";
 import { Container, OtherInfos, TitleAndImage } from "./styles";
+import { ApiContext } from "../../Providers/Api";
 
 export const CardEvent = ({
   event,
   setEvents,
-  events,
-  isDeleted,
-  setIsDeleted,
+  events
 }) => {
   const [combo, setCombo] = useState({});
 
   const { getComboById, deleteEvent } = useContext(ApiContext);
 
   useEffect(() => {
-    console.log(events,event)
     getComboById(event.combo, setCombo);
-  }, []);
+  }, [event]);
 
   function deleteEventHandle() {
-    console.log("listaInicial", events);
-    console.log("idConsole", event.id);
-
-    deleteEvent(event.id, events, setEvents, isDeleted, setIsDeleted);
+    const newEvents = events.filter((evento) => {return evento.id !== event.id})
+    setEvents(newEvents)
+    deleteEvent(event.id, events, setEvents);
   }
 
   return (

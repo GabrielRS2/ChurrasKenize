@@ -12,7 +12,6 @@ export const ApiProvider = ({ children }) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const { user } = useContext(UserContext);
 
   function getEvents() {
     return api
@@ -43,12 +42,9 @@ export const ApiProvider = ({ children }) => {
       .then((res) => res)
       .catch((err) => err);
   }
-  function deleteEvent(id, events, setEvents, isDeleted, setIsDeleted) {
+  function deleteEvent(id, events, setEvents) {
     return api
       .delete(`/events/${id}`, config)
-      .then((res) => {
-        setIsDeleted(!isDeleted);
-      })
       .catch((err) => err);
   }
 
