@@ -7,11 +7,12 @@ import { useContext, useEffect, useState } from 'react';
 import { MenuLateral } from "../MenuLateral/index.jsx"
 import ThemeButton from "../../Styles/ThemeButton";
 import { UserContext } from "../../Providers/User";
+import { TokenContext } from "../../Providers/Token";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
-    const [token, setToken] = useState("");
+    const { token, setToken } = useContext(TokenContext)
     const history = useHistory();
     const { user } = useContext(UserContext);
     
@@ -22,13 +23,14 @@ export const Header = () => {
         } else {
             setIsLogged(false);
         }
-    },[token])
+    },[token, setToken])
 
     function showMenu(){
         setIsOpen(!isOpen)
     }
 
     function handleLogout() {
+        setToken(false)
         setIsLogged(false);
         localStorage.clear();
         history.push("/");
