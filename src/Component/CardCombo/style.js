@@ -20,6 +20,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap: 60px;
     margin-top: 20px;
+    min-height: 50vh;
 
     ::-webkit-scrollbar {
       width: 20px;

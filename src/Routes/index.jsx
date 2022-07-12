@@ -5,7 +5,7 @@ import { EventsPage } from "../Pages/Events";
 import DashboardBbc from "../Pages/DashboardBbc";
 import { Home } from "../Pages/Home";
 import { AboutUs } from "../Pages/AboutUs";
-import { useContext, useSyncExternalStore } from "react";
+import { useContext } from "react";
 import { UserContext } from "../Providers/User";
 
 
@@ -30,10 +30,18 @@ export const Routes = () => {
         <AboutUs/>
       </Route>
       <Route exact path="/login">
-        <LoginPage />
+      {token ? (
+          <Redirect to="/"/>
+        ) : (
+          <LoginPage />
+        )}
       </Route>
       <Route exact path="/register">
-        <RegisterPage />
+      {token ? (
+          <Redirect to="/"/>
+        ) : (
+          <RegisterPage />
+        )}
       </Route>
       <Route exact path="/events">
       {token && user.category === "Consumidor" ? (

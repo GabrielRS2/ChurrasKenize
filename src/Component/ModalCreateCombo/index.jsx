@@ -15,6 +15,7 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
 
   const formSchema = yup.object().shape({
     combo: yup.string().required("Campo obrigatório"),
+    description: yup.string().required("Campo obrigatório"),
     price: yup.string().required("Campo obrigatório"),
     quantity: yup.string().required("Campo obrigatório"),
     duration: yup.string().required("Campo obrigatório"),
@@ -35,6 +36,7 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
     data["name"] = user.name
     data["city"] = user.city
     data["state"] = user.state
+    data["onwerAvatar"] = user.img
     
     api.post("/combos",data,{
       headers: {
@@ -44,13 +46,9 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
     .then((_)=>{
       handleCloseModal()
     })
+    .then((_) => toast.success('Combo criado com sucesso!'))
     .catch(error =>{
-      if(error){
-        toast.error('Falha ao criar o combo!')
-      }else{
-        toast.success('Combo criado com sucesso!')
-        
-      }
+      toast.error('Falha ao criar o combo!')
     })
    
   }
@@ -72,9 +70,17 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
       />
 
       <ThemeInput
+        label="Descrição"
+        name="description"
+        placeholder="Descreva seu combo"
+        error={errors.description?.message}
+        register={register}
+      />
+
+      <ThemeInput
         label="Preço"
         name="price"
-        placeholder="Digite seu price"
+        placeholder="Digite seu preço"
         error={errors.price?.message}
         register={register}
       />
@@ -90,14 +96,14 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
       <ThemeInput
         label="Duração"
         name="duration"
-        placeholder="Digite a duração"
+        placeholder="Digite a duração em horas"
         type="text"
         error={errors.duration?.message}
         register={register}
       />
 
         <ThemeInput
-        label="Avatar"
+        label="Url da foto"
         name="img"
         placeholder="Digite a url da imagem"
         type="text"

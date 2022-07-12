@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormsEvent } from "../FormsEvent";
 import { Container, customStyles } from "./styles";
 import Modal from "react-modal";
+import userEvent from "@testing-library/user-event";
 
 export const CardProduct = ({ combo }) => {
   const [detail, setDetail] = useState(false);
@@ -56,8 +57,8 @@ export const CardProduct = ({ combo }) => {
         <div className="card" key={combo.id}>
           <div className="card__info">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-9BhAquXWRan3TnaL_ndnjAG0pXWkbxCkg&usqp=CAU"
-              alt="foto do usuário"
+              src={combo.onwerAvatar}
+              alt="Avatar do churrasqueiro"
             />
             <div>
               <p>{combo.name}</p>
