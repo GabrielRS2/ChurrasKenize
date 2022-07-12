@@ -16,7 +16,7 @@ export const Schedule = () => {
       <div>
         {schedule.map((event) => (
           event.isEvent ? (
-          <div className="scheduleEvent">  
+          <div className="scheduleEvent" key={event.id}>  
             <p>Data: {event.data}</p>
             <p>Horário: {event.time}</p>
           </div>
