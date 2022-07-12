@@ -4,7 +4,7 @@ import api from "../Services";
 export const ApiContext = createContext([]);
 
 export const ApiProvider = ({ children }) => {
-  const token = localStorage.getItem("@churraskenzie:token");
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -17,7 +17,7 @@ export const ApiProvider = ({ children }) => {
       .then((res) => res)
       .catch((err) => err);
   }
-  
+
   function getEventsByUser(id) {
     return api
       .get(`/events?userId=${id}`)
@@ -44,6 +44,16 @@ export const ApiProvider = ({ children }) => {
       .then((res) => res)
       .catch((err) => err);
   }
+
+  function getComboById(id, setCombo) {
+    api
+      .get(`/combos?id=${id}`)
+      .then((res) => {
+        setCombo(res.data[0]);
+      })
+      .catch((err) => err);
+  }
+
   function createCombo(data) {
     return api
       .post("/combos", data, config)
@@ -63,10 +73,13 @@ export const ApiProvider = ({ children }) => {
       .catch((err) => err);
   }
 
-  function getUser(id) {
-    return api
-      .get(`/users/${id}`)
-      .then((res) => res)
+  function getUser(id, setUser) {
+    console.log(config);
+    api
+      .get(`/users?id=${id}`, config)
+      .then((res) => {
+        setUser(res.data[0]);
+      })
       .catch((err) => err);
   }
   function loginUser(data) {
@@ -90,6 +103,7 @@ export const ApiProvider = ({ children }) => {
         createEvent,
         patchEvent,
         deleteEvent,
+        getComboById,
         createCombo,
         patchCombo,
         deleteCombo,
