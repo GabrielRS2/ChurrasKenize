@@ -11,12 +11,16 @@ import { UserContext } from "../../Providers/User";
 import api from "../../Services";
 import ThemeButton from "../../Styles/ThemeButton";
 import { Container, ContentContainer } from "./style";
-import Modal from 'react-modal'
+import Modal from "react-modal";
+import { EventListItem } from "../../Component/EventsListItem";
 
 function DashboardBbc() {
   const [combos, setCombos] = useState([]);
+  const [combosId, setCombosId] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [eventsBbc, setEventsBbc] = useState([]);
   const { user } = useContext(UserContext);
-  
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
@@ -49,40 +53,62 @@ function DashboardBbc() {
   };
 
   useEffect(() => {
-    api.get(`/combos?userId=${user.id}`).then((res) => setCombos(res.data));
-  }, []);
+    api
+      .get(`/combos?userId=${user.id}`)
+      .then((res) => setCombos(res.data))
+      .then((_) => {
+        combos.forEach((combo) => {
+          if (combosId.includes(combo.id) === false) {
+            combosId.push(combo.id);
+          }
+        });
+      });
+  }, [combos,combosId,user.id]);
 
-  console.log(combos);
-  
+  useEffect(() => {
+    api
+      .get(`/events`)
+      .then((res) => setEvents(res.data))
+      .then((_) => {
+        setEventsBbc(events.filter((event) => {
+          return combosId.includes(event.combo);
+        }))
+      });
+  }, [events,combosId]);
 
   return (
     <Container>
-       <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
-          style={customStyles}
-        >
-          <ModalCreateCombo handleCloseModal={handleCloseModal} />
-        </Modal>
-        
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        style={customStyles}
+      >
+        <ModalCreateCombo handleCloseModal={handleCloseModal} />
+      </Modal>
+
       <Header />
       <ContentContainer>
         <main>
           <div className="eventListBbc">
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
-              <CardBbc />
+              <ul className="OrdersList">
+                {eventsBbc?.map((event, index) => {
+                  return <EventListItem key={index} event={event} />;
+                })}
+              </ul>
             </div>
           </div>
           <div className="eventListBbc">
             <div className="headerComboList">
               <h2>Combos</h2>
-              <ThemeButton schema="#000000" handleClick={handleOpenModal}>Criar Combo</ThemeButton>
-            
+              <ThemeButton schema="#000000" handleClick={handleOpenModal}>
+                Criar Combo
+              </ThemeButton>
             </div>
             <ul className="ComboList">
               {combos?.map((combo) => {
-                  return <ComboListItem key={combo.id} combo={combo} />
+                return <ComboListItem key={combo.id} combo={combo} />;
               })}
             </ul>
           </div>
