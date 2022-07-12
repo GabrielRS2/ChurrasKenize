@@ -2,18 +2,16 @@ import { FaEdit } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { Container } from "./style";
 import api from "../../Services";
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../Providers/User";
 import { toast } from "react-toastify";
-import Modal from 'react-modal'
-import {ModalEditCombo} from '../ModalEditCombo/index'
+import Modal from "react-modal";
+import { ModalEditCombo } from "../ModalEditCombo/index";
 
-export const ComboListItem = ({combo}) => {
-  const { user } = useContext(UserContext)
-  const id = user.id
-  const token = JSON.parse(localStorage.getItem('@churraskenzie:token'))
+export const ComboListItem = ({ combo }) => {
+  const { user } = useContext(UserContext);
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
 
-   
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
@@ -45,38 +43,38 @@ export const ComboListItem = ({combo}) => {
     },
   };
 
-  function deleteCombo(){
-    api.delete(`/combos/${id}`,{
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-    .then(resp=>{
-      console.log(resp);
-    })
-    .catch(error =>{
-      if(error){
-        toast.error('Falha ao deletar combo!')
-      }else{
-        toast.success('Combo deletado com sucesso!')
-      }
-    })
+  function deleteCombo() {
+    api
+      .delete(`/combos/${combo.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        toast.success("Combo deletado com sucesso!");
+      })
+      .catch((error) => {
+        toast.error("Falha ao deletar combo!");
+      });
   }
-
 
   return (
     <Container>
       <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
-          style={customStyles}
-        >
-          <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        style={customStyles}
+      >
+        <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
       </Modal>
       <p>{combo.combo}</p>
       <p>{combo.price}</p>
-      <button onClick={handleOpenModal}><FaEdit/></button>
-      <button onClick={deleteCombo}><BsTrash/></button>
+      <button onClick={handleOpenModal}>
+        <FaEdit />
+      </button>
+      <button onClick={deleteCombo}>
+        <BsTrash />
+      </button>
     </Container>
-  )
-}
+  );
+};
