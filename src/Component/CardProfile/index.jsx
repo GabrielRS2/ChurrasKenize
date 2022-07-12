@@ -52,7 +52,7 @@ function CardProfile() {
         <div className="left_info">
           {user.category === "Churrasqueiro" && <p>★★★☆☆</p>}
           <figure>
-            <img src="#" alt="foto" />
+            <img src={user.img} alt="foto" />
           </figure>
         </div>
         <div className="right_info">

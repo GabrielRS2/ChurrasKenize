@@ -8,9 +8,13 @@ export const Container = styled.div`
   font-weight: 600;
   padding: 10px 0;
 
-  .left_info figure {
-    border: 2px solid var(--grey-4);
+  img {
     border-radius: 16px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .left_info figure {
     text-align: center;
     width: 100px;
     height: 100px;

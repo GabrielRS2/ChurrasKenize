@@ -6,7 +6,6 @@ import Modal from "react-modal";
 import { ModalEditUserProfile } from "../ModalEditUserProfile";
 
 function CardProfileBbc() {
-
   const { user } = useContext(UserContext);
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -41,21 +40,19 @@ function CardProfileBbc() {
 
   return (
     <ContainerAll>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
-          style={customStyles}
-        >
-          <ModalEditUserProfile handleCloseModal={handleCloseModal} />
-        </Modal>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        style={customStyles}
+      >
+        <ModalEditUserProfile handleCloseModal={handleCloseModal} />
+      </Modal>
       <h2>Meu perfil</h2>
       <Container>
         <div className="left_info">
-          {user.category === "Churrasqueiro" && 
-          <p>★★★☆☆</p>
-          }
+          {user.category === "Churrasqueiro" && <p>★★★☆☆</p>}
           <figure>
-            <img src="#" alt="foto" />
+            <img src={user.img} alt="foto" />
           </figure>
         </div>
         <div className="right_info">
@@ -63,7 +60,9 @@ function CardProfileBbc() {
           <p>Cidade: {user.city}</p>
           <p>Estado: {user.state}</p>
           <p>Contato: {user.contact}</p>
-          <button className="edit_profile_button" onClick={handleOpenModal}>Editar</button>
+          <button className="edit_profile_button" onClick={handleOpenModal}>
+            Editar
+          </button>
         </div>
       </Container>
     </ContainerAll>

@@ -29,6 +29,7 @@ export const FormsRegister = () => {
     state: yup.string().required("Campo Obrigatório"),
     contact: yup.string().required("Campo Obrigatório"),
     category: yup.string().required("Campo Obrigatório"),
+    img: yup.string().required("Campo Obrigatório"),
   });
 
   const {
@@ -146,6 +147,14 @@ export const FormsRegister = () => {
         <option value={"Churrasqueiro"}>Churrasqueiro</option>
         <option value={"Consumidor"}>Consumidor</option>
       </ThemeSelect>
+
+      <ThemeInput
+        label="Escolha sua foto"
+        name="img"
+        placeholder="Coloque  url da imagem aqui"
+        error={errors.img?.message}
+        register={register}
+      />
 
       <ThemeButton schema="var(--red-2)" large type="submit">
         Cadastrar
