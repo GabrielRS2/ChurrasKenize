@@ -20,8 +20,6 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap: 60px;
     margin-top: 20px;
-    height: 720px;
-    overflow-y: scroll;
 
     ::-webkit-scrollbar {
       width: 20px;

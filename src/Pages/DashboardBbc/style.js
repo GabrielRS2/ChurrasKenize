@@ -67,7 +67,7 @@ export const ContentContainer = styled.div`
     justify-content: center;
 
     .eventListBbc {
-      width: 30vw;
+      width: 50vw;
       max-width: 50vw;
     }
   }

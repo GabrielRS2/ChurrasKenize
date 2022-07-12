@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: var(--grey-3);
   width: 90%;
-  height: 650px;
+  min-height: 650px;
   border-radius: 14px;
-
-  overflow-y: scroll;
 
   display: flex;
   align-items: center;
