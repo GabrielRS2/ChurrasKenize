@@ -57,7 +57,6 @@ export const ComboListItem = ({ combo }) => {
         toast.error("Falha ao deletar combo!");
       });
   }
-
   return (
     <Container>
       <Modal
@@ -67,14 +66,18 @@ export const ComboListItem = ({ combo }) => {
       >
         <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
       </Modal>
+      <img src={combo.img} alt="combo image"/>
       <p>{combo.combo}</p>
-      <p>{combo.price}</p>
+      <p>R${combo.price}</p>
+      
+      <div className="buttonsComboCard">
       <button onClick={handleOpenModal}>
         <FaEdit />
       </button>
       <button onClick={deleteCombo}>
         <BsTrash />
       </button>
+      </div>
     </Container>
   );
 };
