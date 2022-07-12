@@ -53,33 +53,31 @@ function DashboardBbc() {
     },
   };
 
-  useEffect(() => {
-    api
+  async function getCombosUser() {
+    await api
       .get(`/combos?userId=${user.id}`)
-      .then((res) => setCombos(res.data))
-      .then((_) => {
-        combos.forEach((combo) => {
-          if (combosId.includes(combo.id) === false) {
-            combosId.push(combo.id);
-          }
-        });
+      .then((res) => {
+        res.data.forEach((combo) => {
+          combosId.push(combo.id)
+        })
+        setCombos(res.data)
       });
-  }, [combos,combosId,user.id]);
+  }
+
+  async function getEventsUser() {
+    await api
+    .get("/events", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => setEvents(res.data));
+  }
 
   useEffect(() => {
-      api
-      .get("/events", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => setEvents(res.data))
-      .then((_) => {
-        setEventsBbc(events.filter((event) => {
-          return combosId.includes(event.combo);
-        }))
-      });
-  }, [events,combosId,token]);
+    getCombosUser()
+    getEventsUser()
+  }, []);
 
   return (
     <Container>
@@ -90,7 +88,6 @@ function DashboardBbc() {
       >
         <ModalCreateCombo handleCloseModal={handleCloseModal} />
       </Modal>
-
       <Header />
       <ContentContainer>
         <main>
@@ -98,7 +95,7 @@ function DashboardBbc() {
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
               <ul className="OrdersList">
-                {eventsBbc?.map((event, index) => {
+                {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
                   return <EventListItem key={index} event={event} />;
                 })}
               </ul>
