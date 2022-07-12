@@ -1,18 +1,14 @@
 import { FaEdit } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { Container } from "./style";
-import api from "../../Services";
-import { useContext, useState } from "react";
-import { UserContext } from "../../Providers/User";
-import { toast } from "react-toastify";
 import Modal from "react-modal";
 import { ModalEditCombo } from "../ModalEditCombo/index";
+import { ModalDeleteCombo } from '../ModalDeleteCombo/index'
+import { useState } from "react";
 
 export const ComboListItem = ({ combo }) => {
-  const { user } = useContext(UserContext);
-  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
-
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalDeleteCombo, setDeleteCombo] = useState(false);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -20,6 +16,14 @@ export const ComboListItem = ({ combo }) => {
 
   function handleCloseModal() {
     setIsOpen(false);
+  }
+
+  function handleOpenDeleteModal() {
+    setDeleteCombo(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setDeleteCombo(false);
   }
 
   const customStyles = {
@@ -42,21 +46,6 @@ export const ComboListItem = ({ combo }) => {
       backgroundColor: "rgba(18, 18, 20, 0.5)",
     },
   };
-
-  function deleteCombo() {
-    api
-      .delete(`/combos/${combo.id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((resp) => {
-        toast.success("Combo deletado com sucesso!");
-      })
-      .catch((error) => {
-        toast.error("Falha ao deletar combo!");
-      });
-  }
   
   return (
     <Container>
@@ -67,6 +56,15 @@ export const ComboListItem = ({ combo }) => {
       >
         <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
       </Modal>
+
+      <Modal
+        isOpen={modalDeleteCombo}
+        onRequestClose={handleCloseDeleteModal}
+        style={customStyles}
+      >
+        <ModalDeleteCombo handleCloseDeleteModal={handleCloseDeleteModal} combo={combo}/>
+      </Modal>
+
       <img src={combo.img} alt="combo image"/>
       <p>{combo.combo}</p>
       <p>R${combo.price}</p>
@@ -75,7 +73,7 @@ export const ComboListItem = ({ combo }) => {
       <button onClick={handleOpenModal}>
         <FaEdit />
       </button>
-      <button onClick={deleteCombo}>
+      <button onClick={handleOpenDeleteModal}>
         <BsTrash />
       </button>
       </div>
