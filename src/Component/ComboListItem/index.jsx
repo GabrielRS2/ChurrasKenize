@@ -73,7 +73,7 @@ export const ComboListItem = ({combo}) => {
         >
           <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
       </Modal>
-      <p>{combo.name}</p>
+      <p>{combo.combo}</p>
       <p>{combo.price}</p>
       <button onClick={handleOpenModal}><FaEdit/></button>
       <button onClick={deleteCombo}><BsTrash/></button>
