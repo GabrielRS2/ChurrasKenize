@@ -47,9 +47,15 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
       .then((_) => handleCloseModal());
   };
 
+  function handleLogout() {
+    localStorage.clear();
+    handleCloseModal();
+    history.push("/login");
+  }
+
   return (
     <Container className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
-      {token ? (
+      {token && user.category !== "Churrasqueiro" ? (
         <>
           <div className="headerModal">
             <p>Solicite um evento</p>
@@ -106,18 +112,37 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
         </>
       ) : (
         <div className="validationLogin">
-          <p>
-            É necessario estar logado para solicitar um evento. Deseja fazer o
-            login?
-          </p>
-          <div className="validationButtons">
-            <ThemeButton schema="var(--red-2)" handleClick={goToLoginPage}>
-              Sim
-            </ThemeButton>
-            <ThemeButton schema="var(--red-2)" handleClick={handleCloseModal}>
-              Não
-            </ThemeButton>
-          </div>
+          {token ? (
+          <>
+            <p>
+              É necessario estar logado como consumidor para solicitar um evento. Deseja fazer o
+              logout?
+            </p>
+              <div className="validationButtons">
+              <ThemeButton schema="var(--red-2)" handleClick={handleLogout}>
+                Sim
+              </ThemeButton>
+              <ThemeButton schema="var(--red-2)" handleClick={handleCloseModal}>
+                Não
+              </ThemeButton>
+            </div>
+          </>
+          ) : (
+          <>
+            <p>
+              É necessario estar logado para solicitar um evento. Deseja fazer o
+              login?
+            </p>
+            <div className="validationButtons">
+              <ThemeButton schema="var(--red-2)" handleClick={goToLoginPage}>
+                Sim
+              </ThemeButton>
+              <ThemeButton schema="var(--red-2)" handleClick={handleCloseModal}>
+                Não
+              </ThemeButton>
+            </div>
+          </>
+          )}
         </div>
       )}
     </Container>

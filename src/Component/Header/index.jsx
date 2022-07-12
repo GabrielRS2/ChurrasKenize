@@ -31,7 +31,6 @@ export const Header = () => {
     function handleLogout() {
         setIsLogged(false);
         localStorage.clear();
-        console.log(JSON.parse(localStorage.getItem("@churraskenzie:token")));
         history.push("/");
     }
 
