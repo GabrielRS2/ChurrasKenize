@@ -55,35 +55,31 @@ function DashboardBbc() {
     },
   };
 
-  useEffect(() => {
-    api
+  async function getCombosUser() {
+    await api
       .get(`/combos?userId=${user.id}`)
-      .then((res) => setCombos(res.data))
-      .then((_) => {
-        combos.forEach((combo) => {
-          if (combosId.includes(combo.id) === false) {
-            combosId.push(combo.id);
-          }
-        });
+      .then((res) => {
+        res.data.forEach((combo) => {
+          combosId.push(combo.id)
+        })
+        setCombos(res.data)
       });
-  }, [combos, combosId, user.id]);
+  }
+
+  async function getEventsUser() {
+    await api
+    .get("/events", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => setEvents(res.data));
+  }
 
   useEffect(() => {
-    api
-      .get("/events", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => setEvents(res.data))
-      .then((_) => {
-        setEventsBbc(
-          events.filter((event) => {
-            return combosId.includes(event.combo);
-          })
-        );
-      });
-  }, [events, combosId, token]);
+    getCombosUser()
+    getEventsUser()
+  }, []);
 
   return (
     <Container>
@@ -92,9 +88,8 @@ function DashboardBbc() {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <ModalCreateCombo handleCloseModal={handleCloseModal} />
+        <ModalCreateCombo handleCloseModal={handleCloseModal} combos={combos} setCombos={setCombos}/>
       </Modal>
-
       <Header />
       <ContentContainer>
         <main>
@@ -102,9 +97,11 @@ function DashboardBbc() {
           <div className="eventListBbc">
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
-              {eventsBbc?.map((event, index) => {
-                return <CardEvent key={index} event={event} />;
-              })}
+              <ul className="OrdersList">
+                {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
+                  return <EventListItem key={index} event={event} />;
+                })}
+              </ul>
             </div>
           </div>
           <div className="eventComboBbc">
@@ -116,7 +113,7 @@ function DashboardBbc() {
             </div>
             <ul className="ComboList">
               {combos?.map((combo) => {
-                return <ComboListItem key={combo.id} combo={combo} />;
+                return <ComboListItem key={combo.id} combo={combo} combos={combos} setCombos={setCombos}/>;
               })}
             </ul>
           </div>

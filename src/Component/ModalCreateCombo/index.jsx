@@ -10,7 +10,7 @@ import { UserContext } from "../../Providers/User";
 import api from "../../Services";
 
 
-export const ModalCreateCombo = ({ handleCloseModal }) => {
+export const ModalCreateCombo = ({ handleCloseModal, setCombos }) => {
   const { user } = useContext(UserContext);
 
   const formSchema = yup.object().shape({
@@ -46,7 +46,11 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
     .then((_)=>{
       handleCloseModal()
     })
-    .then((_) => toast.success('Combo criado com sucesso!'))
+    .then((res) => {
+      api.get(`/combos?userId=${user.id}`)
+      .then((res) => setCombos(res.data)) 
+      toast.success('Combo criado com sucesso!')
+    })
     .catch(error =>{
       toast.error('Falha ao criar o combo!')
     })
