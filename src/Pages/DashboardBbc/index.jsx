@@ -99,7 +99,7 @@ function DashboardBbc() {
               <h2>Pedidos Recebidos</h2>
               <ul className="OrdersList">
                 {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
-                  return <EventListItem key={index} event={event} />;
+                  return <CardEvent key={index} event={event} />;
                 })}
               </ul>
             </div>

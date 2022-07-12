@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: var(--grey-2);
   height: fit-content;
-  width: 90%;
+  width: 100%;
   border-radius: 8px;
 
   display: flex;

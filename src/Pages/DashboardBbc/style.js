@@ -36,6 +36,15 @@ export const ContentContainer = styled.div`
     gap: 20px;
   }
 
+  .OrdersList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+  }
+
   .eventListBbc,
   .eventComboBbc {
     display: flex;
@@ -76,6 +85,7 @@ export const ContentContainer = styled.div`
     .eventListBbc,
     .eventComboBbc {
       width: 100%;
+      min-width: 50vw;
     }
   }
 `;
