@@ -6,6 +6,12 @@ export const Container = styled.div`
   background-color: #810c0c;
   color: var(--white);
 
+  .ComboList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   @media(min-width: 768px) {
     min-width: 0px;
   }
@@ -58,10 +64,10 @@ export const ContentContainer = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 10px;
-
+    margin-bottom: 20px;
     width: 100%;
   }
-
+  
   @media(min-width: 768px) {
     flex-direction: row;
     justify-content: center;
