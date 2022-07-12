@@ -3,22 +3,25 @@ import api from "../../Services";
 import ThemeButton from "../../Styles/ThemeButton";
 import { Container } from './style';
 
-export const ModalDeleteCombo = ({ handleCloseDeleteModal, combo}) => {
+export const ModalDeleteCombo = ({ handleCloseDeleteModal, combo, combos, setCombos}) => {
     const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
 
     function deleteCombo() {
-        api
-          .delete(`/combos/${combo.id}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((_) => {
-            toast.success("Combo deletado com sucesso!");
-          })
-          .catch((error) => {
-            toast.error("Falha ao deletar combo!");
-          });
+      api
+      .delete(`/combos/${combo.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        handleCloseDeleteModal()
+        setCombos(combos.filter((item) => {return item.id !== combo.id}))
+        toast.success("Combo deletado com sucesso!");
+      })
+      .catch((error) => {
+        console.log(combo);
+        toast.error("Falha ao deletar combo!");
+      });
     }
 
   return (

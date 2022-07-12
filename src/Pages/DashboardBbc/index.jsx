@@ -86,7 +86,7 @@ function DashboardBbc() {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <ModalCreateCombo handleCloseModal={handleCloseModal} />
+        <ModalCreateCombo handleCloseModal={handleCloseModal} combos={combos} setCombos={setCombos}/>
       </Modal>
       <Header />
       <ContentContainer>
@@ -110,7 +110,7 @@ function DashboardBbc() {
             </div>
             <ul className="ComboList">
               {combos?.map((combo) => {
-                return <ComboListItem key={combo.id} combo={combo} />;
+                return <ComboListItem key={combo.id} combo={combo} combos={combos} setCombos={setCombos}/>;
               })}
             </ul>
           </div>

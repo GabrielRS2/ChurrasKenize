@@ -6,7 +6,7 @@ import { ModalEditCombo } from "../ModalEditCombo/index";
 import { ModalDeleteCombo } from '../ModalDeleteCombo/index'
 import { useState } from "react";
 
-export const ComboListItem = ({ combo }) => {
+export const ComboListItem = ({ combo, combos, setCombos }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalDeleteCombo, setDeleteCombo] = useState(false);
 
@@ -62,7 +62,7 @@ export const ComboListItem = ({ combo }) => {
         onRequestClose={handleCloseDeleteModal}
         style={customStyles}
       >
-        <ModalDeleteCombo handleCloseDeleteModal={handleCloseDeleteModal} combo={combo}/>
+        <ModalDeleteCombo handleCloseDeleteModal={handleCloseDeleteModal} combo={combo} combos={combos} setCombos={setCombos}/>
       </Modal>
 
       <img src={combo.img} alt="combo image"/>
