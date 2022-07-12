@@ -57,6 +57,7 @@ export const ComboListItem = ({ combo }) => {
         toast.error("Falha ao deletar combo!");
       });
   }
+  
   return (
     <Container>
       <Modal
