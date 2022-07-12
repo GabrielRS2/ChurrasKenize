@@ -46,7 +46,7 @@ export const ComboListItem = ({ combo }) => {
       backgroundColor: "rgba(18, 18, 20, 0.5)",
     },
   };
- 
+  
   return (
     <Container>
       <Modal

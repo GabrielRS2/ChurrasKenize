@@ -80,8 +80,8 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
             error={errors.time?.message}
             register={register}
           >
-            <option value="day">Diurno</option>
-            <option value="nigth">Noturno</option>
+            <option value="Diurno">Diurno</option>
+            <option value="Noturno">Noturno</option>
           </ThemeSelect>
           <ThemeInput
             label="Bairro"

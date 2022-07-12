@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { createContext } from "react";
 import api from "../Services";
+import { UserContext } from "./User";
 
 export const ApiContext = createContext([]);
 
@@ -18,10 +20,12 @@ export const ApiProvider = ({ children }) => {
       .catch((err) => err);
   }
 
-  function getEventsByUser(id) {
-    return api
-      .get(`/events?userId=${id}`)
-      .then((res) => res)
+  function getEventsByUser(id, setEvents) {
+    api
+      .get(`/events?userId=${id}`, config)
+      .then((res) => {
+        setEvents(res.data);
+      })
       .catch((err) => err);
   }
 
@@ -38,10 +42,9 @@ export const ApiProvider = ({ children }) => {
       .then((res) => res)
       .catch((err) => err);
   }
-  function deleteEvent(data, id) {
+  function deleteEvent(id, events, setEvents) {
     return api
       .delete(`/events/${id}`, config)
-      .then((res) => res)
       .catch((err) => err);
   }
 
