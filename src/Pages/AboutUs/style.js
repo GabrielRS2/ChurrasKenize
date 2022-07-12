@@ -126,7 +126,7 @@ export const Container = styled.div`
     }
     
     .slick-dots li button:before{
-        color: var(--grey-6);
+        color: #ffffff;
         
     }  
     

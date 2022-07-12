@@ -16,6 +16,7 @@ export const Container = styled.div`
     width: 75%;
     border-radius: 5px;
     padding: 20px;
+    padding-bottom: 40px;
 
     min-width: 700px;
 
