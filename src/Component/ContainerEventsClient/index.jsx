@@ -7,29 +7,31 @@ import { Container, StyledTitles } from "./style";
 
 export const ContainerEventsClient = () => {
   const [events, setEvents] = useState([]);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const { user } = useContext(UserContext);
+  const { getEventsByUser } = useContext(ApiContext);
 
   useEffect(() => {
-    api
-      .get(`/events?userId=${user.id}`)
-      .then((res) => {
-        setEvents(res.data);
-      })
-      .catch((err) => err);
-  }, []);
+    getEventsByUser(user.id, setEvents);
+    // .then(setIsDeleted);
+  }, [isDeleted]);
 
   return (
     <Container>
       <h2>Eventos Marcados</h2>
-      <StyledTitles>
-        <h3>Combo</h3>
-        <h3>Preço</h3>
-        <h3>Início</h3>
-        <h3>Pessoas</h3>
-      </StyledTitles>
+
       {events?.map((event, i) => {
-        return <CardEvent key={i} event={event} />;
+        return (
+          <CardEvent
+            key={i}
+            event={event}
+            events={events}
+            setEvents={setEvents}
+            isDeleted={isDeleted}
+            setIsDeleted={setIsDeleted}
+          />
+        );
       })}
     </Container>
   );

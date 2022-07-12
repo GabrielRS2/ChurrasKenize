@@ -8,6 +8,10 @@ export const Container = styled.div`
   font-weight: 600;
   padding: 10px 0;
 
+  p {
+    color: var(--white);
+  }
+
   img {
     border-radius: 16px;
     width: 100px;

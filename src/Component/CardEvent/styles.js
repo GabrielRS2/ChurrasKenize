@@ -13,8 +13,18 @@ export const Container = styled.div`
   padding: 10px;
   align-items: center;
 
-  @media screen and (max-width: 500px) {
+  .deleteIcon {
+    margin: 5px 20px;
+    background-color: transparent;
+  }
+
+  @media screen and (max-width: 600px) {
     flex-direction: column;
+    gap: 25px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+    flex-direction: row;
   }
 `;
 export const TitleAndImage = styled.div`
@@ -23,8 +33,7 @@ export const TitleAndImage = styled.div`
   align-items: center;
   text-align: center;
   gap: 12px;
-  width: 25%;
-
+  width: fit-content;
   img {
     width: 100px;
     height: 100px;
@@ -36,6 +45,33 @@ export const TitleAndImage = styled.div`
     img {
       width: 170px;
       height: 170px;
+    }
+  }
+`;
+
+export const OtherInfos = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+    flex-direction: column;
+    gap: 15px;
+    text-align: flex-start;
+    margin-left: 25px;
+
+    .infoTitle {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    gap: 5px;
+    div {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
     }
   }
 `;
