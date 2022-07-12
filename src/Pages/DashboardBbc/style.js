@@ -6,13 +6,13 @@ export const Container = styled.div`
   background-color: #810c0c;
   color: var(--white);
 
-  .ComboList{
+  .ComboList {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     min-width: 0px;
   }
 `;
@@ -36,7 +36,8 @@ export const ContentContainer = styled.div`
     gap: 20px;
   }
 
-  .eventListBbc {
+  .eventListBbc,
+  .eventComboBbc {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -67,14 +68,14 @@ export const ContentContainer = styled.div`
     margin-bottom: 20px;
     width: 100%;
   }
-  
-  @media(min-width: 768px) {
+
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
 
-    .eventListBbc {
-      width: 50vw;
-      max-width: 50vw;
+    .eventListBbc,
+    .eventComboBbc {
+      width: 100%;
     }
   }
 `;

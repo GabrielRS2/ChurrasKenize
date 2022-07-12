@@ -1,3 +1,5 @@
+
+
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -18,12 +20,12 @@ export const Container = styled.div`
     background-color: transparent;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 666px) {
     flex-direction: column;
     gap: 25px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1000px) {
+  @media screen and (min-width: 768px) and (max-width: 1100px) {
     flex-direction: row;
   }
 `;
@@ -37,14 +39,15 @@ export const TitleAndImage = styled.div`
   img {
     width: 100px;
     height: 100px;
+    border-radius: 8px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     width: 60%;
 
     img {
-      width: 170px;
-      height: 170px;
+      width: 150px;
+      height: 150px;
     }
   }
 `;
@@ -54,7 +57,7 @@ export const OtherInfos = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) and (max-width: 1000px) {
+  @media screen and (min-width: 768px) and (max-width: 1100px) {
     flex-direction: column;
     gap: 15px;
     text-align: flex-start;
@@ -65,7 +68,7 @@ export const OtherInfos = styled.div`
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 5px;
     div {

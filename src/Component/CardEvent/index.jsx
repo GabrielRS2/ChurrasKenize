@@ -1,3 +1,4 @@
+
 import { BsTrash } from "react-icons/bs";
 
 import React, { useContext } from "react";
@@ -6,11 +7,7 @@ import { useEffect } from "react";
 import { Container, OtherInfos, TitleAndImage } from "./styles";
 import { ApiContext } from "../../Providers/Api";
 
-export const CardEvent = ({
-  event,
-  setEvents,
-  events
-}) => {
+export const CardEvent = ({ event, setEvents, events }) => {
   const [combo, setCombo] = useState({});
 
   const { getComboById, deleteEvent } = useContext(ApiContext);
@@ -20,15 +17,17 @@ export const CardEvent = ({
   }, [event]);
 
   function deleteEventHandle() {
-    const newEvents = events.filter((evento) => {return evento.id !== event.id})
-    setEvents(newEvents)
+    const newEvents = events.filter((evento) => {
+      return evento.id !== event.id;
+    });
+    setEvents(newEvents);
     deleteEvent(event.id, events, setEvents);
   }
 
   return (
     <Container>
       <TitleAndImage>
-        <h3>{combo?.name}</h3>
+        <h3>{combo?.combo}</h3>
         <img src={combo?.img} alt="" />
       </TitleAndImage>
       <OtherInfos>
@@ -37,8 +36,10 @@ export const CardEvent = ({
           <h3 className="dark">R${combo?.price}</h3>
         </div>
         <div>
-          <p className="infoTitle">Periodo:</p>
-          <h3>{event.time}</h3>
+          <p className="infoTitle">Dia:</p>
+          <h3>
+            {event.date} - {event.time}
+          </h3>
         </div>
         <div>
           <p className="infoTitle">Quantidade:</p>

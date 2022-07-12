@@ -13,6 +13,8 @@ import ThemeButton from "../../Styles/ThemeButton";
 import { Container, ContentContainer } from "./style";
 import Modal from "react-modal";
 import { EventListItem } from "../../Component/EventsListItem";
+import CardEvent from "../../Component/CardEvent";
+import { ContainerEventsBbc } from "../../Component/ContainerEventsBbc";
 
 function DashboardBbc() {
   const [combos, setCombos] = useState([]);
@@ -91,6 +93,7 @@ function DashboardBbc() {
       <Header />
       <ContentContainer>
         <main>
+          {/* <ContainerEventsBbc /> */}
           <div className="eventListBbc">
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
@@ -101,7 +104,7 @@ function DashboardBbc() {
               </ul>
             </div>
           </div>
-          <div className="eventListBbc">
+          <div className="eventComboBbc">
             <div className="headerComboList">
               <h2>Combos</h2>
               <ThemeButton schema="#000000" handleClick={handleOpenModal}>
