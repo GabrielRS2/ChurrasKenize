@@ -12,17 +12,17 @@ export const CardEvent = ({ event }) => {
 
   useEffect(() => {
     getComboById(event.combo, setCombo);
-  }, []);
+  }, [event.combo]);
 
   return (
     <Container>
       <TitleAndImage>
-        <h3>{combo.name}</h3>
-        <img src={combo.img} alt="" />
+        <h3>{combo?.name}</h3>
+        <img src={combo?.img} alt="" />
       </TitleAndImage>
-      <p className="dark">R${combo.price}</p>
+      <p className="dark">R${combo?.price}</p>
       <p>{event.time}h</p>
-      <p>Até {combo.quantity} pessoas.</p>
+      <p>Até {combo?.quantity} pessoas.</p>
     </Container>
   );
 };
