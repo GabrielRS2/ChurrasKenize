@@ -7,12 +7,13 @@ import { Home } from "../Pages/Home";
 import { AboutUs } from "../Pages/AboutUs";
 import { useContext } from "react";
 import { UserContext } from "../Providers/User";
+import { TokenContext } from "../Providers/Token";
 
 
 export const Routes = () => {
 
-  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
-  const { user } = useContext(UserContext)
+  const { token } = useContext(TokenContext);
+  const { user } = useContext(UserContext);
 
   return (
     <Switch>

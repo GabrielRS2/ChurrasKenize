@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ApiProvider } from "./Providers/Api";
-import { BbcProvider } from "./Providers/Bbc";
+import { TokenProvider } from "./Providers/Token";
 import { UserProvider } from "./Providers/User";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -11,11 +11,11 @@ root.render(
   <React.StrictMode>
     <ApiProvider>
       <UserProvider>
-        <BbcProvider>
+        <TokenProvider>
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </BbcProvider>
+        </TokenProvider>
       </UserProvider>
     </ApiProvider>
   </React.StrictMode>
