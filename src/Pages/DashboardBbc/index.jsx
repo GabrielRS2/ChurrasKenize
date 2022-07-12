@@ -20,6 +20,7 @@ function DashboardBbc() {
   const [events, setEvents] = useState([]);
   const [eventsBbc, setEventsBbc] = useState([]);
   const { user } = useContext(UserContext);
+  const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -66,15 +67,19 @@ function DashboardBbc() {
   }, [combos,combosId,user.id]);
 
   useEffect(() => {
-    api
-      .get(`/events`)
+      api
+      .get("/events", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => setEvents(res.data))
       .then((_) => {
         setEventsBbc(events.filter((event) => {
           return combosId.includes(event.combo);
         }))
       });
-  }, [events,combosId]);
+  }, [events,combosId,token]);
 
   return (
     <Container>
