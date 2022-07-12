@@ -13,6 +13,8 @@ import ThemeButton from "../../Styles/ThemeButton";
 import { Container, ContentContainer } from "./style";
 import Modal from "react-modal";
 import { EventListItem } from "../../Component/EventsListItem";
+import CardEvent from "../../Component/CardEvent";
+import { ContainerEventsBbc } from "../../Component/ContainerEventsBbc";
 
 function DashboardBbc() {
   const [combos, setCombos] = useState([]);
@@ -64,10 +66,10 @@ function DashboardBbc() {
           }
         });
       });
-  }, [combos,combosId,user.id]);
+  }, [combos, combosId, user.id]);
 
   useEffect(() => {
-      api
+    api
       .get("/events", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -75,11 +77,13 @@ function DashboardBbc() {
       })
       .then((res) => setEvents(res.data))
       .then((_) => {
-        setEventsBbc(events.filter((event) => {
-          return combosId.includes(event.combo);
-        }))
+        setEventsBbc(
+          events.filter((event) => {
+            return combosId.includes(event.combo);
+          })
+        );
       });
-  }, [events,combosId,token]);
+  }, [events, combosId, token]);
 
   return (
     <Container>
@@ -94,17 +98,16 @@ function DashboardBbc() {
       <Header />
       <ContentContainer>
         <main>
+          {/* <ContainerEventsBbc /> */}
           <div className="eventListBbc">
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
-              <ul className="OrdersList">
-                {eventsBbc?.map((event, index) => {
-                  return <EventListItem key={index} event={event} />;
-                })}
-              </ul>
+              {eventsBbc?.map((event, index) => {
+                return <CardEvent key={index} event={event} />;
+              })}
             </div>
           </div>
-          <div className="eventListBbc">
+          <div className="eventComboBbc">
             <div className="headerComboList">
               <h2>Combos</h2>
               <ThemeButton schema="#000000" handleClick={handleOpenModal}>
