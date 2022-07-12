@@ -94,16 +94,6 @@ function DashboardBbc() {
       <ContentContainer>
         <main>
           {/* <ContainerEventsBbc /> */}
-          <div className="eventListBbc">
-            <div className="headerEventList">
-              <h2>Pedidos Recebidos</h2>
-              <ul className="OrdersList">
-                {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
-                  return <CardEvent key={index} event={event} />;
-                })}
-              </ul>
-            </div>
-          </div>
           <div className="eventComboBbc">
             <div className="headerComboList">
               <h2>Combos</h2>
@@ -116,6 +106,16 @@ function DashboardBbc() {
                 return <ComboListItem key={combo.id} combo={combo} combos={combos} setCombos={setCombos}/>;
               })}
             </ul>
+          </div>
+          <div className="eventListBbc">
+            <div className="headerEventList">
+              <h2>Pedidos Recebidos</h2>
+              <ul className="OrdersList">
+                {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
+                  return <CardEvent key={index} event={event} />;
+                })}
+              </ul>
+            </div>
           </div>
         </main>
         <aside className="bbc_user_info">
