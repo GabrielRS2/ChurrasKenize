@@ -35,7 +35,7 @@ export const ModalCreateCombo = ({ handleCloseModal }) => {
     data["name"] = user.name
     data["city"] = user.city
     data["state"] = user.state
-
+    
     api.post("/combos",data,{
       headers: {
         Authorization: `Bearer ${token}`,
