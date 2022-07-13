@@ -15,13 +15,14 @@ export const Container = styled.div`
 
   .icon {
     fill: var(--white);
+    margin: 10px;
   }
 
   .iconSection {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 15px;
+    gap: 5px;
     button {
       background-color: transparent;
     }

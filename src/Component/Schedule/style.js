@@ -4,14 +4,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
-  min-height: 250px;
+
+  // min-height: 250px;
+  height: fit-content;
   padding: 20px;
   padding-top: 10px;
   border-radius: 16px;
-  
+
   background-color: var(--grey-3);
-  
+
   .scheduleTitle {
     display: flex;
     align-items: center;
@@ -43,5 +44,4 @@ export const Container = styled.div`
     width: 100%;
     border: 1px solid var(--white);
   }
-
-`; 
+`;
