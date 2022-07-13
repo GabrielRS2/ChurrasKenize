@@ -88,7 +88,7 @@ export const Container = styled.div`
   }
 
   .error {
-    color: var(--red-1);;
+    color: var(--red-1);
   }
 
   span {

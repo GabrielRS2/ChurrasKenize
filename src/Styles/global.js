@@ -10,9 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Lato";
   }
   
-   html{
-      scroll-behavior: smooth;
-    }
+  html{
+    scroll-behavior: smooth;
+  }
 
   ul, ol {
     margin: 0;
@@ -29,22 +29,22 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-    ::-webkit-scrollbar {
-      width: 20px;
-      background-color: var(--grey-3);;
-    }
+  ::-webkit-scrollbar {
+    width: 20px;
+    background-color: var(--grey-3);
+  }
 
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px var(--white);
-    }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--white);
+  }
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--white);
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--white);
-    }
+  ::-webkit-scrollbar-thumb {
+    background: var(--white);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--white);
+  }
 
   :root {
     --grey-1: #D9D9D9;
@@ -54,9 +54,10 @@ export const GlobalStyle = createGlobalStyle`
     --grey-5: #797979;
     --grey-6: #1a1a1a;
     --grey-7: rgba(26, 26, 26, 0.75);
+    --grey-8: rgba(18, 18, 20, 0.5);
     --red-1: #FF0909;
     --red-2: #C73B3B;
     --red-3: #810c0c;
     --white: #F8F9FA;
-  }
+  } 
 `;

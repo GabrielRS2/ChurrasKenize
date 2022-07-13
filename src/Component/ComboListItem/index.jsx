@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import { ModalEditCombo } from "../ModalEditCombo/index";
 import { ModalDeleteCombo } from '../ModalDeleteCombo/index'
 import { useState } from "react";
+import {customStyles} from '../../Styles/CustomStyles/style'
 
 export const ComboListItem = ({ combo, combos, setCombos }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -26,26 +27,6 @@ export const ComboListItem = ({ combo, combos, setCombos }) => {
     setDeleteCombo(false);
   }
 
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      background: "transparent",
-      border: "none",
-    },
-    overlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(18, 18, 20, 0.5)",
-    },
-  };
   
   return (
     <Container>

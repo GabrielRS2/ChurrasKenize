@@ -15,7 +15,6 @@ export const Container = styled.div`
     flex-direction: row-reverse;
     justify-content: center;
     align-items: flex-start;
-
     height: max-content;
   }
 `;

@@ -6,21 +6,11 @@ import { times } from "./time.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {settings} from '../../Styles/SettingsCarousel/index'
 
 export const AboutUs = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow:1,
-    slidesToScroll: 1,
-    arrows: true,
-  };
-
-  const red = '#810C0C'
-  
   return (
-    <div style={{background: red}}>
+    <div style={{background: 'var(--red-3)'}}>
       <Header />
       <Welcome />
       <Container>

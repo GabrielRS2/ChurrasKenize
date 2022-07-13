@@ -19,7 +19,6 @@ export const ModalDeleteCombo = ({ handleCloseDeleteModal, combo, combos, setCom
         toast.success("Combo deletado com sucesso!");
       })
       .catch((error) => {
-        console.log(combo);
         toast.error("Falha ao deletar combo!");
       });
     }

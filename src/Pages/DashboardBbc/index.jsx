@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react";
-import CardBbc from "../../Component/CardBbcHeader";
 import CardProfileBbc from "../../Component/CardProfileBbc";
 import { ComboListItem } from "../../Component/ComboListItem";
 import { Footer } from "../../Component/Footer";
@@ -13,6 +12,7 @@ import ThemeButton from "../../Styles/ThemeButton";
 import { Container, ContentContainer } from "./style";
 import Modal from "react-modal";
 import CardEvent from "../../Component/CardEvent";
+import {customStyles} from '../../Styles/CustomStyles/style'
 
 function DashboardBbc() {
   const [combos, setCombos] = useState([]);
@@ -31,27 +31,6 @@ function DashboardBbc() {
   function handleCloseModal() {
     setIsOpen(false);
   }
-
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      background: "transparent",
-      border: "none",
-    },
-    overlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(18, 18, 20, 0.5)",
-    },
-  };
 
   async function getCombosUser() {
     await api.get(`/combos?userId=${user.id}`).then((res) => {

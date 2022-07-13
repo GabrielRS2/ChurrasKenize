@@ -1,14 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { ApiContext } from "../../Providers/Api";
-import { UserContext } from "../../Providers/User";
+import { useState } from "react"
 import CardEvent from "../CardEvent";
 import { Container } from "./style";
 
 export const ContainerEventsBbc = () => {
   const [events, setEvents] = useState([]);
-
-  const { user } = useContext(UserContext);
-  const { getEventsByUser } = useContext(ApiContext);
 
   return (
     <Container>

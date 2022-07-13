@@ -9,18 +9,17 @@ export const Container = styled.form`
     width: 315px;
     max-width: 300px;
     height: auto;
-    background-color: #212529;
+    background-color: var(--grey-3);
     border-radius: 6px;
     padding: 20px;
 
     .validationLogin{
-        background-color: #212529;
+        background-color: var(--grey-3);
         padding: 20px;
         display: flex;
         gap: 12px;
         flex-direction: column;
-        color: white;
-
+        color: var(--white);
     }
 
     .validationButtons{
@@ -44,11 +43,11 @@ export const Container = styled.form`
         align-items: center;
         width: 100%;
         justify-content: space-between;
-        color: white;
+        color: var(--white);
         padding: 13px;
 
         button{
-            color: white;
+            color: var(--white);
             background: none;
             border: none;
             width: 40px;

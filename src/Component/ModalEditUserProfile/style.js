@@ -23,12 +23,12 @@ form{
     width: 100%;
     padding: 0px 20px;
     justify-content: space-between;
-    color: white;
+    color: var(--white);
 }
 
 .closeModal{
     background: none;
     border: none;
-    color: white;
+    color: var(--white);
 }
 ` 
