@@ -42,12 +42,12 @@ export const Container = styled.div`
   .cardDetail {
     width: 250px;
     height: 340px;
-    border: 1px solid white;
+    border: 1px solid var(--white);
     padding: 20px;
     background-color: var(--grey-2);
     border-radius: 5px;
     animation: ${rotate90deg} 2s;
-    color: white;
+    color: var(--white);
   }
 
   .headerCardDetail {
@@ -56,7 +56,7 @@ export const Container = styled.div`
     margin-bottom: 10px;
 
     button {
-      color: white;
+      color: var(--white);
       border: none;
       background: none;
     }
@@ -65,7 +65,7 @@ export const Container = styled.div`
   .card {
     width: 250px;
     height: 340px;
-    border: 1px solid white;
+    border: 1px solid var(--white);
     padding: 20px;
     background-color: var(--grey-2);
     border-radius: 5px;
@@ -117,8 +117,8 @@ export const Container = styled.div`
   .card__button {
     display: flex;
     gap: 20px;
-
     margin-top: 10px;
+
     .active {
       background-color: var(--grey-3);
       border-radius: 5px;
@@ -149,7 +149,7 @@ export const Container = styled.div`
     .cardDetail {
       width: 210px;
       height: 300px;
-      border: 1px solid white;
+      border: 1px solid var(--white);
       padding: 20px;
       background-color: var(--grey-2);
       border-radius: 5px;
@@ -158,7 +158,7 @@ export const Container = styled.div`
     .card {
       width: 210px;
       height: 320px;
-      border: 1px solid white;
+      border: 1px solid var(--white);
       padding: 20px;
       background-color: var(--grey-2);
       border-radius: 5px;

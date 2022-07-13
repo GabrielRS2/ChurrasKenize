@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FormsEvent } from "../FormsEvent";
-import { Container, customStyles } from "./styles";
+import { Container} from "./styles";
 import Modal from "react-modal";
+import { customStyles } from '../../Styles/CustomStyles/style'
 
 export const CardProduct = ({ combo }) => {
   const [detail, setDetail] = useState(false);
@@ -31,7 +32,11 @@ export const CardProduct = ({ combo }) => {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId} onwerId={combo.userId}/>
+        <FormsEvent
+          handleCloseModal={handleCloseModal}
+          comboId={comboId}
+          onwerId={combo.userId}
+        />
       </Modal>
       {detail ? (
         <div className="cardDetail" key={combo.id}>
@@ -55,10 +60,7 @@ export const CardProduct = ({ combo }) => {
       ) : (
         <div className="card" key={combo.id}>
           <div className="card__info">
-            <img
-              src={combo.onwerAvatar}
-              alt="Avatar do churrasqueiro"
-            />
+            <img src={combo.onwerAvatar} alt="Avatar do churrasqueiro" />
             <div>
               <p>{combo.name}</p>
               <p>
@@ -88,4 +90,3 @@ export const CardProduct = ({ combo }) => {
     </Container>
   );
 };
-

@@ -1,4 +1,4 @@
-import { BsTrash } from "react-icons/bs";
+import { BsTrash, BsInfoCircleFill } from "react-icons/bs";
 
 import React, { useContext } from "react";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { Container, OtherInfos, TitleAndImage } from "./styles";
 import { ApiContext } from "../../Providers/Api";
 import api from "../../Services";
 import { TokenContext } from "../../Providers/Token";
+import { DetailEvent } from "../DetailEvent";
 
 export const CardEvent = ({
   event,
@@ -16,6 +17,7 @@ export const CardEvent = ({
   setSchedule,
 }) => {
   const [combo, setCombo] = useState({});
+  const [detail, setDetail] = useState(false);
 
   const { getComboById, deleteEvent } = useContext(ApiContext);
 
@@ -31,6 +33,7 @@ export const CardEvent = ({
     const newEvents = events.filter((evento) => {
       return evento.id !== event.id;
     });
+
     const newSchedule = [
       ...schedule.filter((item) => {
         return item.id !== +event.scheduleId;
@@ -41,9 +44,8 @@ export const CardEvent = ({
         isEvent: false,
         userId: event.comboOnwer,
         id: +event.scheduleId,
-      },
-    ];
-    console.log(newSchedule);
+      }];
+      
     setEvents(newEvents);
     deleteEvent(event.id, events, setEvents);
     api
@@ -57,31 +59,52 @@ export const CardEvent = ({
       });
   }
 
+  function detailOn() {
+    setDetail(true);
+  }
+
+  function detailOff() {
+    setDetail(false);
+  }
+
   return (
     <Container>
-      <TitleAndImage>
-        <h3>{combo?.combo}</h3>
-        <img src={combo?.img} alt="" />
-      </TitleAndImage>
-      <OtherInfos>
-        <div>
-          <p className="infoTitle">Preço:</p>
-          <h3 className="dark">R${combo?.price}</h3>
-        </div>
-        <div>
-          <p className="infoTitle">Dia:</p>
-          <h3>
-            {event.date} - {event.time}
-          </h3>
-        </div>
-        <div>
-          <p className="infoTitle">Quantidade:</p>
-          <h3>Até {combo?.quantity} pessoas.</h3>
-        </div>
-      </OtherInfos>
-      <button className="deleteIcon" onClick={deleteEventHandle}>
-        <BsTrash className="icon" />
-      </button>
+
+      {detail ? (
+        <DetailEvent event={event} detailOff={detailOff} />
+      ) : (
+        <>
+          <TitleAndImage>
+            <h3>{combo?.combo}</h3>
+            <img src={combo?.img} alt="" />
+          </TitleAndImage>
+          <OtherInfos>
+            <div>
+              <p className="infoTitle">Preço:</p>
+              <h3 className="dark">R${combo?.price}</h3>
+            </div>
+            <div>
+              <p className="infoTitle">Dia:</p>
+              <h3>
+                {event.date} - {event.time}
+              </h3>
+            </div>
+            <div>
+              <p className="infoTitle">Quantidade:</p>
+              <h3>Até {combo?.quantity} pessoas.</h3>
+            </div>
+          </OtherInfos>
+          <div className="iconSection">
+            <button className="icon" onClick={deleteEventHandle}>
+              <BsTrash />
+            </button>
+            <button className="icon" onClick={detailOn} id={combo.id}>
+              <BsInfoCircleFill />
+            </button>
+          </div>
+        </>
+      )}
+
     </Container>
   );
 };

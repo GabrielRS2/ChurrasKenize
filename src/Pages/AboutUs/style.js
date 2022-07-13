@@ -105,7 +105,7 @@ export const Container = styled.div`
     
     .slick-list{
         border-radius: 15px;
-        background: white;
+        background: var(--white);
     }
     
     .slick-next{
@@ -126,7 +126,7 @@ export const Container = styled.div`
     }
     
     .slick-dots li button:before{
-        color: #ffffff;
+        color: var(--white);
         
     }  
     

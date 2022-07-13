@@ -13,8 +13,9 @@ export const Container = styled.div`
   padding: 10px;
   align-items: center;
 
-  .deleteIcon {
-    margin: 5px 20px;
+  .icon {
+    margin: 5px 10px 0 10px;
+    color: var(--white);
     background-color: transparent;
   }
 
@@ -22,9 +23,20 @@ export const Container = styled.div`
     fill: var(--white);
   }
 
+  .iconSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   @media screen and (max-width: 666px) {
     flex-direction: column;
     gap: 25px;
+
+    .iconSection {
+      flex-direction: row;
+      gap: 100px;
+    }
   }
 
   @media screen and (min-width: 768px) and (max-width: 1100px) {
@@ -38,6 +50,7 @@ export const TitleAndImage = styled.div`
   text-align: center;
   gap: 12px;
   width: fit-content;
+
   img {
     width: 100px;
     height: 100px;
@@ -55,9 +68,13 @@ export const TitleAndImage = styled.div`
 `;
 
 export const OtherInfos = styled.div`
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
+
+  h3 {
+    font-size: 16px;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1100px) {
     flex-direction: column;
@@ -73,6 +90,7 @@ export const OtherInfos = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 5px;
+    
     div {
       display: flex;
       flex-direction: row;

@@ -6,6 +6,7 @@ export const Container = styled.div`
     width: 100%;
     align-items: center;
     padding: 10px;
+    
     button{
         height: 30px;
         width: 30px;

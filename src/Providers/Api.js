@@ -1,8 +1,5 @@
-import { useContext } from "react";
 import { createContext } from "react";
 import api from "../Services";
-import { UserContext } from "./User";
-
 export const ApiContext = createContext([]);
 
 export const ApiProvider = ({ children }) => {
@@ -77,7 +74,6 @@ export const ApiProvider = ({ children }) => {
   }
 
   function getUser(id, setUser) {
-    console.log(config);
     api
       .get(`/users?id=${id}`, config)
       .then((res) => {

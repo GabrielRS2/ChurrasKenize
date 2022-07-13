@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   font-family: "Poppins", sans-serif;
   display: none;
-  background-color: #212529;
+  background-color: var(--grey-3);
 
   .link {
     color: var(--black);
@@ -23,7 +23,7 @@ export const Container = styled.div`
     }
     
     ul {
-    display: flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;

@@ -9,17 +9,17 @@ export const Container = styled.div`
   width: 315px;
   max-width: 300px;
   height: auto;
-  background-color: #212529;
+  background-color: var(--grey-3);
   border-radius: 6px;
   padding: 20px;
 
   .validationLogin {
-    background-color: #212529;
+    background-color: var(--grey-3);
     padding: 20px;
     display: flex;
     gap: 12px;
     flex-direction: column;
-    color: white;
+    color: var(--white);
   }
 
   .validationButtons {
