@@ -62,14 +62,12 @@ export const Container = styled.div`
 
   p {
     color: var(--white);
-    font-family: "Poppins", sans-serif;
     font-size: 22px;
   }
 
   a,
   label {
     color: var(--white);
-    font-family: "Poppins", sans-serif;
     font-size: 11px;
   }
 
@@ -92,7 +90,6 @@ export const Container = styled.div`
   }
 
   span {
-    font-family: "Poppins", sans-serif;
     font-size: 11px;
     color: var(--grey-4);
   }

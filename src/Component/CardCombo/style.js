@@ -12,8 +12,6 @@ const rotate90deg = keyframes`
   `;
 
 export const Container = styled.div`
-  font-family: "Poppins", sans-serif;
-
   .card__container {
     display: flex;
     justify-content: center;
