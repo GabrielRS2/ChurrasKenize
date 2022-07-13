@@ -1,63 +1,31 @@
 import { BsTrash, BsInfoCircleFill } from "react-icons/bs";
-
+import Modal from "react-modal";
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Container, OtherInfos, TitleAndImage } from "./styles";
 import { ApiContext } from "../../Providers/Api";
-import api from "../../Services";
-import { TokenContext } from "../../Providers/Token";
 import { DetailEvent } from "../DetailEvent";
+import { customStyles } from "../../Styles/CustomStyles/style";
+import { ModalDeleteEvent } from "../ModalDeleteEvent";
 
 export const CardEvent = ({
   event,
   setEvents,
   events,
   schedule,
-  setSchedule,
+  setSchedule
 }) => {
   const [combo, setCombo] = useState({});
   const [detail, setDetail] = useState(false);
+  const [modalDeleteEvent, setDeleteEvent] = useState(false);
 
-  const { getComboById, deleteEvent } = useContext(ApiContext);
+  const { getComboById } = useContext(ApiContext);
 
-  const isEventSchedule = { userId: event.comboOnwer, isEvent: false };
-
-  const { token } = useContext(TokenContext);
 
   useEffect(() => {
     getComboById(event.combo, setCombo);
   }, [event]);
-
-  function deleteEventHandle() {
-    const newEvents = events.filter((evento) => {
-      return evento.id !== event.id;
-    });
-
-    const newSchedule = [
-      ...schedule.filter((item) => {
-        return item.id !== +event.scheduleId;
-      }),
-      {
-        date: event.date,
-        period: event.time,
-        isEvent: false,
-        userId: event.comboOnwer,
-        id: +event.scheduleId,
-      }];
-      
-    setEvents(newEvents);
-    deleteEvent(event.id, events, setEvents);
-    api
-      .patch(`/schedule/${event.scheduleId}`, isEventSchedule, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((_) => {
-        schedule.length > 0 && setSchedule(newSchedule);
-      });
-  }
 
   function detailOn() {
     setDetail(true);
@@ -67,8 +35,23 @@ export const CardEvent = ({
     setDetail(false);
   }
 
+  function handleOpenDeleteModal() {
+    setDeleteEvent(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setDeleteEvent(false);
+  }
+
   return (
     <Container>
+      <Modal
+        isOpen={modalDeleteEvent}
+        onRequestClose={handleCloseDeleteModal}
+        style={customStyles}
+      >
+        <ModalDeleteEvent handleCloseDeleteModal={handleCloseDeleteModal} setSchedule={setSchedule} event={event} setEvents={setEvents} events={events} schedule={schedule}/>
+      </Modal>
 
       {detail ? (
         <DetailEvent event={event} detailOff={detailOff} />
@@ -95,7 +78,7 @@ export const CardEvent = ({
             </div>
           </OtherInfos>
           <div className="iconSection">
-            <button  onClick={deleteEventHandle}>
+            <button  onClick={handleOpenDeleteModal}>
               <BsTrash className="icon" />
             </button>
             <button  onClick={detailOn} id={combo.id}>

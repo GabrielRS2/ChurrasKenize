@@ -26,7 +26,6 @@ export const ComboListItem = ({ combo, combos, setCombos }) => {
   function handleCloseDeleteModal() {
     setDeleteCombo(false);
   }
-
   
   return (
     <Container>
