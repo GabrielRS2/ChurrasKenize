@@ -6,11 +6,17 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Container, OtherInfos, TitleAndImage } from "./styles";
 import { ApiContext } from "../../Providers/Api";
+import api from "../../Services";
+import { TokenContext } from "../../Providers/Token";
 
 export const CardEvent = ({ event, setEvents, events }) => {
   const [combo, setCombo] = useState({});
 
   const { getComboById, deleteEvent } = useContext(ApiContext);
+
+  const isEventSchedule = {userId: event.comboOnwer, isEvent: false};
+
+  const { token } = useContext(TokenContext)
 
   useEffect(() => {
     getComboById(event.combo, setCombo);
@@ -22,6 +28,11 @@ export const CardEvent = ({ event, setEvents, events }) => {
     });
     setEvents(newEvents);
     deleteEvent(event.id, events, setEvents);
+    api.patch(`/schedule/${event.scheduleId}`, isEventSchedule, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
   }
 
   return (

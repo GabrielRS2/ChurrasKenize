@@ -9,19 +9,21 @@ import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import api from "../../Services";
+import { useEffect } from "react";
+import { useState } from "react";
 
-export const FormsEvent = ({ handleCloseModal, comboId }) => {
+export const FormsEvent = ({ handleCloseModal, comboId, onwerId }) => {
   const { user } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
   const history = useHistory();
+  const [ schedule, setSchedule ] = useState([])
 
   function goToLoginPage() {
     history.push("/login");
   }
 
   const schema = yup.object().shape({
-    date: yup.string().required("Campo Obrigatório"),
-    time: yup.string().required("Campo Obrigatório"),
+    schedule: yup.string().required("Campo Obrigatório"),
     neighbours: yup.string().required("Campo Obrigatório"),
     street: yup.string().required("Campo Obrigatório"),
     numberLocal: yup.string().required("Campo Obrigatório"),
@@ -38,6 +40,16 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
   const onSubmitFunction = (data) => {
     data["combo"] = comboId;
     data["userId"] = user.id;
+    const date = data.schedule.split(",")
+    data["date"] = date[0];
+    data["time"] = date[1];
+    data["comboOnwer"] = onwerId;
+    data["scheduleId"] = date[2]
+
+    const isEventSchedule = {userId: onwerId, isEvent: true}
+
+    console.log(date);
+    console.log(data);
     api
       .post("/events", data, {
         headers: {
@@ -45,6 +57,11 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
         },
       })
       .then((_) => handleCloseModal());
+    api.patch(`/schedule/${date[2]}`, isEventSchedule, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
   };
 
   function handleLogout() {
@@ -52,6 +69,16 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
     handleCloseModal();
     history.push("/login");
   }
+
+  useEffect(() => {
+    api
+    .get(`/schedule?userId=${onwerId}`,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    .then((res) => setSchedule(res.data))
+  })
 
   return (
     <Container className="eventForm" onSubmit={handleSubmit(onSubmitFunction)}>
@@ -64,25 +91,18 @@ export const FormsEvent = ({ handleCloseModal, comboId }) => {
 
           <ThemeSelect
             label="Data"
-            name="date"
+            name="schedule"
             type="text"
-            error={errors.date?.message}
+            error={errors.schedule?.message}
             register={register}
           >
-            <option value="10/10/2022">10/10/2022</option>
-            <option value="11/10/2022">11/10/2022</option>
-            {/* Criar lógica para receber as datas */}
+            <option>Seleione uma data</option>
+          {schedule.map((date) => {return !date.isEvent &&
+            (<option value={[date.date, date.period, date.id]}>{date.date} - {date.period}</option>)
+          })}
+            
           </ThemeSelect>
 
-          <ThemeSelect
-            label="Horário"
-            name="time"
-            error={errors.time?.message}
-            register={register}
-          >
-            <option value="Diurno">Diurno</option>
-            <option value="Noturno">Noturno</option>
-          </ThemeSelect>
           <ThemeInput
             label="Bairro"
             name="neighbours"
