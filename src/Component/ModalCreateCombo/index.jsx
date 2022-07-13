@@ -49,12 +49,11 @@ export const ModalCreateCombo = ({ handleCloseModal, setCombos }) => {
     .then((res) => {
       api.get(`/combos?userId=${user.id}`)
       .then((res) => setCombos(res.data)) 
-      toast.success('Combo criado com sucesso!')
+      toast('✔️ Combo criado com sucesso!', {className: "toastify-color-progress-success"})
     })
-    .catch(error =>{
-      toast.error('Falha ao criar o combo!')
+    .catch((error) =>{
+      toast('❌ Falha ao criar o combo!', {className: "toastify-color-progress-error"})
     })
-   
   }
 
   return (

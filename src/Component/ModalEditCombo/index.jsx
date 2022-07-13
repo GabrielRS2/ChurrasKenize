@@ -53,10 +53,10 @@ export const ModalEditCombo = ({ handleCloseModal, combo, combos, setCombos}) =>
         .then((_)=>{
           handleCloseModal();
           setNewComboList({...data, id: combo.id})
-          toast.success('Combo editado com sucesso!');
+          toast('✔️ Combo editado com sucesso!', {className: "toastify-color-progress-success"})
         })
         .catch((error) =>{
-            toast.error('Falha ao editar o combo!');
+          toast('❌ Falha ao editar o combo!', {className: "toastify-color-progress-error"})
         })
       }
 

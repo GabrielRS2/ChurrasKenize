@@ -27,7 +27,7 @@ export const Container = styled.div`
       white-space: nowrap;
       width: 180px;
     }
-    
+
 }
 `
 export const customStyles = {
