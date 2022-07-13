@@ -23,7 +23,7 @@ export const times = [
     funcao: "QA",
     linkedin:
       "https://www.linkedin.com/in/leonardo-carnot-85ab29163/?originalSubdomain=br",
-    github: "https://github.com/danieljosias?tab=repositories",
+    github: "https://github.com/leonardocarnot?tab=repositories",
   },
   {
     id: "4",
@@ -39,7 +39,7 @@ export const times = [
     name: "Micaías Silva",
     funcao: "Product Owner",
     linkedin: "https://www.linkedin.com/in/daniel-josias-99482a208/",
-    github: "https://github.com/danieljosias?tab=repositories",
+    github: "https://github.com/micaias-silva?tab=repositories",
   },
   {
     id: "6",
@@ -47,6 +47,6 @@ export const times = [
     name: "Silvestre Daufenbach",
     funcao: "QA",
     linkedin: "https://www.linkedin.com/in/daniel-josias-99482a208/",
-    github: "https://github.com/danieljosias?tab=repositories",
+    github: "https://github.com/silvestrejunior?tab=repositories",
   },
 ];
