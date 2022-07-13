@@ -9,9 +9,8 @@ import { TokenContext } from "../../Providers/Token";
 import { UserContext } from "../../Providers/User";
 import { BsFillCalendar2CheckFill, BsFillCalendar2XFill } from 'react-icons/bs';
 
-export const Schedule = () => {
+export const Schedule = ({ schedule, setSchedule }) => {
   
-  const [ schedule, setSchedule ] = useState([]);
   const { token } = useContext(TokenContext);
   const { user } = useContext(UserContext)
 

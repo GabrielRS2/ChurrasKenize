@@ -48,8 +48,6 @@ export const FormsEvent = ({ handleCloseModal, comboId, onwerId }) => {
 
     const isEventSchedule = {userId: onwerId, isEvent: true}
 
-    console.log(date);
-    console.log(data);
     api
       .post("/events", data, {
         headers: {
