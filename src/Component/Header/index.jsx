@@ -8,6 +8,7 @@ import { MenuLateral } from "../MenuLateral/index.jsx"
 import ThemeButton from "../../Styles/ThemeButton";
 import { UserContext } from "../../Providers/User";
 import { TokenContext } from "../../Providers/Token";
+import {toast} from 'react-toastify'
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +35,7 @@ export const Header = () => {
         setIsLogged(false);
         localStorage.clear();
         history.push("/");
+        toast.success('Usuário deslogado com sucesso!')
     }
 
     return(

@@ -1,4 +1,3 @@
-import { TitleAndImage } from "../CardEvent/styles";
 import { Container } from "./style";
 
 export const DetailEvent = ({ event, detailOff }) => {
