@@ -9,7 +9,6 @@ export const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
     font-size: 11px;
     
     button{

@@ -9,7 +9,6 @@ export const Container = styled.div`
   padding: 20px 20px;
 
   background-color: var(--red-3);
-  font-family: "Poppins";
 
   @media (min-width: 768px) {
     flex-direction: row-reverse;
