@@ -30,8 +30,8 @@ export const Container = styled.div`
     border: none;
     border-radius: 8px;
 
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--grey-4);
+    color: var(--white);
   }
 
   .scheduleEvent {
@@ -41,7 +41,7 @@ export const Container = styled.div`
 
     padding: 2px 5px;
     width: 100%;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--white);
   }
 
 `; 
