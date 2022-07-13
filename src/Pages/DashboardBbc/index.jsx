@@ -56,29 +56,27 @@ function DashboardBbc() {
   };
 
   async function getCombosUser() {
-    await api
-      .get(`/combos?userId=${user.id}`)
-      .then((res) => {
-        res.data.forEach((combo) => {
-          combosId.push(combo.id)
-        })
-        setCombos(res.data)
+    await api.get(`/combos?userId=${user.id}`).then((res) => {
+      res.data.forEach((combo) => {
+        combosId.push(combo.id);
       });
+      setCombos(res.data);
+    });
   }
 
   async function getEventsUser() {
     await api
-    .get("/events", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => setEvents(res.data));
+      .get("/events", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => setEvents(res.data));
   }
 
   useEffect(() => {
-    getCombosUser()
-    getEventsUser()
+    getCombosUser();
+    getEventsUser();
   }, []);
 
   return (
@@ -88,7 +86,11 @@ function DashboardBbc() {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <ModalCreateCombo handleCloseModal={handleCloseModal} combos={combos} setCombos={setCombos}/>
+        <ModalCreateCombo
+          handleCloseModal={handleCloseModal}
+          combos={combos}
+          setCombos={setCombos}
+        />
       </Modal>
       <Header />
       <ContentContainer>
@@ -103,7 +105,14 @@ function DashboardBbc() {
             </div>
             <ul className="ComboList">
               {combos?.map((combo) => {
-                return <ComboListItem key={combo.id} combo={combo} combos={combos} setCombos={setCombos}/>;
+                return (
+                  <ComboListItem
+                    key={combo.id}
+                    combo={combo}
+                    combos={combos}
+                    setCombos={setCombos}
+                  />
+                );
               })}
             </ul>
           </div>
@@ -111,9 +120,20 @@ function DashboardBbc() {
             <div className="headerEventList">
               <h2>Pedidos Recebidos</h2>
               <ul className="OrdersList">
-                {events?.filter((event) => {return combosId.includes(event.combo)}).map((event, index) => {
-                  return <CardEvent key={index} event={event} />;
-                })}
+                {events
+                  ?.filter((event) => {
+                    return combosId.includes(event.combo);
+                  })
+                  .map((event, index) => {
+                    return (
+                      <CardEvent
+                        key={index}
+                        event={event}
+                        events={events}
+                        setEvents={setEvents}
+                      />
+                    );
+                  })}
               </ul>
             </div>
           </div>

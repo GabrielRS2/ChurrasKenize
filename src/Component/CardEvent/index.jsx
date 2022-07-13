@@ -1,4 +1,3 @@
-
 import { BsTrash } from "react-icons/bs";
 
 import React, { useContext } from "react";
@@ -14,9 +13,9 @@ export const CardEvent = ({ event, setEvents, events }) => {
 
   const { getComboById, deleteEvent } = useContext(ApiContext);
 
-  const isEventSchedule = {userId: event.comboOnwer, isEvent: false};
+  const isEventSchedule = { userId: event.comboOnwer, isEvent: false };
 
-  const { token } = useContext(TokenContext)
+  const { token } = useContext(TokenContext);
 
   useEffect(() => {
     getComboById(event.combo, setCombo);
@@ -32,7 +31,7 @@ export const CardEvent = ({ event, setEvents, events }) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
+    });
   }
 
   return (
