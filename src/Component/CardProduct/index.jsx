@@ -71,7 +71,7 @@ export const CardProduct = ({ combo }) => {
           </div>
 
           <div className="card__combo">
-            <h2>{combo.combo}</h2>
+            <h2 className="comboName">{combo.combo}</h2>
             <img src={combo.img} alt="foto do card" />
           </div>
 
