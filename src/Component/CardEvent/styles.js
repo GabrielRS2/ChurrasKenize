@@ -14,12 +14,6 @@ export const Container = styled.div`
   align-items: center;
 
   .icon {
-    margin: 5px 10px 0 10px;
-    color: var(--white);
-    background-color: transparent;
-  }
-
-  .icon {
     fill: var(--white);
   }
 
@@ -27,6 +21,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: 15px;
+    button {
+      background-color: transparent;
+    }
   }
 
   @media screen and (max-width: 666px) {
@@ -90,7 +88,7 @@ export const OtherInfos = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 5px;
-    
+
     div {
       display: flex;
       flex-direction: row;

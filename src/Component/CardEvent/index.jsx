@@ -95,11 +95,11 @@ export const CardEvent = ({
             </div>
           </OtherInfos>
           <div className="iconSection">
-            <button className="icon" onClick={deleteEventHandle}>
-              <BsTrash />
+            <button  onClick={deleteEventHandle}>
+              <BsTrash className="icon" />
             </button>
-            <button className="icon" onClick={detailOn} id={combo.id}>
-              <BsInfoCircleFill />
+            <button  onClick={detailOn} id={combo.id}>
+              <BsInfoCircleFill className="icon" />
             </button>
           </div>
         </>
