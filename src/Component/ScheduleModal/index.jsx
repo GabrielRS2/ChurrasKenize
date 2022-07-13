@@ -24,8 +24,7 @@ export const ScheduleModal = ({ handleCloseModal, setSchedule }) => {
     resolver: yupResolver(formSchema),
   });
   
-  const {user, setUser} = useContext(UserContext)
-  const {name,state,city,contact} = user;
+  const {user} = useContext(UserContext)
   const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
   
   const onSubmitFunction = (data) => {

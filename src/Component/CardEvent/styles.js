@@ -46,6 +46,7 @@ export const TitleAndImage = styled.div`
   text-align: center;
   gap: 12px;
   width: fit-content;
+
   img {
     width: 100px;
     height: 100px;
@@ -85,6 +86,7 @@ export const OtherInfos = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 5px;
+    
     div {
       display: flex;
       flex-direction: row;

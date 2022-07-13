@@ -42,7 +42,7 @@ export const FormsRegister = () => {
 
   const onSubmitFunction = async (data) => {
     const res = await createUser(data);
-    console.log(res);
+
     if (res.name !== "AxiosError") {
       history.push("/login");
     } else {

@@ -12,7 +12,6 @@ export const ContainerEventsClient = () => {
 
   useEffect(() => {
     getEventsByUser(user.id, setEvents);
-    // .then(setIsDeleted);
   }, []);
 
   return (

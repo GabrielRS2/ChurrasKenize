@@ -1,6 +1,5 @@
 import Background from "./../../Assets/Login-image.svg";
 import { Container } from "./style";
-
 import { FormsRegister } from "../../Component/FormsRegister";
 import { Logo } from "../../Component/Logo";
 

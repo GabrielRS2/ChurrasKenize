@@ -37,7 +37,7 @@ export const CardEvent = ({ event, setEvents, events, schedule, setSchedule }) =
       "userId": event.comboOnwer,
       "id": +event.scheduleId
     }]
-    console.log(newSchedule);
+
     setEvents(newEvents);
     deleteEvent(event.id, events, setEvents);
     api.patch(`/schedule/${event.scheduleId}`, isEventSchedule, {

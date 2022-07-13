@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FormsEvent } from "../FormsEvent";
-import { Container, customStyles } from "./styles";
+import { Container} from "./styles";
 import Modal from "react-modal";
+import { customStyles } from '../../Styles/CustomStyles/style'
 
 export const CardProduct = ({ combo }) => {
   const [detail, setDetail] = useState(false);
