@@ -9,7 +9,13 @@ import api from "../../Services";
 import { TokenContext } from "../../Providers/Token";
 import { DetailEvent } from "../DetailEvent";
 
-export const CardEvent = ({ event, setEvents, events, schedule, setSchedule }) => {
+export const CardEvent = ({
+  event,
+  setEvents,
+  events,
+  schedule,
+  setSchedule,
+}) => {
   const [combo, setCombo] = useState({});
   const [detail, setDetail] = useState(false);
 
@@ -27,27 +33,30 @@ export const CardEvent = ({ event, setEvents, events, schedule, setSchedule }) =
     const newEvents = events.filter((evento) => {
       return evento.id !== event.id;
     });
-    const newSchedule = [...schedule.filter((item) => {
-      return item.id !== +event.scheduleId
-    }),
-    {
-      "date": event.date,
-      "period": event.time,
-      "isEvent": false,
-      "userId": event.comboOnwer,
-      "id": +event.scheduleId
-    }]
 
+    const newSchedule = [
+      ...schedule.filter((item) => {
+        return item.id !== +event.scheduleId;
+      }),
+      {
+        date: event.date,
+        period: event.time,
+        isEvent: false,
+        userId: event.comboOnwer,
+        id: +event.scheduleId,
+      }];
+      
     setEvents(newEvents);
     deleteEvent(event.id, events, setEvents);
-    api.patch(`/schedule/${event.scheduleId}`, isEventSchedule, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((_) => {
-      schedule.length > 0 && setSchedule(newSchedule)
-    })
+    api
+      .patch(`/schedule/${event.scheduleId}`, isEventSchedule, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        schedule.length > 0 && setSchedule(newSchedule);
+      });
   }
 
   function detailOn() {
@@ -60,6 +69,7 @@ export const CardEvent = ({ event, setEvents, events, schedule, setSchedule }) =
 
   return (
     <Container>
+
       {detail ? (
         <DetailEvent event={event} detailOff={detailOff} />
       ) : (
@@ -94,6 +104,7 @@ export const CardEvent = ({ event, setEvents, events, schedule, setSchedule }) =
           </div>
         </>
       )}
+
     </Container>
   );
 };

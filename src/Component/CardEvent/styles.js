@@ -19,6 +19,10 @@ export const Container = styled.div`
     background-color: transparent;
   }
 
+  .icon {
+    fill: var(--white);
+  }
+
   .iconSection {
     display: flex;
     flex-direction: column;
