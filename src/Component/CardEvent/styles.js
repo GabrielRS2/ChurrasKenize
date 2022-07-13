@@ -21,6 +21,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin: 0 5px 0 5px;
     gap: 15px;
     button {
       background-color: transparent;
