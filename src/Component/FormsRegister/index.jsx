@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 export const FormsRegister = () => {
   const history = useHistory();
-
   const { createUser } = useContext(ApiContext);
 
   const schema = yup.object().shape({
@@ -45,6 +44,7 @@ export const FormsRegister = () => {
 
     if (res.name !== "AxiosError") {
       history.push("/login");
+      toast.success('Cadastro bem sucedido!')
     } else {
       toast('❌ Email já existente', {className: "toastify-color-progress-error"})
     }

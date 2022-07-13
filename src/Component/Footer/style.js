@@ -17,9 +17,11 @@ export const Container = styled.div`
         height: 35px;
         font-size: 11px;
     }
-
+    
     button:hover{
-        color: var(--red-1);
+        color: var(--white);
+        background-color: var(--red-3);
+        transition: all ease-in-out .3s;
     }
 
     @media (max-width: 375px){

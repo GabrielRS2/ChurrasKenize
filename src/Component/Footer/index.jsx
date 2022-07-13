@@ -11,9 +11,9 @@ export const Footer = () => {
   return (
     <>
       <Container>
-        <p className="active">(xx) x xxxx - xxxx</p>
+        <p className="active">(21) 9 1234 - 5678</p>
         <p>Grupo4 Luiz © All rights reserved </p>
-        <p className="active">email@domínio.com</p>
+        <p className="active">churraskenzie@gmail.com</p>
         <button onClick={backToTop}>&uarr;</button>
       </Container>
     </>
