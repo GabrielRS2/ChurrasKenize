@@ -11,7 +11,9 @@ export const LoginPage = () => {
         <Logo />
         <FormsLogin />
       </div>
-      <img src={Login} alt="login background" className="loginImage" />
+      <div className="imgContainerLogin">
+        <img src={Login} alt="login background" className="loginImage" />
+      </div>
     </Container>
   );
 };

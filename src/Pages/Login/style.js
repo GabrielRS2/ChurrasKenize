@@ -78,6 +78,11 @@ export const Container = styled.div`
     font-size: 11px;
   }
 
+  .imgContainerLogin {
+    background-color: var(--white);
+    height: 100vh;
+  }
+
   .loginImage {
     display: none;
   }
