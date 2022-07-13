@@ -36,8 +36,8 @@ export const CardCombo = ({
   return (
     <Container>
       <div className="card__container">
-        {combos.map((combo, index) => {
-          return <CardProduct key={index} combo={combo} />;
+        {combos.map((combo) => {
+          return <CardProduct key={combo.id} combo={combo} />;
         })}
       </div>
     </Container>
