@@ -141,7 +141,7 @@ export const Container = styled.div`
       justify-content: unset;
       overflow-x: scroll;
       flex-wrap: unset;
-      height: 300px;
+      height: 350px;
       gap: 40px;
       overflow-y: hidden;
     }
@@ -157,7 +157,7 @@ export const Container = styled.div`
 
     .card {
       width: 210px;
-      height: 300px;
+      height: 320px;
       border: 1px solid white;
       padding: 20px;
       background-color: var(--grey-2);
