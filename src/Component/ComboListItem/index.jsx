@@ -46,7 +46,7 @@ export const ComboListItem = ({ combo, combos, setCombos }) => {
       </Modal>
 
       <img src={combo.img} alt="combo"/>
-      <p>{combo.combo}</p>
+      <p className="comboName">{combo.combo}</p>
       <p>R${combo.price}</p>
       
       <div className="buttonsComboCard">

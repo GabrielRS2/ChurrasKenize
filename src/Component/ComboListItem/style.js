@@ -27,4 +27,12 @@ export const Container = styled.div`
     .buttonsComboCard{
         display: flex;
     }
+
+    .comboName {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 20vw;
+    }
+
 `
