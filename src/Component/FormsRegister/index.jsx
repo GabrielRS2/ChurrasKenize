@@ -44,7 +44,9 @@ export const FormsRegister = () => {
 
     if (res.name !== "AxiosError") {
       history.push("/login");
-      toast.success('Cadastro bem sucedido!')
+      toast("✔️ Conta criada com sucesso!", {
+        className: "toastify-color-progress-success",
+      });
     } else {
       toast('❌ Email já existente', {className: "toastify-color-progress-error"})
     }

@@ -35,7 +35,9 @@ export const Header = () => {
         setIsLogged(false);
         localStorage.clear();
         history.push("/");
-        toast.success('Usuário deslogado com sucesso!')
+        toast("✔️ Logout realizado com sucesso!", {
+            className: "toastify-color-progress-success",
+        });
     }
 
     return(

@@ -45,7 +45,9 @@ export const FormsLogin=()=>{
       );
       setUser(res.data.user)
       history.push("/");
-      toast.success('Usuário logado com sucesso!')
+      toast("✔️ Usuário logado com sucesso!", {
+        className: "toastify-color-progress-success",
+      });
     } else {
       toast('❌ Usuário ou senha inválidos', {className: "toastify-color-progress-error"})
     }
