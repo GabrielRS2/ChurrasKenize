@@ -80,6 +80,7 @@ export const ModalEditCombo = ({ handleCloseModal, combo, combos, setCombos}) =>
         <ThemeInput
           label="Preço"
           name="price"
+          type="number"
           placeholder="Digite seu price"
           error={errors.price?.message}
           register={register}
@@ -88,8 +89,8 @@ export const ModalEditCombo = ({ handleCloseModal, combo, combos, setCombos}) =>
         <ThemeInput
           label="Quantidade"
           name="quantity"
+          type="number"
           placeholder="Digite a quantidade de pessoas"
-          type="text"
           error={errors.quantity?.message}
           register={register}
         />
