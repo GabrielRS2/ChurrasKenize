@@ -1,5 +1,3 @@
-
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -15,14 +13,26 @@ export const Container = styled.div`
   padding: 10px;
   align-items: center;
 
-  .deleteIcon {
-    margin: 5px 20px;
+  .icon {
+    margin: 5px 10px 0 10px;
+    color: var(--white);
     background-color: transparent;
+  }
+
+  .iconSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   @media screen and (max-width: 666px) {
     flex-direction: column;
     gap: 25px;
+
+    .iconSection {
+      flex-direction: row;
+      gap: 100px;
+    }
   }
 
   @media screen and (min-width: 768px) and (max-width: 1100px) {
@@ -53,9 +63,13 @@ export const TitleAndImage = styled.div`
 `;
 
 export const OtherInfos = styled.div`
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
+
+  h3 {
+    font-size: 16px;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1100px) {
     flex-direction: column;
