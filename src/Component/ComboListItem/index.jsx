@@ -54,7 +54,7 @@ export const ComboListItem = ({ combo, combos, setCombos }) => {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} />
+        <ModalEditCombo handleCloseModal={handleCloseModal} combo={combo} combos={combos} setCombos={setCombos}/>
       </Modal>
 
       <Modal
@@ -65,7 +65,7 @@ export const ComboListItem = ({ combo, combos, setCombos }) => {
         <ModalDeleteCombo handleCloseDeleteModal={handleCloseDeleteModal} combo={combo} combos={combos} setCombos={setCombos}/>
       </Modal>
 
-      <img src={combo.img} alt="combo image"/>
+      <img src={combo.img} alt="combo"/>
       <p>{combo.combo}</p>
       <p>R${combo.price}</p>
       

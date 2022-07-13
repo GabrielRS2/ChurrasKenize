@@ -9,7 +9,7 @@ import api from "../../Services";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 
-export const ModalEditCombo = ({ handleCloseModal, combo}) => {
+export const ModalEditCombo = ({ handleCloseModal, combo, combos, setCombos}) => {
     const { user } = useContext(UserContext)
 
     const formSchema = yup.object().shape({
@@ -28,11 +28,22 @@ export const ModalEditCombo = ({ handleCloseModal, combo}) => {
         resolver: yupResolver(formSchema),
       });
       
+      function setNewComboList(data) {
+        const newList = combos.filter((item) => {
+          return item.id !== combo.id
+        })
+        setCombos([...newList, data]);
+      }
+
       const onSubmitFunction = (data) => {
         const token = JSON.parse(localStorage.getItem('@churraskenzie:token'))
         const comboId = combo.id
 
         data["userId"] = user.id
+        data["description"] = combo.description
+        data["name"] = combo.name
+        data["city"] = combo.city
+        data["state"] = combo.state
         
         api.patch(`/combos/${comboId}`,data,{
           headers: {
@@ -40,17 +51,13 @@ export const ModalEditCombo = ({ handleCloseModal, combo}) => {
           }
         })
         .then((_)=>{
-          handleCloseModal()
+          handleCloseModal();
+          setNewComboList({...data, id: combo.id})
+          toast.success('Combo editado com sucesso!');
         })
-        .catch(error =>{
-          if(error){
-            toast.error('Falha ao editar o combo!')
-          }else{
-            toast.success('Combo editado com sucesso!')
-            
-          }
+        .catch((error) =>{
+            toast.error('Falha ao editar o combo!');
         })
-       
       }
 
   return (
