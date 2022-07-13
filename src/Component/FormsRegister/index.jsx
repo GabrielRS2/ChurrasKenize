@@ -46,7 +46,7 @@ export const FormsRegister = () => {
     if (res.name !== "AxiosError") {
       history.push("/login");
     } else {
-      toast.error("email ja existente");
+      toast('❌ Email já existente', {className: "toastify-color-progress-error"})
     }
   };
 

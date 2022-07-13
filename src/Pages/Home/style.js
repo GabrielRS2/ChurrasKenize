@@ -95,6 +95,7 @@ export const Container = styled.div`
       width: 100%;
 
       .icon {
+        
         width: 40px;
         height: 40px;
         color: var(--white);

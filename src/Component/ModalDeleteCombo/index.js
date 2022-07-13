@@ -16,11 +16,11 @@ export const ModalDeleteCombo = ({ handleCloseDeleteModal, combo, combos, setCom
       .then((_) => {
         handleCloseDeleteModal()
         setCombos(combos.filter((item) => {return item.id !== combo.id}))
-        toast.success("Combo deletado com sucesso!");
+        toast('✔️ Combo deletado com sucesso!', {className: "toastify-color-progress-success"})
       })
-      .catch((error) => {
-        toast.error("Falha ao deletar combo!");
-      });
+      .catch((error) =>{
+        toast('❌ Falha ao deletar o combo!', {className: "toastify-color-progress-error"})
+      })
     }
 
   return (

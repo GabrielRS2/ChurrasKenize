@@ -46,6 +46,22 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--white);
   }
 
+    .toastify-color-progress-success {
+      background-color: var(--red-3);
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .toastify-color-progress-error {
+      background-color: var(--red-3);
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .Toastify__progress-bar-theme--light {
+        background: var(--grey-2);
+    }
+
   :root {
     --grey-1: #D9D9D9;
     --grey-2: #868E96;
