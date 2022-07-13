@@ -12,15 +12,13 @@ import api from "../../Services";
 import ThemeButton from "../../Styles/ThemeButton";
 import { Container, ContentContainer } from "./style";
 import Modal from "react-modal";
-import { EventListItem } from "../../Component/EventsListItem";
 import CardEvent from "../../Component/CardEvent";
-import { ContainerEventsBbc } from "../../Component/ContainerEventsBbc";
 
 function DashboardBbc() {
   const [combos, setCombos] = useState([]);
   const [combosId, setCombosId] = useState([]);
+  const [ schedule, setSchedule ] = useState([]);
   const [events, setEvents] = useState([]);
-  const [eventsBbc, setEventsBbc] = useState([]);
   const { user } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("@churraskenzie:token"));
 
@@ -95,7 +93,6 @@ function DashboardBbc() {
       <Header />
       <ContentContainer>
         <main>
-          {/* <ContainerEventsBbc /> */}
           <div className="eventComboBbc">
             <div className="headerComboList">
               <h2>Combos</h2>
@@ -130,6 +127,8 @@ function DashboardBbc() {
                         key={index}
                         event={event}
                         events={events}
+                        schedule={schedule} 
+                        setSchedule={setSchedule}
                         setEvents={setEvents}
                       />
                     );
@@ -140,7 +139,7 @@ function DashboardBbc() {
         </main>
         <aside className="bbc_user_info">
           <CardProfileBbc />
-          <Schedule />
+          <Schedule schedule={schedule} setSchedule={setSchedule}/>
         </aside>
       </ContentContainer>
       <Footer />
