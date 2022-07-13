@@ -1,5 +1,3 @@
-
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -18,6 +16,10 @@ export const Container = styled.div`
   .deleteIcon {
     margin: 5px 20px;
     background-color: transparent;
+  }
+
+  .icon {
+    fill: var(--white);
   }
 
   @media screen and (max-width: 666px) {
