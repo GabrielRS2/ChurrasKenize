@@ -6,13 +6,13 @@ export const Container = styled.div`
   background-color: var(--grey-3);
 
   .link {
-    color: var(--black);
+    color: var(--grey-4);
   }
 
   @media (max-width: 680px) {
     display: ${(props) => (props.isOpen ? "block" : "none")};
     .wrapper {
-      position: fixed;
+      position: absolute;
       top: 80px;
       left: 0px;
       width: 100%;
