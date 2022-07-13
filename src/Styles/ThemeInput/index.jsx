@@ -6,6 +6,7 @@ export const ThemeInput = ({
   placeholder,
   error,
   register,
+  
   ...rest
 }) => {
   return (
@@ -14,7 +15,7 @@ export const ThemeInput = ({
         {label} {!!error && <span> - {error}</span>}
       </div>
       <InputContainer isErrored={!!error}>
-        <input placeholder={placeholder} {...register(name)} {...rest}></input>
+        <input placeholder={placeholder}  {...register(name)} {...rest}></input>
       </InputContainer>
     </Container>
   );

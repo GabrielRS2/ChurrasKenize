@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FormsEvent } from "../FormsEvent";
 import { Container, customStyles } from "./styles";
 import Modal from "react-modal";
-import userEvent from "@testing-library/user-event";
 
 export const CardProduct = ({ combo }) => {
   const [detail, setDetail] = useState(false);
@@ -32,7 +31,7 @@ export const CardProduct = ({ combo }) => {
         onRequestClose={handleCloseModal}
         style={customStyles}
       >
-        <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId} />
+        <FormsEvent handleCloseModal={handleCloseModal} comboId={comboId} onwerId={combo.userId}/>
       </Modal>
       {detail ? (
         <div className="cardDetail" key={combo.id}>
